@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM-FE.WebAppMVC", "CGC_GM-FE.WebAppMVC\CGC_GM-FE.WebAppMVC.csproj", "{7FBE0F78-5D5C-442C-A9B4-5EC59E46A6DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM-FE.WebApiRestClient", "CGC_GM-FE.WebApiRestClient\CGC_GM-FE.WebApiRestClient.csproj", "{65C2C8F5-E2DC-4055-8214-D29607B92D89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM-FE.Testing.WebApiRestClient", "CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\CGC_GM-FE.Testing.WebApiRestClient.csproj", "{EF4BD285-D704-44CA-9DD2-16C9C47131E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CGC_GM-FE.Testing", "CGC_GM-FE.Testing", "{465645AF-11E8-4F7B-AA9D-1D90346B7EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM-FE.Exceptions", "CGC_GM-FE.Exceptions\CGC_GM-FE.Exceptions.csproj", "{1228CE83-5232-47D0-B6ED-906A776BF01A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM_FE.Models", "CGC_GM_FE.Models\CGC_GM_FE.Models.csproj", "{6AB6DBE3-6F05-4A62-B961-248EEFFE5215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FBE0F78-5D5C-442C-A9B4-5EC59E46A6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FBE0F78-5D5C-442C-A9B4-5EC59E46A6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FBE0F78-5D5C-442C-A9B4-5EC59E46A6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FBE0F78-5D5C-442C-A9B4-5EC59E46A6DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C2C8F5-E2DC-4055-8214-D29607B92D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C2C8F5-E2DC-4055-8214-D29607B92D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C2C8F5-E2DC-4055-8214-D29607B92D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C2C8F5-E2DC-4055-8214-D29607B92D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF4BD285-D704-44CA-9DD2-16C9C47131E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF4BD285-D704-44CA-9DD2-16C9C47131E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF4BD285-D704-44CA-9DD2-16C9C47131E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF4BD285-D704-44CA-9DD2-16C9C47131E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1228CE83-5232-47D0-B6ED-906A776BF01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1228CE83-5232-47D0-B6ED-906A776BF01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1228CE83-5232-47D0-B6ED-906A776BF01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1228CE83-5232-47D0-B6ED-906A776BF01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AB6DBE3-6F05-4A62-B961-248EEFFE5215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB6DBE3-6F05-4A62-B961-248EEFFE5215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AB6DBE3-6F05-4A62-B961-248EEFFE5215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AB6DBE3-6F05-4A62-B961-248EEFFE5215}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF4BD285-D704-44CA-9DD2-16C9C47131E1} = {465645AF-11E8-4F7B-AA9D-1D90346B7EB7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0E5ED76-DC79-4DF4-AC6E-18C18FB8B453}
+	EndGlobalSection
+EndGlobal

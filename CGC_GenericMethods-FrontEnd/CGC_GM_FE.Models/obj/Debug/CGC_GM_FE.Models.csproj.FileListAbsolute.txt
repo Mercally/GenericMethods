@@ -1,0 +1,6 @@
+C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\CGC_GM_FE.Models.dll
+C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\CGC_GM_FE.Models.pdb
+C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csprojResolveAssemblyReference.cache
+C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csproj.CoreCompileInputs.cache
+C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.dll
+C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.pdb

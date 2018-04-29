@@ -1,0 +1,13 @@
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\Business.Common.dll
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\Business.Common.pdb
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\Common.Entities.dll
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\DataAccess.Context.dll
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\DataAccess.Model.dll
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\Common.Entities.pdb
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\DataAccess.Context.pdb
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\bin\Debug\DataAccess.Model.pdb
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\obj\Debug\Business.Common.csprojResolveAssemblyReference.cache
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\obj\Debug\Business.Common.csproj.CoreCompileInputs.cache
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\obj\Debug\Business.Common.csproj.CopyComplete
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\obj\Debug\Business.Common.dll
+C:\Source\GitHub\CGC_GenericMethods\Business\Business.Common\obj\Debug\Business.Common.pdb

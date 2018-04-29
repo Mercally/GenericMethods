@@ -1,0 +1,6 @@
+C:\Source\GitHub\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\CGC_GM_BE.DataAccess.Context\obj\Debug\CGC_GM_BE.DataAccess.Context.csproj.CoreCompileInputs.cache
+C:\Source\GitHub\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\CGC_GM_BE.DataAccess.Context\bin\Debug\CGC_GM_BE.DataAccess.Context.dll
+C:\Source\GitHub\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\CGC_GM_BE.DataAccess.Context\bin\Debug\CGC_GM_BE.DataAccess.Context.pdb
+C:\Source\GitHub\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\CGC_GM_BE.DataAccess.Context\obj\Debug\CGC_GM_BE.DataAccess.Context.dll
+C:\Source\GitHub\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\CGC_GM_BE.DataAccess.Context\obj\Debug\CGC_GM_BE.DataAccess.Context.pdb
+C:\Source\GitHub\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\CGC_GM_BE.DataAccess.Context\obj\Debug\CGC_GM_BE.DataAccess.Context.csprojResolveAssemblyReference.cache

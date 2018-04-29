@@ -1,0 +1,9 @@
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\bin\Debug\DataAccess.Model.dll
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\bin\Debug\DataAccess.Model.pdb
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\bin\Debug\DataAccess.Context.dll
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\bin\Debug\DataAccess.Context.pdb
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\obj\Debug\DataAccess.Model.csprojResolveAssemblyReference.cache
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\obj\Debug\DataAccess.Model.csproj.CoreCompileInputs.cache
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\obj\Debug\DataAccess.Model.csproj.CopyComplete
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\obj\Debug\DataAccess.Model.dll
+C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Model\obj\Debug\DataAccess.Model.pdb
