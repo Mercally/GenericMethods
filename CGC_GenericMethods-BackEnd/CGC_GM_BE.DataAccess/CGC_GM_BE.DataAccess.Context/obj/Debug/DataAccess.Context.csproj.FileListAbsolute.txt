@@ -1,6 +1,0 @@
-C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Context\bin\Debug\DataAccess.Context.dll
-C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Context\bin\Debug\DataAccess.Context.pdb
-C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Context\obj\Debug\DataAccess.Context.csprojResolveAssemblyReference.cache
-C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Context\obj\Debug\DataAccess.Context.csproj.CoreCompileInputs.cache
-C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Context\obj\Debug\DataAccess.Context.dll
-C:\Source\GitHub\CGC_GenericMethods\DataAccess\DataAccess.Context\obj\Debug\DataAccess.Context.pdb

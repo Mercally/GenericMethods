@@ -1,0 +1,13 @@
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csprojResolveAssemblyReference.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csproj.CoreCompileInputs.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Business.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Business.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Entities.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Exceptions.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Entities.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Exceptions.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csproj.CopyComplete
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.DataAccess.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.DataAccess.pdb

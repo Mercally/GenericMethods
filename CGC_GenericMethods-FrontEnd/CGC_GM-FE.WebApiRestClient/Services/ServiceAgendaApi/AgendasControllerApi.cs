@@ -29,7 +29,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public Agenda ObtenerAgendaPorId(int id)
         {
             var Respuesta = GenericHelper
-                .Request<Agenda>($"{ApiUri}/Agendas/Filtro/{id}", HttpMethodEnum.Get);
+                .Request<Agenda>($"{ApiUri}/Agendas/FiltroAgenda/{id}", HttpMethodEnum.Get);
 
             return Respuesta;
         }
@@ -50,7 +50,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
             return Respuesta;
         }
 
-        public bool Eliminar(int id)
+        public bool EliminarAgenda(int id)
         {
             var Respuesta = GenericHelper
                 .Request<bool>($"{ApiUri}/Agendas/{id}", HttpMethodEnum.Delete);

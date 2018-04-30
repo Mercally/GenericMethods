@@ -11,6 +11,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
     public class AgendasController : Controller
     {
         AgendasControllerApi AgendaApi = new AgendasControllerApi();
+        TareasControllerApi TareasApi = new TareasControllerApi();
 
         // GET: Agendas
         public ActionResult Index()
@@ -88,7 +89,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Eliminar(Agenda obj)
         {
-            var Cambios = AgendaApi.Eliminar(obj.Id);
+            var Cambios = AgendaApi.EliminarAgenda(obj.Id);
 
             if (Cambios)
             {
@@ -99,6 +100,12 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
                 ModelState.AddModelError(string.Empty, "Ocurrió un error al eliminar la agenda.");
                 return View(obj);
             }
+        }
+
+        // GET: Agendas/Tareas/{id} id=agendaId
+        public ActionResult Tareas(int id)
+        {
+            return RedirectToAction("Index", "Tareas", new { id = id });
         }
     }
 }

@@ -5,15 +5,15 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using CGC_GM_BE.Services.Metadata.ServiceAgendaApi;
-using CGC_GM_BE.Business.Common;
 using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Business;
 
 namespace CGC_GM_BE.Services.ServiceAgendaApi.Controllers
 {
     [RoutePrefix("api/Agendas")]
     public class AgendasController : ApiController, IAgendasControllerApi
     {
-        Agenda_BLC AgendaBLC = new Agenda_BLC();
+        Agenda_BL AgendaBLC = new Agenda_BL();
 
         [HttpPost]
         public int InsertarAgenda(Agenda obj)
@@ -28,7 +28,7 @@ namespace CGC_GM_BE.Services.ServiceAgendaApi.Controllers
         }
 
         [HttpGet]
-        [Route("Filtro/{id}")]
+        [Route("FiltroAgenda/{id}")]
         public Agenda ObtenerAgendaPorId(int id)
         {
             return AgendaBLC.ConsultaPorId(id);
@@ -41,7 +41,7 @@ namespace CGC_GM_BE.Services.ServiceAgendaApi.Controllers
         }
 
         [HttpDelete]
-        public bool Eliminar(int id)
+        public bool EliminarAgenda(int id)
         {
             return AgendaBLC.Eliminar(id);
         }

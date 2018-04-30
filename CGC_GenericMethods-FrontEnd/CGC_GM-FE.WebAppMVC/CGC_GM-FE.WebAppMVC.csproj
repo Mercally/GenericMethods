@@ -113,7 +113,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgendasController.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
+    <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -131,6 +133,12 @@
     <Content Include="Views\Agendas\Nuevo.cshtml" />
     <Content Include="Views\Agendas\Modificar.cshtml" />
     <Content Include="Views\Agendas\Eliminar.cshtml" />
+    <Content Include="Views\Inicio\Index.cshtml" />
+    <Content Include="Views\Tareas\Index.cshtml" />
+    <Content Include="Views\Tareas\Nuevo.cshtml" />
+    <Content Include="Views\Tareas\Detalle.cshtml" />
+    <Content Include="Views\Tareas\Modificar.cshtml" />
+    <Content Include="Views\Tareas\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,9 +146,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CGC_GM-FE.WebApiRestClient\CGC_GM-FE.WebApiRestClient.csproj">
       <Project>{65c2c8f5-e2dc-4055-8214-d29607b92d89}</Project>

@@ -1,0 +1,6 @@
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csprojResolveAssemblyReference.cache

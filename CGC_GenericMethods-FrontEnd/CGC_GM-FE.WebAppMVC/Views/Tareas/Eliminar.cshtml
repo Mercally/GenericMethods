@@ -1,0 +1,56 @@
+﻿@model CGC_GM_FE.Models.Tarea
+
+@{
+    ViewBag.Title = "Eliminar";
+
+    object AgendaId = Url.RequestContext.RouteData.Values["id"];
+}
+
+<h2>Eliminar</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tarea</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Agenda.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agenda.Nombre)
+        </dd>
+
+        <dd>
+            <br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.AgendaId)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = AgendaId })
+        </div>
+    }
+</div>

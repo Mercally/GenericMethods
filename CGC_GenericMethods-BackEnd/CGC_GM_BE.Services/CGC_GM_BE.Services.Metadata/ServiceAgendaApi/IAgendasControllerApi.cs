@@ -13,6 +13,6 @@ namespace CGC_GM_BE.Services.Metadata.ServiceAgendaApi
         int InsertarAgenda(Agenda obj);
         Agenda ObtenerAgendaPorId(int id);
         bool ModificarAgenda(Agenda obj);
-        bool Eliminar(int id);
+        bool EliminarAgenda(int id);
     }
 }

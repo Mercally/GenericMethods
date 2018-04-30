@@ -12,3 +12,17 @@ C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing
 C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.csproj.CopyComplete
 C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.dll
 C:\Source\GitHub\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.pdb
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\CGC_GM-FE.Testing.WebApiRestClient.dll
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\CGC_GM-FE.Testing.WebApiRestClient.pdb
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.csprojResolveAssemblyReference.cache
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.csproj.CoreCompileInputs.cache
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.csproj.CopyComplete
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.dll
+C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.Testing\CGC_GM-FE.Testing.WebApiRestClient\obj\Debug\CGC_GM-FE.Testing.WebApiRestClient.pdb

@@ -116,16 +116,20 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CGC_GM_BE.Business\CGC_GM_BE.Business.Common\CGC_GM_BE.Business.Common.csproj">
+    <ProjectReference Include="..\..\CGC_GM_BE.Business\CGC_GM_BE.Business.csproj">
       <Project>{2ecec39a-6e88-45cf-b1c8-f26ed3eb7c3d}</Project>
-      <Name>CGC_GM_BE.Business.Common</Name>
+      <Name>CGC_GM_BE.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\CGC_GM_BE.Common.Entities.csproj">
-      <Project>{FB52180A-FED2-415B-9230-3EEEAB2DD7C9}</Project>
+      <Project>{fb52180a-fed2-415b-9230-3eeeab2dd7c9}</Project>
       <Name>CGC_GM_BE.Common.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\CGC_GM_BE.Common.Exceptions.csproj">
+      <Project>{f56b77a9-d0f8-4052-bb0a-8df644a097f2}</Project>
+      <Name>CGC_GM_BE.Common.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CGC_GM_BE.Services.Metadata\CGC_GM_BE.Services.Metadata.csproj">
-      <Project>{1242CDE5-4ABD-48DB-8F10-108D6AF75637}</Project>
+      <Project>{1242cde5-4abd-48db-8f10-108d6af75637}</Project>
       <Name>CGC_GM_BE.Services.Metadata</Name>
     </ProjectReference>
   </ItemGroup>
