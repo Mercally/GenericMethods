@@ -21,7 +21,11 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public int InsertarTarea(Tarea obj)
         {
             var Respuesta = GenericHelper
-                .Request<int>($"{ApiUri}/Tareas", HttpMethodEnum.PostJson, obj);
+                .Request<int>(
+                Url: $"{ApiUri}/Tareas",
+                Method: HttpMethodEnum.PostJson,
+                Data: obj
+                );
 
             return Respuesta;
         }
@@ -29,7 +33,11 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public bool ModificarTarea(Tarea obj)
         {
             var Respuesta = GenericHelper
-                .Request<bool>($"{ApiUri}/Tareas", HttpMethodEnum.PutJson, obj);
+                .Request<bool>(
+                Url: $"{ApiUri}/Tareas",
+                Method: HttpMethodEnum.PutJson,
+                Data: obj
+                );
 
             return Respuesta;
         }
@@ -37,7 +45,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public Tarea ObtenerTareaPorId(int id)
         {
             var Respuesta = GenericHelper
-                .Request<Tarea>($"{ApiUri}/Tareas/FiltroTarea/{id}", HttpMethodEnum.Get);
+                .Request<Tarea>(
+                Url: $"{ApiUri}/Tareas/FiltroTarea/{id}", 
+                Method: HttpMethodEnum.Get
+                );
 
             return Respuesta;
         }
@@ -45,7 +56,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public List<Tarea> ObtenerTareasPorAgendaId(int id)
         {
             var Respuesta = GenericHelper
-                .Request<List<Tarea>>($"{ApiUri}/Tareas/FiltroTareaAgenda/{id}", HttpMethodEnum.Get);
+                .Request<List<Tarea>>(
+                Url: $"{ApiUri}/Tareas/FiltroTareaAgenda/{id}",
+                Method: HttpMethodEnum.Get
+                );
 
             return Respuesta;
         }
@@ -53,7 +67,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public List<Tarea> ObtenerTareas()
         {
             var Respuesta = GenericHelper
-                .Request<List<Tarea>>($"{ApiUri}/Tareas", HttpMethodEnum.Get);
+                .Request<List<Tarea>>(
+                Url: $"{ApiUri}/Tareas", 
+                Method: HttpMethodEnum.Get
+                );
 
             return Respuesta;
         }
@@ -61,7 +78,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public bool EliminarTarea(int id)
         {
             var Respuesta = GenericHelper
-                .Request<bool>($"{ApiUri}/Tareas/{id}", HttpMethodEnum.Delete);
+                .Request<bool>(
+                Url: $"{ApiUri}/Tareas/{id}",
+                Method: HttpMethodEnum.Delete
+                );
 
             return Respuesta;
         }

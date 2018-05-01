@@ -22,7 +22,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceSeguridadApi
         public List<Usuario> ObtenerUsuarios()
         {
             var Respuesta = GenericHelper
-                .Request<List<Usuario>>($"{ApiUri}/Usuarios", HttpMethodEnum.Get);
+                .Request<List<Usuario>>(
+                Url: $"{ApiUri}/Usuarios",
+                Method: HttpMethodEnum.Get
+                );
 
             return Respuesta;
         }

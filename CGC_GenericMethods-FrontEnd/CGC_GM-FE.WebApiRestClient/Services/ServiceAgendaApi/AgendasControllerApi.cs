@@ -21,7 +21,11 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public int InsertarAgenda(Agenda obj)
         {
             var Respuesta = GenericHelper
-                .Request<int>($"{ApiUri}/Agendas", HttpMethodEnum.PostJson, obj);
+                .Request<int>(
+                Url: $"{ApiUri}/Agendas",
+                Method: HttpMethodEnum.PostJson, 
+                Data: obj
+                );
 
             return Respuesta;
         }
@@ -29,7 +33,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public Agenda ObtenerAgendaPorId(int id)
         {
             var Respuesta = GenericHelper
-                .Request<Agenda>($"{ApiUri}/Agendas/FiltroAgenda/{id}", HttpMethodEnum.Get);
+                .Request<Agenda>(
+                Url: $"{ApiUri}/Agendas/FiltroAgenda/{id}", 
+                Method: HttpMethodEnum.Get
+                );
 
             return Respuesta;
         }
@@ -37,7 +44,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public List<Agenda> ObtenerAgendas()
         {
             var Respuesta = GenericHelper
-                .Request<List<Agenda>>($"{ApiUri}/Agendas", HttpMethodEnum.Get);
+                .Request<List<Agenda>>(
+                Url: $"{ApiUri}/Agendas", 
+                Method: HttpMethodEnum.Get
+                );
 
             return Respuesta;
         }
@@ -45,7 +55,11 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public bool ModificarAgenda(Agenda obj)
         {
             var Respuesta = GenericHelper
-                .Request<bool>($"{ApiUri}/Agendas", HttpMethodEnum.PutJson, obj);
+                .Request<bool>(
+                Url: $"{ApiUri}/Agendas",
+                Method: HttpMethodEnum.PutJson,
+                Data: obj
+                );
 
             return Respuesta;
         }
@@ -53,7 +67,10 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         public bool EliminarAgenda(int id)
         {
             var Respuesta = GenericHelper
-                .Request<bool>($"{ApiUri}/Agendas/{id}", HttpMethodEnum.Delete);
+                .Request<bool>(
+                Url: $"{ApiUri}/Agendas/{id}", 
+                Method: HttpMethodEnum.Delete
+                );
 
             return Respuesta;
         }
