@@ -16,7 +16,7 @@ namespace CGC_GM_FE.WebApiRestClient
     {
         /// <summary>
         /// Envía una petición a la url especificada con las opciones
-        /// de configuración especificada
+        /// de configuración requerida
         /// </summary>
         /// <typeparam name="T">Tipo de dato a esperado</typeparam>
         /// <param name="Url">Url destino</param>
