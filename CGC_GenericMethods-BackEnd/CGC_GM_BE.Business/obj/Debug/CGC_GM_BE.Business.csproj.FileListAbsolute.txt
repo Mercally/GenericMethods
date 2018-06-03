@@ -11,3 +11,16 @@ C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.pdb
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.DataAccess.dll
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.DataAccess.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Business.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Business.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Entities.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Exceptions.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.DataAccess.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Entities.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.Common.Exceptions.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\bin\Debug\CGC_GM_BE.DataAccess.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csprojAssemblyReference.cache
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csproj.CoreCompileInputs.cache
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csproj.CopyComplete
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.pdb
