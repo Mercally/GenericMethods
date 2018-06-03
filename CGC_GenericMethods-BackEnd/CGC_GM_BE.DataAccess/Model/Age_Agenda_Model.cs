@@ -23,6 +23,43 @@ namespace CGC_GM_BE.DataAccess.Model
             this.Contexto = Contexto;
         }
 
+        public IResultadoConsulta ConsultaPaginada(int NumeroPagina, int TamanoPagina, string Filtro, string Valor)
+        {
+            IResultadoConsulta Resultado = new ResultadoGenericoImpl();
+
+            try
+            {
+                ConsultaT_Sql Consulta = new ConsultaT_Sql()
+                {
+                    ConsultaCruda =
+                                    @"SELECT 
+                                    Id,
+                                    Nombre,
+                                    Descripcion
+                                    FROM age.Agendas AS Age
+                                    ORDER BY Age.Nombre ASC
+                                    OFFSET @NumeroPagina ROWS
+                                    FETCH NEXT @TamanoPagina ROWS ONLY;",
+                    Parametros = new List<SqlParameter>() {
+                        new SqlParameter("@NumeroPagina", NumeroPagina),
+                        new SqlParameter("@TamanoPagina", TamanoPagina)
+                    },
+                    TipoConsulta = TipoConsultaEnum.Query,
+                    TimeOut = Contexto.TimeOut
+                };
+
+                Resultado = Contexto.Comandos.Ejecutar(Consulta);
+
+            }
+            catch (Exception ex)
+            {
+                Resultado.Excepcion = ex;
+                Contexto.Excepciones.Add(ex);
+            }
+
+            return Resultado;
+        }
+
         public IResultadoConsulta Consulta()
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
@@ -31,7 +68,8 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "SELECT Id, Nombre, Descripcion FROM age.Agendas;",
+                    ConsultaCruda =
+                                    @"SELECT Id, Nombre, Descripcion FROM age.Agendas AS Age ORDER BY Age.Nombre ASC;",
                     TipoConsulta = TipoConsultaEnum.Query,
                     TimeOut = Contexto.TimeOut
                 };

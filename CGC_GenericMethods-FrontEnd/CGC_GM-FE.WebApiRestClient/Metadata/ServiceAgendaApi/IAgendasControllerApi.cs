@@ -10,6 +10,7 @@ namespace CGC_GM_FE.WebApiRestClient.Metadata.ServiceAgendaApi
     interface IAgendasControllerApi
     {
         List<Agenda> ObtenerAgendas();
+        List<Agenda> ObtenerAgendasPaginadas(int NumeroPagina, int TamanoPagina, string Filtro, string Valor);
         int InsertarAgenda(Agenda obj);
         Agenda ObtenerAgendaPorId(int id);
         bool ModificarAgenda(Agenda obj);

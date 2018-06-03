@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 using CGC_GM_FE.Models;
 using CGC_GM_FE.WebApiRestClient.Metadata.ServiceAgendaApi;
 
@@ -14,7 +15,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
         {
             get
             {
-                return System.Configuration.ConfigurationSettings.AppSettings["ServiceAgendaApiUri"];
+                return ConfigurationManager.AppSettings["ServiceAgendaApiUri"];
             }
         }
 
@@ -46,6 +47,17 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
             var Respuesta = GenericHelper
                 .Request<List<Agenda>>(
                 Url: $"{ApiUri}/Agendas", 
+                Method: HttpMethodEnum.Get
+                );
+
+            return Respuesta;
+        }
+
+        public List<Agenda> ObtenerAgendasPaginadas(int NumeroPagina, int TamanoPagina, string Filtro, string Valor)
+        {
+            var Respuesta = GenericHelper
+                .Request<List<Agenda>>(
+                Url: $"{ApiUri}/Agendas/{NumeroPagina}/{TamanoPagina}/{Filtro}/{Valor}",
                 Method: HttpMethodEnum.Get
                 );
 

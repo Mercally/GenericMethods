@@ -62,7 +62,7 @@ namespace CGC_GM_FE.WebApiRestClient
                         return default(T);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     // Excepciones
                     return default(T);

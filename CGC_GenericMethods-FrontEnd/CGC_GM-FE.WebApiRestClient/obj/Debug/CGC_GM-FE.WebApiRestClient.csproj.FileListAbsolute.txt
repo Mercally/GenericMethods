@@ -24,6 +24,7 @@ C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE
 C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\obj\Debug\CGC_GM-FE.WebApiRestClient.csproj.CopyComplete
 C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\obj\Debug\CGC_GM-FE.WebApiRestClient.dll
 C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\obj\Debug\CGC_GM-FE.WebApiRestClient.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\CGC_GM-FE.WebApiRestClient.dll.config
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\CGC_GM-FE.WebApiRestClient.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\CGC_GM-FE.WebApiRestClient.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\CGC_GM_FE.Models.dll

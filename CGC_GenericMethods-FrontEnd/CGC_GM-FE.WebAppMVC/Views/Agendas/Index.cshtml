@@ -1,39 +1,42 @@
 ﻿@model IEnumerable<CGC_GM_FE.Models.Agenda>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Agendas";
 }
 
-<h2>Index</h2>
+<h2>Agendas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Nuevo")
+    @Html.ActionLink("Crear nueva agenda", "Nuevo")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Modificar", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Detalle", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Eliminar", new { id=item.Id })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifar", "Modificar", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
