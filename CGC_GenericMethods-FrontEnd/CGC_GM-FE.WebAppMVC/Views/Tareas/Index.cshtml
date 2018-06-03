@@ -1,46 +1,48 @@
 ﻿@model IEnumerable<CGC_GM_FE.Models.Tarea>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tareas";
     object AgendaId = Url.RequestContext.RouteData.Values["id"];
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.NombreAgenda > Tareas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Nuevo", new { id = AgendaId })
+    @Html.ActionLink("Crear nueva tarea", "Nuevo", new { id = AgendaId })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AgendaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AgendaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Modificar", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Detalle", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Eliminar", new { id=item.Id })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover table-responsive">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
+                    @Html.ActionLink("Modificar", "Modificar", new { id = item.Id }) |
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<div>
+    @Html.ActionLink(linkText: "Agendas", actionName: "Index", controllerName: "Agendas") |
+    @Html.ActionLink(linkText: "Detalle Agenda", actionName: "Detalle", controllerName: "Agendas", routeValues: new { id = AgendaId }, htmlAttributes: null)
+</div>

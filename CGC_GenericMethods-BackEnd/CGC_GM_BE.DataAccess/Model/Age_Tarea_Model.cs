@@ -119,7 +119,7 @@ namespace CGC_GM_BE.DataAccess.Model
                     {
                         new SqlParameter("@agendaId", obj.AgendaId),
                         new SqlParameter("@nombre", obj.Nombre),
-                        new SqlParameter("@descripcion", obj.Descripcion)
+                        new SqlParameter("@descripcion", obj.Descripcion ?? " ")
                     },
                     TipoConsulta = TipoConsultaEnum.Insert
                 };
@@ -151,7 +151,7 @@ namespace CGC_GM_BE.DataAccess.Model
                         new SqlParameter("@id", obj.Id),
                         new SqlParameter("@agendaId", obj.AgendaId),
                         new SqlParameter("@nombre", obj.Nombre),
-                        new SqlParameter("@descripcion", obj.Descripcion)
+                        new SqlParameter("@descripcion", obj.Descripcion ?? " ")
                     },
                     TipoConsulta = TipoConsultaEnum.Update
                 };

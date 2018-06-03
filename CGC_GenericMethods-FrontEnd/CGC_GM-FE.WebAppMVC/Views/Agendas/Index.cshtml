@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Crear nueva agenda", "Nuevo")
 </p>
-<table class="table table-hover">
+<table class="table table-hover table-responsive">
     <thead class="thead-dark">
         <tr>
             <th>
@@ -32,8 +32,9 @@
                     @Html.DisplayFor(modelItem => item.Descripcion)
                 </td>
                 <td>
-                    @Html.ActionLink("Modifar", "Modificar", new { id = item.Id }) |
                     @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
+                    @Html.ActionLink("Tareas", "Tareas", new { id = item.Id }) |
+                    @Html.ActionLink("Modifar", "Modificar", new { id = item.Id }) |
                     @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
                 </td>
             </tr>

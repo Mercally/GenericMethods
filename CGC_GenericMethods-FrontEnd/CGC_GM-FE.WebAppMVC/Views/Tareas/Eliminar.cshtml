@@ -1,14 +1,14 @@
 ﻿@model CGC_GM_FE.Models.Tarea
 
 @{
-    ViewBag.Title = "Eliminar";
+    ViewBag.Title = "Eliminar Tarea";
 
     object AgendaId = Url.RequestContext.RouteData.Values["id"];
 }
 
-<h2>Eliminar</h2>
+<h2>Eliminar Tarea</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Está seguro que desea continuar?</h3>
 <div>
     <h4>Tarea</h4>
     <hr />
@@ -49,8 +49,8 @@
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.AgendaId)
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index", new { id = AgendaId })
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Tareas", "Index", new { id = AgendaId })
         </div>
     }
 </div>

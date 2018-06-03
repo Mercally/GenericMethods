@@ -38,3 +38,14 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRest
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\obj\Debug\CGC_GM-FE.WebApiRestClient.csproj.CopyComplete
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\obj\Debug\CGC_GM-FE.WebApiRestClient.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\obj\Debug\CGC_GM-FE.WebApiRestClient.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.Mvc.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.WebPages.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.Razor.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.Mvc.xml
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.WebPages.xml
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.Razor.xml
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM-FE.WebApiRestClient\bin\Debug\System.Web.WebPages.Deployment.xml

@@ -11,11 +11,14 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
     public class TareasController : Controller
     {
         TareasControllerApi TareasApi = new TareasControllerApi();
+        AgendasControllerApi AgendasApi = new AgendasControllerApi();
 
         // GET: Tareas/{id} id=agendaId
         public ActionResult Index(int id)
         {
-            var Lista = TareasApi.ObtenerTareas();
+            var Lista = TareasApi.ObtenerTareasPorAgendaId(id);
+            var Agenda = AgendasApi.ObtenerAgendaPorId(id);
+            ViewBag.NombreAgenda = Agenda.Nombre;
 
             return View(Lista);
         }
@@ -28,9 +31,13 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             return View(Tarea);
         }
 
-        // GET: Tareas/Nuevo/id
+        // GET: Tareas/Nuevo/id=AgendaId
         public ActionResult Nuevo(int id)
         {
+            var Agenda = AgendasApi.ObtenerAgendaPorId(id);
+            ViewBag.NombreAgenda = Agenda.Nombre;
+            ViewBag.AgendaId = id;
+
             return View();
         }
 
@@ -38,11 +45,11 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Nuevo(Tarea obj)
         {
-            var AgendaId = TareasApi.InsertarTarea(obj);
+            var TareaId = TareasApi.InsertarTarea(obj);
 
-            if (AgendaId > 0)
+            if (TareaId > 0)
             {
-                return RedirectToAction("Detalle", new { id = AgendaId });
+                return RedirectToAction("Detalle", new { id = TareaId });
             }
             else
             {
