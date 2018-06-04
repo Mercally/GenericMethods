@@ -52,6 +52,8 @@ VALUES('Tareas', 'EstadoId', '001', 'SIN ESTADO'),
 ('Tareas', 'EstadoId', '004', 'FINALIZADO');
 GO
 
+Select * from cat.Catalogos where Valor = '' order by Valor
+
 CREATE SCHEMA [age];
 GO
 
