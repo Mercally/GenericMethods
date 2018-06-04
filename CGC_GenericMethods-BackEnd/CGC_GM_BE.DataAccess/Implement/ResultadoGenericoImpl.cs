@@ -143,11 +143,19 @@ namespace CGC_GM_BE.DataAccess.Implement
                     {
                         if (ResultadoTipoQuery.Columns.Contains(Propiedades[i]))
                         {
-                            object Valor = Row.IsNull(Propiedades[i]) ? "" : Row[Propiedades[i]];
 
-                            PropInfo[i].SetValue(
-                                obj, Convert.ChangeType(Valor, PropInfo[i].PropertyType), null
+                            if (Row.IsNull(Propiedades[i]) || System.DBNull.Value == Row[Propiedades[i]])
+                            {
+                                //PropInfo[i].SetValue(
+                                //obj, Convert.ChangeType(null, PropInfo[i].PropertyType), null
+                                //);
+                            }
+                            else
+                            {
+                                PropInfo[i].SetValue(
+                                obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
                                 );
+                            }
                         }
                     }
 

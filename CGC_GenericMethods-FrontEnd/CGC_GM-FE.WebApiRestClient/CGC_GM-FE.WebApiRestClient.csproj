@@ -52,10 +52,12 @@
     <Compile Include="HttpMethodEnum.cs" />
     <Compile Include="Metadata\ServiceAgendaApi\IAgendasControllerApi.cs" />
     <Compile Include="Metadata\ServiceAgendaApi\ITareasControllerApi.cs" />
+    <Compile Include="Metadata\ServiceCatalogoApi\ICatalogosControllerApi.cs" />
     <Compile Include="Metadata\ServiceSeguridadApi\IUsuariosControllerApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceAgendaApi\AgendasControllerApi.cs" />
     <Compile Include="Services\ServiceAgendaApi\TareasControllerApi.cs" />
+    <Compile Include="Services\ServiceCatalogoApi\CatalogosControllerApi.cs" />
     <Compile Include="Services\ServiceSeguridadApi\UsuariosControllerApi.cs" />
   </ItemGroup>
   <ItemGroup>

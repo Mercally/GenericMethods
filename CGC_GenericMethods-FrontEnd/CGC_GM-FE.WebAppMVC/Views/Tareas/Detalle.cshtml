@@ -4,10 +4,18 @@
     ViewBag.Title = "Detalle Tarea";
 }
 
+@section Navegation{
+<ol class="breadcrumb">
+    <li><a href="/Inicio">Inicio</a></li>
+    <li><a href="/Agendas">Agendas</a></li>
+    <li><a href="/Tareas/Index/@Model.AgendaId">Tareas</a></li>
+    <li class="active">Detalle</li>
+</ol>
+}
+
 <h2>Detalle Tarea</h2>
 
 <div>
-    <h4>Tarea</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -36,6 +44,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoDescripcion)
         </dd>
 
     </dl>

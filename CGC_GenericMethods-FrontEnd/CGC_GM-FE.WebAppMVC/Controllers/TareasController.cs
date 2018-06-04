@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using CGC_GM_FE.Models;
 using CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi;
+using CGC_GM_FE.WebApiRestClient.Services.ServiceCatalogoApi;
 
 namespace CGC_GM_FE.WebAppMVC.Controllers
 {
@@ -12,6 +13,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
     {
         TareasControllerApi TareasApi = new TareasControllerApi();
         AgendasControllerApi AgendasApi = new AgendasControllerApi();
+        CatalogosControllerApi CatalogoApi = new CatalogosControllerApi();
 
         // GET: Tareas/{id} id=agendaId
         public ActionResult Index(int id)
@@ -38,6 +40,14 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             ViewBag.NombreAgenda = Agenda.Nombre;
             ViewBag.AgendaId = id;
 
+            var Estados = CatalogoApi.ObtenerCatalogo("Tareas", "EstadoId");
+            ViewBag.Estados = new SelectList(
+                Estados.Select(x => new SelectListItem()
+                {
+                    Text = x.Valor,
+                    Value = x.Id.ToString()
+                }), "Value", "Text");
+
             return View();
         }
 
@@ -62,6 +72,14 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         public ActionResult Modificar(int id)
         {
             var Tarea = TareasApi.ObtenerTareaPorId(id);
+
+            var Estados = CatalogoApi.ObtenerCatalogo("Tareas", "EstadoId");
+            ViewBag.Estados = new SelectList(
+                Estados.Select(x => new SelectListItem()
+                {
+                    Text = x.Valor,
+                    Value = x.Id.ToString()
+                }), "Value", "Text", Tarea.EstadoId);
 
             return View(Tarea);
         }

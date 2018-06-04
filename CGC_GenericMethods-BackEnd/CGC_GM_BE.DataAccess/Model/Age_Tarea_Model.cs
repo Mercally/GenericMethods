@@ -30,7 +30,10 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql() // Ingresar consulta
                 {
-                    ConsultaCruda = "SELECT Id, AgendaId, Nombre, Descripcion FROM age.Tareas;",
+                    ConsultaCruda =
+                    @"SELECT t.Id, t.AgendaId, t.Nombre, t.Descripcion, t.FechaVencimiento, t.FechaRecordatorio, t.EstadoId, c.Valor AS EstadoDescripcion 
+                    FROM age.Tareas AS t 
+                    INNER JOIN cat.Catalogos AS c ON c.Id = t.EstadoId;",
                     TipoConsulta = TipoConsultaEnum.Query
                 };
 
@@ -46,7 +49,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta ConsultaPorId(int id)
+        public IResultadoConsulta ConsultaPorId(int Id)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -54,11 +57,13 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql() // Ingresar consulta
                 {
-                    ConsultaCruda = "SELECT Id, AgendaId, Nombre, Descripcion FROM age.Tareas " +
-                                    "WHERE Id=@id;",
+                    ConsultaCruda = @"SELECT t.Id, t.AgendaId, t.Nombre, t.Descripcion, t.FechaVencimiento, t.FechaRecordatorio, t.EstadoId, c.Valor AS EstadoDescripcion
+                                    FROM age.Tareas AS t 
+                                    INNER JOIN cat.Catalogos AS c ON c.Id = t.EstadoId 
+                                    WHERE t.Id=@Id;",
                     Parametros = new List<SqlParameter>()
                     {
-                        new SqlParameter("@id", id)
+                        new SqlParameter("@Id", Id)
                     },
                     TipoConsulta = TipoConsultaEnum.Query
                 };
@@ -83,8 +88,8 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql() // Ingresar consulta
                 {
-                    ConsultaCruda = "SELECT Id, AgendaId, Nombre, Descripcion FROM age.Tareas " +
-                                    "WHERE AgendaId=@agendaId;",
+                    ConsultaCruda = @"SELECT Id, AgendaId, Nombre, Descripcion FROM age.Tareas 
+                                    WHERE AgendaId=@agendaId;",
                     Parametros = new List<SqlParameter>()
                     {
                         new SqlParameter("@agendaId", agendaId)
@@ -112,14 +117,17 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "INSERT INTO age.Tareas(AgendaId, Nombre, Descripcion) " +
-                                    "VALUES(@agendaId, @nombre, @descripcion); " +
-                                    "SELECT CAST(SCOPE_IDENTITY() AS INT) AS Id;",
+                    ConsultaCruda = @"INSERT INTO age.Tareas(AgendaId, Nombre, Descripcion, EstadoId, FechaVencimiento, FechaRecordatorio) 
+                                    VALUES(@agendaId, @nombre, @descripcion, @estadoId, null, null); 
+                                    SELECT CAST(SCOPE_IDENTITY() AS INT) AS Id;",
                     Parametros = new List<SqlParameter>()
                     {
                         new SqlParameter("@agendaId", obj.AgendaId),
                         new SqlParameter("@nombre", obj.Nombre),
-                        new SqlParameter("@descripcion", obj.Descripcion ?? " ")
+                        new SqlParameter("@descripcion", obj.Descripcion),
+                        new SqlParameter("@estadoId", obj.EstadoId)
+                        //new SqlParameter("@fechaVencimiento", obj.FechaVencimiento),
+                        //new SqlParameter("@fechaRecordatorio", obj.FechaRecordatorio)
                     },
                     TipoConsulta = TipoConsultaEnum.Insert
                 };
@@ -144,14 +152,17 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "UPDATE age.Tareas SET AgendaId=@agendaId, Nombre=@nombre, Descripcion=@descripcion " +
-                                    "WHERE Id=@id;",
+                    ConsultaCruda = @"UPDATE age.Tareas SET AgendaId=@agendaId, Nombre=@nombre, Descripcion=@descripcion, EstadoId=@estadoId
+                                    WHERE Id=@id;",
                     Parametros = new List<SqlParameter>()
                     {
                         new SqlParameter("@id", obj.Id),
                         new SqlParameter("@agendaId", obj.AgendaId),
                         new SqlParameter("@nombre", obj.Nombre),
-                        new SqlParameter("@descripcion", obj.Descripcion ?? " ")
+                        new SqlParameter("@descripcion", obj.Descripcion),
+                        new SqlParameter("@estadoId", obj.EstadoId)
+                        //new SqlParameter("@fechaVencimiento", obj.FechaVencimiento),
+                        //new SqlParameter("@fechaRecordatorio", obj.FechaRecordatorio)
                     },
                     TipoConsulta = TipoConsultaEnum.Update
                 };
@@ -176,7 +187,7 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "DELETE age.Tareas WHERE Id=@id;",
+                    ConsultaCruda = @"DELETE age.Tareas WHERE Id=@id;",
                     Parametros = new List<SqlParameter>()
                     {
                         new SqlParameter("@id", id)

@@ -36,6 +36,7 @@ namespace CGC_GM_BE.Business
                     .Age_Tarea_Model
                     .ConsultaPorAgendaId(agendaId)
                     .ObtenerResultadoLista<Tarea>();
+
             }
 
             return Lista;

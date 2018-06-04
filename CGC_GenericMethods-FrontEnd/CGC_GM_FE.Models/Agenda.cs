@@ -21,7 +21,6 @@ namespace CGC_GM_FE.Models
         [MaxLength(100)]
         public string Nombre { get; set; }
 
-        [Required(ErrorMessage = "Campo requerido.")]
         [DisplayName("Descripción")]
         [RegularExpression(@"^\S[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚüÜ' ]+$", ErrorMessage = "No se permiten caracteres no comunes.")]
         [MaxLength(500)]

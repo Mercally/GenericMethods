@@ -50,6 +50,7 @@
     <Compile Include="Context\CGC_GM_Contexto.cs" />
     <Compile Include="Interface\IResultadoConsulta.cs" />
     <Compile Include="Implement\ResultadoGenericoImpl.cs" />
+    <Compile Include="Model\Cat_Catalogos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Seg_Usuario_Model.cs" />
   </ItemGroup>

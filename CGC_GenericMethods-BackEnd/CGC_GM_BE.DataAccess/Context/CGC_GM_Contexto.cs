@@ -57,5 +57,13 @@ namespace CGC_GM_BE.DataAccess.Context
                 return new Age_Tarea_Model(this);
             }
         }
+
+        public Cat_Catalogos Cat_Catalogos
+        {
+            get
+            {
+                return new Cat_Catalogos(this);
+            }
+        }
     }
 }

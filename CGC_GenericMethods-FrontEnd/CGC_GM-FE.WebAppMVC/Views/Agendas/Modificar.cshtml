@@ -4,15 +4,21 @@
     ViewBag.Title = "Modificar Agenda";
 }
 
-<h2>Modificar Agenda</h2>
+@section Navegation{
+    <ol class="breadcrumb">
+        <li><a href="/Inicio">Inicio</a></li>
+        <li><a href="/Agendas">Agendas</a></li>
+        <li class="active">Modificar</li>
+    </ol>
+}
 
+<h2>Modificar Agenda</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Agenda</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)

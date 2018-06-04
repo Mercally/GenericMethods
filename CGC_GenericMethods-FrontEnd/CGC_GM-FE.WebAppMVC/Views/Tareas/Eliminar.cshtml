@@ -6,11 +6,19 @@
     object AgendaId = Url.RequestContext.RouteData.Values["id"];
 }
 
+@section Navegation{
+    <ol class="breadcrumb">
+        <li><a href="/Inicio">Inicio</a></li>
+        <li><a href="/Agendas">Agendas</a></li>
+        <li><a href="/Tareas/Index/@AgendaId">Tareas</a></li>
+        <li class="active">Eliminar</li>
+    </ol>
+}
+
 <h2>Eliminar Tarea</h2>
 
 <h3>¿Está seguro que desea continuar?</h3>
 <div>
-    <h4>Tarea</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
