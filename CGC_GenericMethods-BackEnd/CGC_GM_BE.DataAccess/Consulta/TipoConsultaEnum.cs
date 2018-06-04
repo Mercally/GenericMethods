@@ -7,38 +7,28 @@ using System.Threading.Tasks;
 namespace CGC_GM_BE.DataAccess.Consulta
 {
     /// <summary>
-    /// 
+    /// Tipo de consulta a ejecutar
     /// </summary>
     public enum TipoConsultaEnum
     {
         /// <summary>
-        /// 
+        /// Insert seguido de un select del ID recien ingresado, retorna dicho ID
         /// </summary>
         Insert = 0,
 
         /// <summary>
-        /// 
+        /// Update del registro
         /// </summary>
         Update = 1,
 
         /// <summary>
-        /// 
+        /// Delete del registro
         /// </summary>
         Delete = 2,
 
         /// <summary>
-        /// 
+        /// Consulta
         /// </summary>
-        Query = 3,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        StoredProcedure = 4,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        Function = 5
+        Query = 3
     }
 }

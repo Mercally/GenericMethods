@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\CGC_GenericMethods-BackEnd",
     "\\CGC_GenericMethods-FrontEnd"
   ],
-  "SelectedNode": "\\CGC_GenericMethods-FrontEnd\\CGC_GenericMethods-FrontEnd.sln",
+  "SelectedNode": "\\CGC_GenericMethods-BackEnd\\CGC_GenericMethods-BackEnd.sln",
   "PreviewInSolutionExplorer": false
 }

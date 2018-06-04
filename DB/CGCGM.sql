@@ -1,6 +1,9 @@
 USE [master]
 GO
 
+--DROP DATABASE [CgcGenericMethods];
+GO
+
 CREATE DATABASE [CgcGenericMethods];
 GO
 
@@ -25,11 +28,31 @@ insert into seg.Usuarios(NombreUsuario, Nombres, Apellidos, CorreoCorporativo, C
 values ('pdominguez', 'Nataly Paola', 'Dominguez Landaverde', 'pdominguez@landaverde.com', '@_jmercadillo')
 
 insert into seg.Usuarios(NombreUsuario, Nombres, Apellidos, CorreoCorporativo, ContraseniaCorporativa)
-values ('jmercadillo', 'Josu� Ulises', 'Mercadillo Flores', 'jmercadillo@flores.com', '@_jmercadillo14.2')
+values ('jmercadillo', 'Josué Ulises', 'Mercadillo Flores', 'jmercadillo@flores.com', '@_jmercadillo14.2')
 
 GO
 
---SELECT Id, NombreUsuario, Nombres, Apellidos, CorreoCorporativo, ContraseniaCorporativa FROM seg.Usuarios;
+CREATE SCHEMA [cat];
+GO
+
+CREATE TABLE cat.Catalogos
+(
+Id int not null primary key identity(1,1),
+Tabla varchar(100) not null,
+Campo varchar(100) not null,
+Codigo char(3) not null,
+Valor varchar(100) not null
+);
+GO
+
+INSERT INTO cat.Catalogos(Tabla, Campo, Codigo, Valor)
+VALUES('Tareas', 'EstadoId', '001', 'SIN ESTADO'),
+('Tareas', 'EstadoId', '002', 'PENDIENTE'),
+('Tareas', 'EstadoId', '003', 'CADUCADO'),
+('Tareas', 'EstadoId', '004', 'FINALIZADO');
+GO
+
+Select * from cat.Catalogos where Valor = '' order by Valor
 
 CREATE SCHEMA [age];
 GO
@@ -38,7 +61,7 @@ CREATE TABLE age.Agendas
 (
 Id int not null primary key identity(1,1),
 Nombre varchar(100) not null,
-Descripcion varchar(500) not null
+Descripcion varchar(250) null
 );
 GO
 
@@ -47,7 +70,10 @@ CREATE TABLE age.Tareas
 Id int not null primary key identity(1,1),
 AgendaId int not null references age.Agendas(Id),
 Nombre varchar(100) not null,
-Descripcion varchar(500) not null
+Descripcion varchar(500) null,
+EstadoId int not null references cat.Catalogos(Id),
+FechaVencimiento Date null,
+FechaRecordatorio DateTime null
 );
 GO
 

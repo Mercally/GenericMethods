@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CGC_GM_FE.WebApiRestClient.Metadata.ServiceSeguridadApi;
 using CGC_GM_FE.Models;
 
@@ -15,7 +11,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceSeguridadApi
         {
             get
             {
-                return System.Configuration.ConfigurationSettings.AppSettings["ServiceSeguridadApiUri"];
+                return ConfigurationManager.AppSettings["ServiceSeguridadApiUri"];
             }
         }
 

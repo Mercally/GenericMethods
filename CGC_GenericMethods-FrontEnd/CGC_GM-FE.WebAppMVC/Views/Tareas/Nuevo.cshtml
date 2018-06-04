@@ -1,24 +1,26 @@
 ﻿@model CGC_GM_FE.Models.Tarea
 
 @{
-    ViewBag.Title = "Nuevo";
-
-    object AgendaId = Url.RequestContext.RouteData.Values["id"];
+    ViewBag.Title = "Nueva Tarea";
 }
 
-<h2>Nuevo</h2>
+@section Navegation{
+    <ol class="breadcrumb">
+        <li><a href="/Inicio">Inicio</a></li>
+        <li><a href="/Agendas">Agendas</a></li>
+        <li><a href="/Tareas/Index/@ViewBag.AgendaId">Tareas</a></li>
+        <li class="active">Nuevo</li>
+    </ol>
+}
 
-@using (Html.BeginForm()) 
+<h2>@ViewBag.NombreAgenda > Nueva Tarea</h2>
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
-    @Html.HiddenFor(model => model.AgendaId, new { @id = "Id_Tarea_AgendaId" })
-    <script>
-        document.getElementById("Id_Tarea_AgendaId").value = "@AgendaId";
-    </script>
+    <input type="hidden" name="AgendaId" value="@ViewBag.AgendaId" />
 
     <div class="form-horizontal">
-        <h4>Tarea</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -39,6 +41,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.EstadoId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.EstadoId, ViewBag.Estados as SelectList, new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.EstadoId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
@@ -47,5 +57,9 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", new { id = AgendaId })
+    @Html.ActionLink("Tareas", "Index", new { id = ViewBag.AgendaId })
 </div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery-validate")
+}

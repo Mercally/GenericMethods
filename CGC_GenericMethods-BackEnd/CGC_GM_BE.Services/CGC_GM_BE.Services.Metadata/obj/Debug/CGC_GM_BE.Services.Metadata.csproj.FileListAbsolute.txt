@@ -16,3 +16,12 @@ C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.csproj.CopyComplete
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.dll
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\bin\Debug\CGC_GM_BE.Services.Metadata.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\bin\Debug\CGC_GM_BE.Services.Metadata.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\bin\Debug\CGC_GM_BE.Common.Entities.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\bin\Debug\CGC_GM_BE.Common.Entities.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.csprojAssemblyReference.cache
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.csproj.CoreCompileInputs.cache
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.csproj.CopyComplete
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.Metadata\obj\Debug\CGC_GM_BE.Services.Metadata.pdb

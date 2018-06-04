@@ -21,6 +21,15 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             return View(Lista);
         }
 
+        // GET: Agendas
+        [HttpPost]
+        public ActionResult Paginacion(int NumeroPagina, int TamanoPagina, string Filtro, string Valor)
+        {
+            var Lista = AgendaApi.ObtenerAgendasPaginadas(NumeroPagina, TamanoPagina, Filtro, Valor);
+
+            return View(Lista);
+        }
+
         // GET: Agendas/id
         public ActionResult Detalle(int id)
         {

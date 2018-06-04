@@ -11,10 +11,26 @@ namespace CGC_GM_BE.Business
 {
     public class Agenda_BL
     {
-        public List<Agenda> ConsultaGenerica()
+        public List<Agenda> ConsultaPaginada(int NumeroPagina, int TamanoPagina, string Filtro, string Valor)
         {
             List<Agenda> Lista = new List<Agenda>();
             
+            using (var DBContexto = new CGC_GM_Contexto())
+            {
+                Lista = DBContexto
+                        .Age_Agenda_Model
+                        .ConsultaPaginada(NumeroPagina, TamanoPagina, Filtro, Valor)
+                        .ObtenerResultadoLista<Agenda>();
+
+            }
+
+            return Lista;
+        }
+
+        public List<Agenda> ConsultaGenerica()
+        {
+            List<Agenda> Lista = new List<Agenda>();
+
             using (var DBContexto = new CGC_GM_Contexto())
             {
                 Lista = DBContexto

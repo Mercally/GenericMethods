@@ -9,6 +9,9 @@ using CGC_GM_BE.DataAccess.Model;
 
 namespace CGC_GM_BE.DataAccess.Context
 {
+    /// <summary>
+    /// Almacena todas las clases de modelo de la base de datos
+    /// </summary>
     public class CGC_GM_Contexto : AjustesComandosGenerico
     {
         private Comandos _Comandos { get; set; }
@@ -55,6 +58,14 @@ namespace CGC_GM_BE.DataAccess.Context
             get
             {
                 return new Age_Tarea_Model(this);
+            }
+        }
+
+        public Cat_Catalogos Cat_Catalogos
+        {
+            get
+            {
+                return new Cat_Catalogos(this);
             }
         }
     }

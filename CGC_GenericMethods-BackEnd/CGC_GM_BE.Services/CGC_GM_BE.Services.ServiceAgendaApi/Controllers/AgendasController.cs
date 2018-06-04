@@ -28,6 +28,13 @@ namespace CGC_GM_BE.Services.ServiceAgendaApi.Controllers
         }
 
         [HttpGet]
+        [Route("{NumeroPagina}/{TamanoPagina}/{Filtro}/{Valor}")]
+        public List<Agenda> ObtenerAgendasPaginadas(int NumeroPagina, int TamanoPagina, string Filtro, string Valor)
+        {
+            return AgendaBLC.ConsultaPaginada(NumeroPagina, TamanoPagina, Filtro, Valor);
+        }
+
+        [HttpGet]
         [Route("FiltroAgenda/{id}")]
         public Agenda ObtenerAgendaPorId(int id)
         {

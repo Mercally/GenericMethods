@@ -5,17 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using CGC_GM_FE.Models;
 using CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi;
+using CGC_GM_FE.WebApiRestClient.Services.ServiceCatalogoApi;
 
 namespace CGC_GM_FE.WebAppMVC.Controllers
 {
     public class TareasController : Controller
     {
         TareasControllerApi TareasApi = new TareasControllerApi();
+        AgendasControllerApi AgendasApi = new AgendasControllerApi();
+        CatalogosControllerApi CatalogoApi = new CatalogosControllerApi();
 
         // GET: Tareas/{id} id=agendaId
         public ActionResult Index(int id)
         {
-            var Lista = TareasApi.ObtenerTareas();
+            var Lista = TareasApi.ObtenerTareasPorAgendaId(id);
+            var Agenda = AgendasApi.ObtenerAgendaPorId(id);
+            ViewBag.NombreAgenda = Agenda.Nombre;
 
             return View(Lista);
         }
@@ -28,9 +33,21 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             return View(Tarea);
         }
 
-        // GET: Tareas/Nuevo/id
+        // GET: Tareas/Nuevo/id=AgendaId
         public ActionResult Nuevo(int id)
         {
+            var Agenda = AgendasApi.ObtenerAgendaPorId(id);
+            ViewBag.NombreAgenda = Agenda.Nombre;
+            ViewBag.AgendaId = id;
+
+            var Estados = CatalogoApi.ObtenerCatalogo("Tareas", "EstadoId");
+            ViewBag.Estados = new SelectList(
+                Estados.Select(x => new SelectListItem()
+                {
+                    Text = x.Valor,
+                    Value = x.Id.ToString()
+                }), "Value", "Text");
+
             return View();
         }
 
@@ -38,11 +55,11 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Nuevo(Tarea obj)
         {
-            var AgendaId = TareasApi.InsertarTarea(obj);
+            var TareaId = TareasApi.InsertarTarea(obj);
 
-            if (AgendaId > 0)
+            if (TareaId > 0)
             {
-                return RedirectToAction("Detalle", new { id = AgendaId });
+                return RedirectToAction("Detalle", new { id = TareaId });
             }
             else
             {
@@ -55,6 +72,14 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         public ActionResult Modificar(int id)
         {
             var Tarea = TareasApi.ObtenerTareaPorId(id);
+
+            var Estados = CatalogoApi.ObtenerCatalogo("Tareas", "EstadoId");
+            ViewBag.Estados = new SelectList(
+                Estados.Select(x => new SelectListItem()
+                {
+                    Text = x.Valor,
+                    Value = x.Id.ToString()
+                }), "Value", "Text", Tarea.EstadoId);
 
             return View(Tarea);
         }
