@@ -9,6 +9,9 @@ using CGC_GM_BE.DataAccess.Model;
 
 namespace CGC_GM_BE.DataAccess.Context
 {
+    /// <summary>
+    /// Almacena todas las clases de modelo de la base de datos
+    /// </summary>
     public class CGC_GM_Contexto : AjustesComandosGenerico
     {
         private Comandos _Comandos { get; set; }

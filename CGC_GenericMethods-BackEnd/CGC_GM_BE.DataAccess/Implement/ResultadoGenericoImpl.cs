@@ -9,44 +9,15 @@ using CGC_GM_BE.DataAccess.Interface;
 
 namespace CGC_GM_BE.DataAccess.Implement
 {
-    /// <summary>
-    /// 
-    /// </summary>
+
     public class ResultadoGenericoImpl : IResultadoConsulta
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public int ResultadoTipoInsert { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public bool ResultadoTipoUpdate { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public bool ResultadoTipoDelete { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public DataTable ResultadoTipoQuery { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public int CantidadCambios { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public System.Exception Excepcion { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public bool EsCorrecto
         {
             get
@@ -62,10 +33,10 @@ namespace CGC_GM_BE.DataAccess.Implement
         }
 
         /// <summary>
-        /// 
+        /// Obtiene el resultado convertido al tipo especificado
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T">Tipo de dato a retornar</typeparam>
+        /// <returns>Lista de objetos de tipo especificado</returns>
         public List<T> ObtenerResultadoLista<T>()
         {
             List<T> ListaResultado = new List<T>();
@@ -90,13 +61,17 @@ namespace CGC_GM_BE.DataAccess.Implement
 
                     for (int i = 0; i < Propiedades.Length; i++)
                     {
-                        if (ResultadoTipoQuery.Columns.Contains(Propiedades[i]))
+                        if (Row.IsNull(Propiedades[i]) || System.DBNull.Value == Row[Propiedades[i]])
                         {
-                            object Valor = Row.IsNull(Propiedades[i]) ? "" : Row[Propiedades[i]];
-
+                            //PropInfo[i].SetValue(
+                            //obj, Convert.ChangeType(null, PropInfo[i].PropertyType), null
+                            //);
+                        }
+                        else
+                        {
                             PropInfo[i].SetValue(
-                                obj, Convert.ChangeType(Valor, PropInfo[i].PropertyType), null
-                                );
+                            obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
+                            );
                         }
                     }
 
@@ -113,10 +88,10 @@ namespace CGC_GM_BE.DataAccess.Implement
         }
 
         /// <summary>
-        /// 
+        /// Obtiene el resultado convertido al tipo especificado
         /// </summary>
         /// <typeparam name="T">Tipo de dato a retornar</typeparam>
-        /// <returns></returns>
+        /// <returns>Objetos de tipo especificado</returns>
         public T ObtenerResultadoUnico<T>()
         {
             List<T> ListaResultado = new List<T>();
