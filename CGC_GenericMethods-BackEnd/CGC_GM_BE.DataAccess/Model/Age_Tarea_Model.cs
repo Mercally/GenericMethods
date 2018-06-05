@@ -80,7 +80,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta ConsultaPorAgendaId(int agendaId)
+        public IResultadoConsulta ConsultaPorAgendaId(int AgendaId)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -88,11 +88,10 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql() // Ingresar consulta
                 {
-                    ConsultaCruda = @"SELECT Id, AgendaId, Nombre, Descripcion FROM age.Tareas 
-                                    WHERE AgendaId=@agendaId;",
+                    ConsultaCruda = @"SELECT Id, AgendaId, Nombre, Descripcion FROM age.Tareas WHERE AgendaId=@AgendaId;",
                     Parametros = new List<SqlParameter>()
                     {
-                        new SqlParameter("@agendaId", agendaId)
+                        new SqlParameter("@AgendaId", AgendaId)
                     },
                     TipoConsulta = TipoConsultaEnum.Query
                 };
@@ -118,14 +117,14 @@ namespace CGC_GM_BE.DataAccess.Model
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
                     ConsultaCruda = @"INSERT INTO age.Tareas(AgendaId, Nombre, Descripcion, EstadoId, FechaVencimiento, FechaRecordatorio) 
-                                    VALUES(@agendaId, @nombre, @descripcion, @estadoId, null, null); 
+                                    VALUES(@AgendaId, @Nombre, @Descripcion, @EstadoId, null, null); 
                                     SELECT CAST(SCOPE_IDENTITY() AS INT) AS Id;",
                     Parametros = new List<SqlParameter>()
                     {
-                        new SqlParameter("@agendaId", obj.AgendaId),
-                        new SqlParameter("@nombre", obj.Nombre),
-                        new SqlParameter("@descripcion", obj.Descripcion),
-                        new SqlParameter("@estadoId", obj.EstadoId)
+                        new SqlParameter("@AgendaId", obj.AgendaId),
+                        new SqlParameter("@Nombre", obj.Nombre),
+                        new SqlParameter("@Descripcion", string.IsNullOrEmpty(obj.Descripcion) ?  DBNull.Value.ToString() : obj.Descripcion),
+                        new SqlParameter("@EstadoId", obj.EstadoId)
                         //new SqlParameter("@fechaVencimiento", obj.FechaVencimiento),
                         //new SqlParameter("@fechaRecordatorio", obj.FechaRecordatorio)
                     },
@@ -152,15 +151,15 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = @"UPDATE age.Tareas SET AgendaId=@agendaId, Nombre=@nombre, Descripcion=@descripcion, EstadoId=@estadoId
-                                    WHERE Id=@id;",
+                    ConsultaCruda = @"UPDATE age.Tareas SET AgendaId=@AgendaId, Nombre=@Nombre, Descripcion=@Descripcion, EstadoId=@EstadoId
+                                    WHERE Id=@Id;",
                     Parametros = new List<SqlParameter>()
                     {
-                        new SqlParameter("@id", obj.Id),
-                        new SqlParameter("@agendaId", obj.AgendaId),
-                        new SqlParameter("@nombre", obj.Nombre),
-                        new SqlParameter("@descripcion", obj.Descripcion),
-                        new SqlParameter("@estadoId", obj.EstadoId)
+                        new SqlParameter("@Id", obj.Id),
+                        new SqlParameter("@AgendaId", obj.AgendaId),
+                        new SqlParameter("@Nombre", obj.Nombre),
+                        new SqlParameter("@Descripcion", string.IsNullOrEmpty(obj.Descripcion) ?  DBNull.Value.ToString() : obj.Descripcion),
+                        new SqlParameter("@EstadoId", obj.EstadoId)
                         //new SqlParameter("@fechaVencimiento", obj.FechaVencimiento),
                         //new SqlParameter("@fechaRecordatorio", obj.FechaRecordatorio)
                     },
@@ -179,7 +178,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta Eliminar(int id)
+        public IResultadoConsulta Eliminar(int Id)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -187,10 +186,38 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = @"DELETE age.Tareas WHERE Id=@id;",
+                    ConsultaCruda = @"DELETE age.Tareas WHERE Id=@Id;",
                     Parametros = new List<SqlParameter>()
                     {
-                        new SqlParameter("@id", id)
+                        new SqlParameter("@Id", Id)
+                    },
+                    TipoConsulta = TipoConsultaEnum.Delete
+                };
+
+                Resultado = Contexto.Comandos.Ejecutar(Consulta);
+
+            }
+            catch (Exception ex)
+            {
+                Resultado.Excepcion = ex;
+                Contexto.Excepciones.Add(ex);
+            }
+
+            return Resultado;
+        }
+
+        public IResultadoConsulta EliminarPorAgendaId(int Id)
+        {
+            IResultadoConsulta Resultado = new ResultadoGenericoImpl();
+
+            try
+            {
+                ConsultaT_Sql Consulta = new ConsultaT_Sql()
+                {
+                    ConsultaCruda = @"DELETE age.Tareas WHERE AgendaId=@Id;",
+                    Parametros = new List<SqlParameter>()
+                    {
+                        new SqlParameter("@Id", Id)
                     },
                     TipoConsulta = TipoConsultaEnum.Delete
                 };

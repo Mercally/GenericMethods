@@ -35,7 +35,7 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql() // Ingresar consulta
                 {
-                    ConsultaCruda = "SELECT Id, NombreUsuario, Nombres, Apellidos, CorreoCorporativo, ContraseniaCorporativa FROM seg.Usuarios;",
+                    ConsultaCruda = @"SELECT Id, NombreUsuario, Nombres, Apellidos, CorreoCorporativo, ContraseniaCorporativa FROM seg.Usuarios;",
                     TipoConsulta = TipoConsultaEnum.Query,
                     TimeOut = Contexto.TimeOut
                 };

@@ -52,7 +52,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta ConsultaPorId(int id)
+        public IResultadoConsulta ConsultaPorId(int Id)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -60,9 +60,9 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "SELECT Id, Tabla, Campo, Codigo, Valor FROM cat.Catalogos WHERE Id=@Id;",
+                    ConsultaCruda = @"SELECT Id, Tabla, Campo, Codigo, Valor FROM cat.Catalogos WHERE Id=@Id;",
                     Parametros = new List<SqlParameter>() {
-                        new SqlParameter("@Id", id)
+                        new SqlParameter("@Id", Id)
                     },
                     TipoConsulta = TipoConsultaEnum.Query,
                     TimeOut = Contexto.TimeOut

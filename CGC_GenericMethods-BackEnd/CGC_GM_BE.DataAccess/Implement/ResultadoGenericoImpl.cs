@@ -61,17 +61,14 @@ namespace CGC_GM_BE.DataAccess.Implement
 
                     for (int i = 0; i < Propiedades.Length; i++)
                     {
-                        if (Row.IsNull(Propiedades[i]) || System.DBNull.Value == Row[Propiedades[i]])
+                        if (ResultadoTipoQuery.Columns.Contains(Propiedades[i]))
                         {
-                            //PropInfo[i].SetValue(
-                            //obj, Convert.ChangeType(null, PropInfo[i].PropertyType), null
-                            //);
-                        }
-                        else
-                        {
-                            PropInfo[i].SetValue(
-                            obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
-                            );
+                            if (!Row.IsNull(Propiedades[i]) || !(System.DBNull.Value == Row[Propiedades[i]]))
+                            {
+                                PropInfo[i].SetValue(
+                                obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
+                                );
+                            }
                         }
                     }
 
@@ -80,7 +77,7 @@ namespace CGC_GM_BE.DataAccess.Implement
 
                 return ListaResultado as List<T>;
             }
-            catch (Exception)
+            catch (Exception Ex)
             {
                 // Excepcion
                 return new List<T>();
@@ -118,14 +115,7 @@ namespace CGC_GM_BE.DataAccess.Implement
                     {
                         if (ResultadoTipoQuery.Columns.Contains(Propiedades[i]))
                         {
-
-                            if (Row.IsNull(Propiedades[i]) || System.DBNull.Value == Row[Propiedades[i]])
-                            {
-                                //PropInfo[i].SetValue(
-                                //obj, Convert.ChangeType(null, PropInfo[i].PropertyType), null
-                                //);
-                            }
-                            else
+                            if (!Row.IsNull(Propiedades[i]) || !(System.DBNull.Value == Row[Propiedades[i]]))
                             {
                                 PropInfo[i].SetValue(
                                 obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
@@ -139,7 +129,7 @@ namespace CGC_GM_BE.DataAccess.Implement
 
                 throw new ArgumentNullException("No existe ningún elemento en la lista.");
             }
-            catch (Exception)
+            catch (Exception Ex)
             {
                 return default(T);
             }

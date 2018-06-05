@@ -68,8 +68,7 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda =
-                                    @"SELECT Id, Nombre, Descripcion FROM age.Agendas AS Age ORDER BY Age.Nombre ASC;",
+                    ConsultaCruda = @"SELECT Id, Nombre, Descripcion FROM age.Agendas AS Age ORDER BY Age.Nombre ASC;",
                     TipoConsulta = TipoConsultaEnum.Query,
                     TimeOut = Contexto.TimeOut
                 };
@@ -86,7 +85,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta ConsultaPorId(int id)
+        public IResultadoConsulta ConsultaPorId(int Id)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -94,9 +93,9 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql() // Ingresar consulta
                 {
-                    ConsultaCruda = "SELECT Id, Nombre, Descripcion FROM age.Agendas WHERE Id = @Id;",
+                    ConsultaCruda = @"SELECT Id, Nombre, Descripcion FROM age.Agendas WHERE Id = @Id;",
                     Parametros = new List<SqlParameter>() {
-                        new SqlParameter("@Id", id)
+                        new SqlParameter("@Id", Id)
                     },
                     TipoConsulta = TipoConsultaEnum.Query,
                     TimeOut = Contexto.TimeOut
@@ -114,7 +113,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta Insertar(Common.Entities.Agenda obj)
+        public IResultadoConsulta Insertar(Common.Entities.Agenda Obj)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -122,13 +121,13 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "INSERT INTO age.Agendas(Nombre, Descripcion) " +
-                                    "VALUES(@Nombre, @Descripcion); " +
-                                    "SELECT CAST(SCOPE_IDENTITY() AS INT) AS Id;",
+                    ConsultaCruda = @"INSERT INTO age.Agendas(Nombre, Descripcion) 
+                                    VALUES(@Nombre, @Descripcion); 
+                                    SELECT CAST(SCOPE_IDENTITY() AS INT) AS Id;",
                     Parametros = new List<SqlParameter>()
                     {
-                     new SqlParameter("@Nombre", obj.Nombre),
-                     new SqlParameter("@Descripcion", obj.Descripcion)
+                        new SqlParameter("@Nombre", Obj.Nombre),
+                        new SqlParameter("@Descripcion", string.IsNullOrEmpty(Obj.Descripcion) ?  DBNull.Value.ToString() : Obj.Descripcion)
                     },
                     TipoConsulta = TipoConsultaEnum.Insert,
                     TimeOut = Contexto.TimeOut
@@ -146,7 +145,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta Modificar(Common.Entities.Agenda obj)
+        public IResultadoConsulta Modificar(Common.Entities.Agenda Obj)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -154,13 +153,12 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "UPDATE age.Agendas SET Nombre=@Nombre, Descripcion=@Descripcion " +
-                                    "WHERE Id=@Id;",
+                    ConsultaCruda = @"UPDATE age.Agendas SET Nombre=@Nombre, Descripcion=@Descripcion WHERE Id=@Id;",
                     Parametros = new List<SqlParameter>()
                     {
-                     new SqlParameter("@Id", obj.Id),
-                     new SqlParameter("@Nombre", obj.Nombre),
-                     new SqlParameter("@Descripcion", obj.Descripcion)
+                     new SqlParameter("@Id", Obj.Id),
+                     new SqlParameter("@Nombre", Obj.Nombre),
+                     new SqlParameter("@Descripcion", string.IsNullOrEmpty(Obj.Descripcion) ?  DBNull.Value.ToString() : Obj.Descripcion)
                     },
                     TipoConsulta = TipoConsultaEnum.Update,
                     TimeOut = Contexto.TimeOut
@@ -179,7 +177,7 @@ namespace CGC_GM_BE.DataAccess.Model
             return Resultado;
         }
 
-        public IResultadoConsulta Eliminar(int id)
+        public IResultadoConsulta Eliminar(int Id)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
@@ -187,10 +185,10 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = "DELETE age.Agendas WHERE Id=@Id;",
+                    ConsultaCruda = @"DELETE age.Agendas WHERE Id=@Id;",
                     Parametros = new List<SqlParameter>()
                     {
-                     new SqlParameter("@Id", id)
+                     new SqlParameter("@Id", Id)
                     },
                     TipoConsulta = TipoConsultaEnum.Delete,
                     TimeOut = Contexto.TimeOut
