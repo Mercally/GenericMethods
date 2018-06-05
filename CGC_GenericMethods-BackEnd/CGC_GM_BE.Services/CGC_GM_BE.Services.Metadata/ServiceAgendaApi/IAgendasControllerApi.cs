@@ -15,5 +15,6 @@ namespace CGC_GM_BE.Services.Metadata.ServiceAgendaApi
         Agenda ObtenerAgendaPorId(int id);
         bool ModificarAgenda(Agenda obj);
         bool EliminarAgenda(int id);
+        bool EliminarAgendaYTareas(int id);
     }
 }

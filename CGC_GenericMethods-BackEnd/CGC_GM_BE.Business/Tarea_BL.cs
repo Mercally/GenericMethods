@@ -26,7 +26,7 @@ namespace CGC_GM_BE.Business
             return Lista;
         }
 
-        public List<Tarea> ConsultaPorAgendaId(int agendaId)
+        public List<Tarea> ConsultaPorAgendaId(int AgendaId)
         {
             List<Tarea> Lista = new List<Tarea>();
 
@@ -34,7 +34,7 @@ namespace CGC_GM_BE.Business
             {
                 Lista = DBContexto
                     .Age_Tarea_Model
-                    .ConsultaPorAgendaId(agendaId)
+                    .ConsultaPorAgendaId(AgendaId)
                     .ObtenerResultadoLista<Tarea>();
 
             }
@@ -96,7 +96,7 @@ namespace CGC_GM_BE.Business
             return Cambio;
         }
 
-        public bool Eliminar(int id)
+        public bool Eliminar(int Id)
         {
             bool Eliminado = false;
 
@@ -104,7 +104,7 @@ namespace CGC_GM_BE.Business
             {
                 Eliminado = DBContexto
                     .Age_Tarea_Model
-                    .Eliminar(id)
+                    .Eliminar(Id)
                     .ResultadoTipoDelete;
             }
 

@@ -52,5 +52,12 @@ namespace CGC_GM_BE.Services.ServiceAgendaApi.Controllers
         {
             return AgendaBLC.Eliminar(id);
         }
+
+        [HttpDelete]
+        [Route("AgendaYTareas/{id}")]
+        public bool EliminarAgendaYTareas(int id)
+        {
+            return AgendaBLC.EliminarAgendaYTareas(id);
+        }
     }
 }

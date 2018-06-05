@@ -98,7 +98,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Eliminar(Agenda obj)
         {
-            var Cambios = AgendaApi.EliminarAgenda(obj.Id);
+            var Cambios = AgendaApi.EliminarAgendaYTareas(obj.Id);
 
             if (Cambios)
             {

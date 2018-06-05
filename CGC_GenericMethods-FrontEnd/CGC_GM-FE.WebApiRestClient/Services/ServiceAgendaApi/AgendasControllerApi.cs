@@ -86,5 +86,16 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceAgendaApi
 
             return Respuesta;
         }
+
+        public bool EliminarAgendaYTareas(int id)
+        {
+            var Respuesta = GenericHelper
+                .Request<bool>(
+                Url: $"{ApiUri}/Agendas/AgendaYTareas/{id}",
+                Method: HttpMethodEnum.Delete
+                );
+
+            return Respuesta;
+        }
     }
 }

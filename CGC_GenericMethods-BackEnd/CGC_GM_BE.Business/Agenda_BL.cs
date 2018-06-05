@@ -91,7 +91,7 @@ namespace CGC_GM_BE.Business
             return Cambio;
         }
 
-        public bool Eliminar(int id)
+        public bool Eliminar(int Id)
         {
             bool Eliminado = false;
 
@@ -99,8 +99,31 @@ namespace CGC_GM_BE.Business
             {
                 Eliminado = DBContexto
                     .Age_Agenda_Model
-                    .Eliminar(id)
+                    .Eliminar(Id)
                     .ResultadoTipoDelete;
+            }
+
+            return Eliminado;
+        }
+
+        public bool EliminarAgendaYTareas(int Id)
+        {
+            bool Eliminado = false;
+
+            using (var DBContexto = new CGC_GM_Contexto())
+            {
+                Eliminado = DBContexto
+                        .Age_Tarea_Model
+                        .EliminarPorAgendaId(Id)
+                        .ResultadoTipoDelete;
+
+                if (Eliminado)
+                {
+                    Eliminado = DBContexto
+                        .Age_Agenda_Model
+                        .Eliminar(Id)
+                        .ResultadoTipoDelete;
+                }
             }
 
             return Eliminado;
