@@ -12,10 +12,6 @@ C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE
 C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csprojResolveAssemblyReference.cache
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\CGC_GM_FE.Models.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\CGC_GM_FE.Models.pdb
-C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csprojAssemblyReference.cache
-C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csproj.CoreCompileInputs.cache
-C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.dll
-C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\System.Web.Helpers.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\System.Web.Mvc.dll
@@ -29,4 +25,8 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\System.Web.WebPages.xml
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csprojAssemblyReference.cache
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csproj.CoreCompileInputs.cache
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.csproj.CopyComplete
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Models\obj\Debug\CGC_GM_FE.Models.pdb
