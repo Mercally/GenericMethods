@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM_BE.Services.ServiceA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM_BE.Testing.Business", "CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\CGC_GM_BE.Testing.Business.csproj", "{297C60B0-C378-4315-9895-311C19DCDD13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM_BE.Services.ServiceCatalogoApi", "CGC_GM_BE.Services\ServiceCatalogoApi\CGC_GM_BE.Services.ServiceCatalogoApi\CGC_GM_BE.Services.ServiceCatalogoApi.csproj", "{09D8ECC1-F37B-4402-BD95-C2CAF163000F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM_BE.Services.ServiceCatalogoApi", "CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceCatalogoApi\CGC_GM_BE.Services.ServiceCatalogoApi.csproj", "{09D8ECC1-F37B-4402-BD95-C2CAF163000F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
