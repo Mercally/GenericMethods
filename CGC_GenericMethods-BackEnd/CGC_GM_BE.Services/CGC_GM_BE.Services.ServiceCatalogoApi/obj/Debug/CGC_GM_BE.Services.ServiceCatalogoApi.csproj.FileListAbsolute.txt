@@ -72,5 +72,3 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\Se
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\ServiceCatalogoApi\CGC_GM_BE.Services.ServiceCatalogoApi\obj\Debug\CGC_GM_BE.Services.ServiceCatalogoApi.csproj.CopyComplete
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\ServiceCatalogoApi\CGC_GM_BE.Services.ServiceCatalogoApi\obj\Debug\CGC_GM_BE.Services.ServiceCatalogoApi.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\ServiceCatalogoApi\CGC_GM_BE.Services.ServiceCatalogoApi\obj\Debug\CGC_GM_BE.Services.ServiceCatalogoApi.pdb
-C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceCatalogoApi\obj\Debug\CGC_GM_BE.Services.ServiceCatalogoApi.dll
-C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceCatalogoApi\obj\Debug\CGC_GM_BE.Services.ServiceCatalogoApi.pdb
