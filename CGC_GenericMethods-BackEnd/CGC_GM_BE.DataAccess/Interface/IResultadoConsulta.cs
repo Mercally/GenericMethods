@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace CGC_GM_BE.DataAccess.Interface
 
         bool ResultadoTipoDelete { get; set; }
 
-        DataTable ResultadoTipoQuery { get; set; }
+        SqlDataReader ResultadoTipoQuery { get; set; }
 
         int CantidadCambios { get; set; }
 

@@ -5,11 +5,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CGC_GM_BE.DataAccess.Consulta;
 using CGC_GM_BE.DataAccess.Interface;
 using CGC_GM_BE.DataAccess.Implement;
+using CGC_GM_BE.DataAccess.Model;
 
-namespace CGC_GM_BE.DataAccess.Conexion
+namespace CGC_GM_BE.DataAccess.Connection
 {
     public class Comandos
     {
@@ -31,10 +31,8 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public DataTable ExecuteQuery(ConsultaT_Sql Consulta)
+        public SqlDataReader ExecuteQuery(_ConsultaT_Sql Consulta)
         {
-            DataTable DataTable = new DataTable();
-
             if (Transaccion.Connection.State != ConnectionState.Open)
             {
                 Transaccion.Connection.Open();
@@ -44,10 +42,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
             cmd.CommandTimeout = Consulta.TimeOut;
             cmd.Parameters.AddRange(Consulta.Parametros.ToArray());
 
-            SqlDataReader sqldr = cmd.ExecuteReader();
-            DataTable.Load(sqldr);
-
-            return DataTable;
+            return cmd.ExecuteReader(); ;
         }
 
         /// <summary>
@@ -55,7 +50,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public bool ExecuteNonQuery(ConsultaT_Sql Consulta)
+        public bool ExecuteNonQuery(_ConsultaT_Sql Consulta)
         {
             if (Transaccion.Connection.State != ConnectionState.Open)
             {
@@ -76,7 +71,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public int ExecuteScalarInsert(ConsultaT_Sql Consulta)
+        public int ExecuteScalarInsert(_ConsultaT_Sql Consulta)
         {
             int? Result = 0;
 
@@ -99,7 +94,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public object ExecuteScalar(ConsultaT_Sql Consulta)
+        public object ExecuteScalar(_ConsultaT_Sql Consulta)
         {
             object Result = null;
 
@@ -122,22 +117,22 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns>objeto segun tipo de transaccion</returns>
-        public IResultadoConsulta Ejecutar(ConsultaT_Sql Consulta)
+        public IResultadoConsulta Ejecutar(_ConsultaT_Sql Consulta)
         {
             IResultadoConsulta Resultado = new ResultadoGenericoImpl();
 
             switch (Consulta.TipoConsulta)
             {
-                case TipoConsultaEnum.Insert:
+                case _TipoConsultaEnum.Insert:
                     Resultado.ResultadoTipoInsert = ExecuteScalarInsert(Consulta);
                     break;
-                case TipoConsultaEnum.Update:
+                case _TipoConsultaEnum.Update:
                     Resultado.ResultadoTipoUpdate = ExecuteNonQuery(Consulta);
                     break;
-                case TipoConsultaEnum.Delete:
+                case _TipoConsultaEnum.Delete:
                     Resultado.ResultadoTipoDelete = ExecuteNonQuery(Consulta);
                     break;
-                case TipoConsultaEnum.Query:
+                case _TipoConsultaEnum.Query:
                     Resultado.ResultadoTipoQuery = ExecuteQuery(Consulta);
                     break;
                 default:

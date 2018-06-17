@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -15,7 +16,7 @@ namespace CGC_GM_BE.DataAccess.Implement
         public int ResultadoTipoInsert { get; set; }
         public bool ResultadoTipoUpdate { get; set; }
         public bool ResultadoTipoDelete { get; set; }
-        public DataTable ResultadoTipoQuery { get; set; }
+        public SqlDataReader ResultadoTipoQuery { get; set; }
         public int CantidadCambios { get; set; }
         public System.Exception Excepcion { get; set; }
         public bool EsCorrecto
@@ -55,23 +56,26 @@ namespace CGC_GM_BE.DataAccess.Implement
 
                 PropertyInfo[] PropInfo = Tipo.GetProperties();
 
-                foreach (DataRow Row in ResultadoTipoQuery.Rows)
+                while (ResultadoTipoQuery.Read())
                 {
                     T obj = (T)Activator.CreateInstance(typeof(T));
 
                     for (int i = 0; i < Propiedades.Length; i++)
                     {
-                        if (ResultadoTipoQuery.Columns.Contains(Propiedades[i]))
+                        try
                         {
-                            if (!Row.IsNull(Propiedades[i]) || !(System.DBNull.Value == Row[Propiedades[i]]))
+                            if (!(System.DBNull.Value == ResultadoTipoQuery[Propiedades[i]]))
                             {
-                                PropInfo[i].SetValue(
-                                obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
-                                );
+                                PropInfo[i]
+                                .SetValue(obj, Convert.ChangeType(ResultadoTipoQuery[Propiedades[i]], PropInfo[i].PropertyType), null);
                             }
                         }
+                        catch
+                        {
+                            continue;
+                        }
                     }
-
+                    
                     ListaResultado.Add(obj);
                 }
 
@@ -96,7 +100,6 @@ namespace CGC_GM_BE.DataAccess.Implement
             if (!this.EsCorrecto)
             {
                 // Manejo de errores
-
                 return default(T);
             }
 
@@ -107,20 +110,23 @@ namespace CGC_GM_BE.DataAccess.Implement
 
                 PropertyInfo[] PropInfo = Tipo.GetProperties();
 
-                foreach (DataRow Row in ResultadoTipoQuery.Rows)
+                while (ResultadoTipoQuery.Read())
                 {
                     T obj = (T)Activator.CreateInstance(typeof(T));
 
                     for (int i = 0; i < Propiedades.Length; i++)
                     {
-                        if (ResultadoTipoQuery.Columns.Contains(Propiedades[i]))
+                        try
                         {
-                            if (!Row.IsNull(Propiedades[i]) || !(System.DBNull.Value == Row[Propiedades[i]]))
+                            if (!(System.DBNull.Value == ResultadoTipoQuery[Propiedades[i]]))
                             {
-                                PropInfo[i].SetValue(
-                                obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
-                                );
+                                PropInfo[i]
+                                .SetValue(obj, Convert.ChangeType(ResultadoTipoQuery[Propiedades[i]], PropInfo[i].PropertyType), null);
                             }
+                        }
+                        catch
+                        {
+                            continue;
                         }
                     }
 

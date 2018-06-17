@@ -42,11 +42,10 @@
   <ItemGroup>
     <Compile Include="Model\Age_Tarea_Model.cs" />
     <Compile Include="Model\Age_Agenda_Model.cs" />
-    <Compile Include="Conexion\AjustesComandosGenerico.cs" />
-    <Compile Include="Conexion\BaseDeDatos.cs" />
-    <Compile Include="Conexion\Comandos.cs" />
-    <Compile Include="Consulta\ConsultaT_Sql.cs" />
-    <Compile Include="Consulta\TipoConsultaEnum.cs" />
+    <Compile Include="Connection\BaseDeDatos.cs" />
+    <Compile Include="Connection\Comandos.cs" />
+    <Compile Include="Model\_ConsultaT_Sql.cs" />
+    <Compile Include="Model\_TipoConsultaEnum.cs" />
     <Compile Include="Context\CGC_GM_Contexto.cs" />
     <Compile Include="Interface\IResultadoConsulta.cs" />
     <Compile Include="Implement\ResultadoGenericoImpl.cs" />

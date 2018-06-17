@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CGC_GM_BE.DataAccess.Consulta
+namespace CGC_GM_BE.DataAccess.Model
 {
-    public class ConsultaT_Sql
+    public class _ConsultaT_Sql
     {
         /// <summary>
         /// Constructor por defecto, inicializa la lista de parametros
         /// </summary>
-        public ConsultaT_Sql()
+        public _ConsultaT_Sql()
         {
             this.ConsultaCruda = string.Empty;
             this.Parametros = new List<SqlParameter>();
@@ -31,7 +31,7 @@ namespace CGC_GM_BE.DataAccess.Consulta
         /// <summary>
         /// Tipo de consulta a realizar: Insert, Update, Delete, Query
         /// </summary>
-        public TipoConsultaEnum TipoConsulta { get; set; }
+        public _TipoConsultaEnum TipoConsulta { get; set; }
 
         /// <summary>
         /// Tiempo de espera en segundos para cada comando de forma individual

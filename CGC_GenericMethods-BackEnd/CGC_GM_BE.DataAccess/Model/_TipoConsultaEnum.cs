@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CGC_GM_BE.DataAccess.Consulta
+namespace CGC_GM_BE.DataAccess.Model
 {
     /// <summary>
     /// Tipo de consulta a ejecutar
     /// </summary>
-    public enum TipoConsultaEnum
+    public enum _TipoConsultaEnum
     {
         /// <summary>
         /// Insert seguido de un select del ID recien ingresado, retorna dicho ID

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CGC_GM_BE.DataAccess.Conexion
+namespace CGC_GM_BE.DataAccess.Connection
 {
     /// <summary>
     /// Establece conexión con las bases de datos
