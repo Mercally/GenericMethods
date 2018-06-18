@@ -62,20 +62,20 @@ namespace CGC_GM_BE.DataAccess.Implement
 
                     for (int i = 0; i < Propiedades.Length; i++)
                     {
-                        try
+                        if (ExistsColum(ResultadoTipoQuery, Propiedades[i]))
                         {
-                            if (!(System.DBNull.Value == ResultadoTipoQuery[Propiedades[i]]))
+                            try
                             {
                                 PropInfo[i]
                                 .SetValue(obj, Convert.ChangeType(ResultadoTipoQuery[Propiedades[i]], PropInfo[i].PropertyType), null);
                             }
-                        }
-                        catch
-                        {
-                            continue;
+                            catch
+                            {
+                                continue;
+                            }
                         }
                     }
-                    
+
                     ListaResultado.Add(obj);
                 }
 
@@ -89,6 +89,26 @@ namespace CGC_GM_BE.DataAccess.Implement
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ColumnName"></param>
+        /// <returns></returns>
+        private bool ExistsColum(SqlDataReader DatReader, string ColumnName)
+        {
+            try
+            {
+                return (
+                        (DatReader[ColumnName] != null)
+                    || (DatReader[ColumnName] != System.DBNull.Value)
+                    );
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Obtiene el resultado convertido al tipo especificado
         /// </summary>
         /// <typeparam name="T">Tipo de dato a retornar</typeparam>
@@ -96,7 +116,7 @@ namespace CGC_GM_BE.DataAccess.Implement
         public T ObtenerResultadoUnico<T>()
         {
             List<T> ListaResultado = new List<T>();
-            
+
             if (!this.EsCorrecto)
             {
                 // Manejo de errores
