@@ -68,7 +68,7 @@ namespace CGC_GM_BE.DataAccess.Model
             {
                 ConsultaT_Sql Consulta = new ConsultaT_Sql()
                 {
-                    ConsultaCruda = @"SELECT Id, Nombre, Descripcion FROM age.Agendas AS Age ORDER BY Age.Nombre ASC;",
+                    ConsultaCruda = @"SELECT Id, Nombre, Descripcion, FechaCreado, EsActivo, TiempoTotal, Dinero, [Float] FROM age.Agendas AS Age ORDER BY Age.Nombre ASC;",
                     TipoConsulta = TipoConsultaEnum.Query,
                     TimeOut = Contexto.TimeOut
                 };

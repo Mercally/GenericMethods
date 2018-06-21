@@ -63,11 +63,17 @@ namespace CGC_GM_BE.DataAccess.Implement
                     {
                         if (ResultadoTipoQuery.Columns.Contains(Propiedades[i]))
                         {
-                            if (!Row.IsNull(Propiedades[i]) || !(System.DBNull.Value == Row[Propiedades[i]]))
+                            object DataCell = Row[Propiedades[i]];
+                            Type TypeCell = PropInfo[i].PropertyType;
+
+                            if (!Row.IsNull(Propiedades[i]) || !(System.DBNull.Value == DataCell))
                             {
-                                PropInfo[i].SetValue(
-                                obj, Convert.ChangeType(Row[Propiedades[i]], PropInfo[i].PropertyType), null
-                                );
+                                if (TypeCell.IsGenericType && TypeCell.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+                                {
+                                    TypeCell = Nullable.GetUnderlyingType(TypeCell);
+                                }
+
+                                PropInfo[i].SetValue(obj, Convert.ChangeType(DataCell, TypeCell));
                             }
                         }
                     }
