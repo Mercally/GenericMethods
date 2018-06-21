@@ -11,10 +11,7 @@ namespace CGC_GM_BE.Testing.Business
         public void TestMethod1()
         {
             Agenda_BL AgendaBL = new Agenda_BL();
-            int NumPagina = 1, TamanoPagina = 1;
-            string Filtro = "", Valor = "";
-
-            var Lista = AgendaBL.ConsultaPaginada(NumPagina, TamanoPagina, Filtro, Valor);
+            var Lista = AgendaBL.ConsultaGenerica();
 
             Assert.IsNotNull(Lista);
         }
