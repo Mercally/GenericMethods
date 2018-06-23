@@ -40,19 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Age_Tarea_Model.cs" />
-    <Compile Include="Model\Age_Agenda_Model.cs" />
-    <Compile Include="Conexion\AjustesComandosGenerico.cs" />
+    <Compile Include="ContextoBase.cs" />
+    <Compile Include="Interfaces\IBaseContext.cs" />
+    <Compile Include="Interfaces\IContextoCustomizado.cs" />
+    <Compile Include="Modelo\Cat_CatalogosModelo.cs" />
+    <Compile Include="Modelo\Com_ActividadesModelo.cs" />
     <Compile Include="Conexion\BaseDeDatos.cs" />
     <Compile Include="Conexion\Comandos.cs" />
-    <Compile Include="Consulta\ConsultaT_Sql.cs" />
-    <Compile Include="Consulta\TipoConsultaEnum.cs" />
-    <Compile Include="Context\CGC_GM_Contexto.cs" />
-    <Compile Include="Interface\IResultadoConsulta.cs" />
-    <Compile Include="Implement\ResultadoGenericoImpl.cs" />
-    <Compile Include="Model\Cat_Catalogos.cs" />
+    <Compile Include="Modelo\Com_BoletasModelo.cs" />
+    <Compile Include="Modelo\Neg_ClientesModelo.cs" />
+    <Compile Include="Modelo\Neg_ProyectosModelo.cs" />
+    <Compile Include="Modelo\Seg_UsuariosModelo.cs" />
+    <Compile Include="Modelo\_Resultado.cs" />
+    <Compile Include="Modelo\_ConsultaT_Sql.cs" />
+    <Compile Include="Modelo\_TipoConsultaEnum.cs" />
+    <Compile Include="CGC_GM_Contexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Seg_Usuario_Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\CGC_GM_BE.Common.Entities.csproj">

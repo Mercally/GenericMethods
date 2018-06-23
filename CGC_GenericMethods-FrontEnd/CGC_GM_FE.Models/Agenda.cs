@@ -26,6 +26,12 @@ namespace CGC_GM_FE.Models
         [MaxLength(500)]
         public string Descripcion { get; set; }
 
+        public DateTime? FechaCreado { get; set; }
+        public bool? EsActivo { get; set; }
+        public TimeSpan? TiempoTotal { get; set; }
+        public decimal? Dinero { get; set; }
+        public float? Float { get; set; }
+
         public List<Tarea> Tarea { get; set; }
         public List<Usuario> Usuario { get; set; }
     }

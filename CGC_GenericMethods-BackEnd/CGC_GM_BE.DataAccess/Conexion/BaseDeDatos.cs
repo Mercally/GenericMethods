@@ -20,7 +20,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         {
             get
             {
-                return ConfigurationSettings.AppSettings["CadenaDeConexion"];
+                return ConfigurationSettings.AppSettings["Time_Manager_CadenaDeConexion"];
             }
         }
 

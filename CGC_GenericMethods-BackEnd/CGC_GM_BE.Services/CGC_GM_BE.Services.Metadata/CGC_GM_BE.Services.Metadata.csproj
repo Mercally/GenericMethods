@@ -41,10 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceAgendaApi\IAgendasControllerApi.cs" />
-    <Compile Include="ServiceAgendaApi\ITareasControllerApi.cs" />
-    <Compile Include="ServiceCatalogoApi\ICatalogosControllerApi.cs" />
-    <Compile Include="ServiceSeguridadApi\IUsuariosControllerApi.cs" />
+    <Compile Include="ServiceTimeManagerApi\IBoletasControllerApi.cs" />
+    <Compile Include="ServiceTimeManagerApi\IActividadesControllerApi.cs" />
+    <Compile Include="ServiceTimeManagerApi\ICatalogosControllerApi.cs" />
+    <Compile Include="ServiceTimeManagerApi\IClientesControllerApi.cs" />
+    <Compile Include="ServiceTimeManagerApi\IProyectosControllerApi.cs" />
+    <Compile Include="ServiceTimeManagerApi\IUsuariosControllerApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\CGC_GM_BE.Common.Entities.csproj">
