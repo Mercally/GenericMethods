@@ -64,3 +64,14 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CG
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\obj\Debug\CGC_GM_BE.Services.ServiceTimeManagerApi.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\obj\Debug\CGC_GM_BE.Services.ServiceTimeManagerApi.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\obj\Debug\CGC_GM_BE.Services.ServiceTimeManagerApi.csprojAssemblyReference.cache
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Business.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Common.Entities.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Services.Metadata.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\Microsoft.Web.Infrastructure.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\Swashbuckle.Core.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\WebActivatorEx.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.DataAccess.dll
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Business.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Common.Entities.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Services.Metadata.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.DataAccess.pdb

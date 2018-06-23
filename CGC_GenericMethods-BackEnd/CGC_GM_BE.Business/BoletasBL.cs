@@ -10,22 +10,6 @@ namespace CGC_GM_BE.Business
 {    
     public class BoletasBL
     {
-        public static List<Boleta> ConsultarBoletasPorBoletaId(int BoletaId)
-        {
-            var ListaBoletas = new List<Boleta>();
-
-            using (var Contexto = new CGC_GM_Contexto())
-            {
-                ListaBoletas = 
-                     Contexto
-                    .Com_BoletasModelo
-                    .ConsultaPorBoletaId(BoletaId)
-                    .ConvertirResultadoLista<Boleta>();
-            }
-
-            return ListaBoletas;
-        }
-
         public static Boleta ConsultarBoletaPorBoletaId(int BoletaId)
         {
             var Boleta = new Boleta();
