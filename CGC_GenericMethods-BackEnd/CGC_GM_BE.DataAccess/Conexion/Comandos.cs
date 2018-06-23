@@ -5,13 +5,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CGC_GM_BE.DataAccess.Consulta;
-using CGC_GM_BE.DataAccess.Interface;
-using CGC_GM_BE.DataAccess.Implement;
+using CGC_GM_BE.DataAccess.Modelo;
 
 namespace CGC_GM_BE.DataAccess.Conexion
 {
-    public class Comandos
+    internal class Comandos
     {
         /// <summary>
         /// Constructor público por defecto
@@ -31,10 +29,8 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public DataTable ExecuteQuery(ConsultaT_Sql Consulta)
+        public DataTable ExecuteQuery(_ConsultaT_Sql Consulta)
         {
-            DataTable DataTable = new DataTable();
-
             if (Transaccion.Connection.State != ConnectionState.Open)
             {
                 Transaccion.Connection.Open();
@@ -44,10 +40,11 @@ namespace CGC_GM_BE.DataAccess.Conexion
             cmd.CommandTimeout = Consulta.TimeOut;
             cmd.Parameters.AddRange(Consulta.Parametros.ToArray());
 
-            SqlDataReader sqldr = cmd.ExecuteReader();
-            DataTable.Load(sqldr);
+            var SqlDataReader = cmd.ExecuteReader();
+            var DT = new DataTable();
+            DT.Load(SqlDataReader);
 
-            return DataTable;
+            return DT;
         }
 
         /// <summary>
@@ -55,7 +52,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public bool ExecuteNonQuery(ConsultaT_Sql Consulta)
+        public bool ExecuteNonQuery(_ConsultaT_Sql Consulta)
         {
             if (Transaccion.Connection.State != ConnectionState.Open)
             {
@@ -76,10 +73,8 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public int ExecuteScalarInsert(ConsultaT_Sql Consulta)
+        public int ExecuteScalarInsert(_ConsultaT_Sql Consulta)
         {
-            int? Result = 0;
-
             if (Transaccion.Connection.State != ConnectionState.Open)
             {
                 Transaccion.Connection.Open();
@@ -88,10 +83,18 @@ namespace CGC_GM_BE.DataAccess.Conexion
             SqlCommand cmd = new SqlCommand(Consulta.ConsultaCruda, Transaccion.Connection, Transaccion);
             cmd.CommandTimeout = Consulta.TimeOut;
             cmd.Parameters.AddRange(Consulta.Parametros.ToArray());
-            
-            Result = (int?)cmd.ExecuteScalar() as int?;
 
-            return Result ?? 0;
+            int Result = 0;
+            try
+            {
+                Result = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch
+            {
+                Result = 0;
+            }
+
+            return Result;
         }
 
         /// <summary>
@@ -99,7 +102,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public object ExecuteScalar(ConsultaT_Sql Consulta)
+        public object ExecuteScalar(_ConsultaT_Sql Consulta)
         {
             object Result = null;
 
@@ -122,22 +125,22 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns>objeto segun tipo de transaccion</returns>
-        public IResultadoConsulta Ejecutar(ConsultaT_Sql Consulta)
+        public _Resultado Ejecutar(_ConsultaT_Sql Consulta)
         {
-            IResultadoConsulta Resultado = new ResultadoGenericoImpl();
+            _Resultado Resultado = new _Resultado();
 
             switch (Consulta.TipoConsulta)
             {
-                case TipoConsultaEnum.Insert:
+                case _TipoConsultaEnum.Insert:
                     Resultado.ResultadoTipoInsert = ExecuteScalarInsert(Consulta);
                     break;
-                case TipoConsultaEnum.Update:
+                case _TipoConsultaEnum.Update:
                     Resultado.ResultadoTipoUpdate = ExecuteNonQuery(Consulta);
                     break;
-                case TipoConsultaEnum.Delete:
+                case _TipoConsultaEnum.Delete:
                     Resultado.ResultadoTipoDelete = ExecuteNonQuery(Consulta);
                     break;
-                case TipoConsultaEnum.Query:
+                case _TipoConsultaEnum.Query:
                     Resultado.ResultadoTipoQuery = ExecuteQuery(Consulta);
                     break;
                 default:

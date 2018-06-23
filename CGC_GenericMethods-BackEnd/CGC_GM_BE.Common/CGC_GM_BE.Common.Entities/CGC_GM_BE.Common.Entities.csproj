@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actividad.cs" />
     <Compile Include="Agenda.cs" />
+    <Compile Include="Boleta.cs" />
     <Compile Include="Catalogo.cs" />
+    <Compile Include="Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proyecto.cs" />
     <Compile Include="Tarea.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

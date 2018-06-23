@@ -369,6 +369,8 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\_bootswatch.scss" />
+    <Content Include="Content\_variables.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -384,6 +386,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -394,10 +397,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AgendasController.cs" />
-    <Compile Include="Controllers\InicioController.cs" />
-    <Compile Include="Controllers\SeguridadController.cs" />
-    <Compile Include="Controllers\TareasController.cs" />
+    <Compile Include="Controllers\GenericMethodsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -408,18 +408,6 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Seguridad\ListaUsuarios.cshtml" />
-    <Content Include="Views\Agendas\Index.cshtml" />
-    <Content Include="Views\Agendas\Detalle.cshtml" />
-    <Content Include="Views\Agendas\Nuevo.cshtml" />
-    <Content Include="Views\Agendas\Modificar.cshtml" />
-    <Content Include="Views\Agendas\Eliminar.cshtml" />
-    <Content Include="Views\Inicio\Index.cshtml" />
-    <Content Include="Views\Tareas\Index.cshtml" />
-    <Content Include="Views\Tareas\Nuevo.cshtml" />
-    <Content Include="Views\Tareas\Detalle.cshtml" />
-    <Content Include="Views\Tareas\Modificar.cshtml" />
-    <Content Include="Views\Tareas\Eliminar.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -431,6 +419,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\GenericMethods\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

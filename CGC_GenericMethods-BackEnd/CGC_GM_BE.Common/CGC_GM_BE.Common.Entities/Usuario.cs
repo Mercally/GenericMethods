@@ -8,13 +8,13 @@ namespace CGC_GM_BE.Common.Entities
 {
     public class Usuario
     {
-        public long Id { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Nombres { get; set; }
-        public string Apellidos { get; set; }
-        public string CorreoCorporativo { get; set; }
-        public string ContraseniaCorporativa { get; set; }
-
-        public List<Agenda> Agenda { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Correo { get; set; }
+        public string Contrasenia { get; set; }
+        public string _Contrasenia { get; set; }
+        public DateTime FechaRegistro { get; set; }
+        public bool EsActivo { get; set; }
     }
 }
