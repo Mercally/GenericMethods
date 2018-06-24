@@ -14,6 +14,12 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     public class ClientesController : ApiController, IClientesControllerApi
     {
         [HttpGet]
+        public List<Cliente> ConsultarClientes()
+        {
+            return ClientesBL.ConsultarClientes();
+        }
+
+        [HttpGet]
         [Route("{ClienteId}")]
         public Cliente ConsultarClientePorId(int ClienteId)
         {

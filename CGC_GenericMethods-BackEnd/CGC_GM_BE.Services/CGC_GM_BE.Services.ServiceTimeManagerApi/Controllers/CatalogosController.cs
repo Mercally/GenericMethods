@@ -14,6 +14,13 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     public class CatalogosController : ApiController, ICatalogosControllerApi
     {
         [HttpGet]
+        [Route("{Tabla}")]
+        public List<Catalogo> ConsultarCatalogoPorTabla(string Tabla)
+        {
+            return CatalogosBL.ConsultarCatalogoPorTabla(Tabla);
+        }
+
+        [HttpGet]
         [Route("{CatalogoId}/{Tabla}")]
         public Catalogo ConsultarCatalogoPorId(int CatalogoId, string Tabla)
         {

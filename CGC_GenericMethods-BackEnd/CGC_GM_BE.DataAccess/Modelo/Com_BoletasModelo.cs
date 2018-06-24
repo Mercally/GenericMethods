@@ -14,6 +14,18 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Com_BoletasModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
+        public _Resultado ConsultarBoletas()
+        {
+            _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
+            {
+                ConsultaCruda = @"SELECT Id, NumeroBoleta, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
+                                  FROM com.Boleta;",
+                TipoConsulta = _TipoConsultaEnum.Query
+            };
+
+            return Ejecutar(Consulta);
+        }
+
         public _Resultado ConsultaPorBoletaId(int BoletaId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
@@ -27,8 +39,6 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 },
                 TipoConsulta = _TipoConsultaEnum.Query
             };
-
-            _Resultado Resultado = new _Resultado();
 
             return Ejecutar(Consulta);
         }

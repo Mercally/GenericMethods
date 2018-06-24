@@ -14,6 +14,12 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     public class ProyectosController : ApiController, IProyectosControllerApi
     {
         [HttpGet]
+        public List<Proyecto> ConsultarProyectos()
+        {
+            return ProyectosBL.ConsultarProyectos();
+        }
+
+        [HttpGet]
         [Route("{ProyectoId}")]
         public Proyecto ConsultarProyectoPorId(int ProyectoId)
         {

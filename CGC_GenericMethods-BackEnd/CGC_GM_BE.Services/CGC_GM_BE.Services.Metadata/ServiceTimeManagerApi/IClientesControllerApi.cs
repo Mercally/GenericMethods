@@ -9,6 +9,7 @@ namespace CGC_GM_BE.Services.Metadata.ServiceTimeManagerApi
 {
     public interface IClientesControllerApi
     {
+        List<Cliente> ConsultarClientes();
         Cliente ConsultarClientePorId(int ClienteId);
         int InsertarCliente(Cliente Cliente);
         bool ModificarCliente(Cliente Cliente);

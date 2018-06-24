@@ -14,6 +14,19 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Neg_ClientesModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
+        public _Resultado ConsultaClientes()
+        {
+            _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
+            {
+                ConsultaCruda = @"SELECT Id, Nombre, FechaRegistro, EsActivo 
+                                  FROM neg.Cliente
+                                  WHERE EsActivo = 1;",
+                TipoConsulta = _TipoConsultaEnum.Query
+            };
+
+            return Ejecutar(Consulta);
+        }
+
         public _Resultado ConsultaPorClienteId(int ClienteId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()

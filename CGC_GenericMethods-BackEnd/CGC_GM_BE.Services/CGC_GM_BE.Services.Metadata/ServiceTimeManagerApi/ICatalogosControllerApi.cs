@@ -9,6 +9,7 @@ namespace CGC_GM_BE.Services.Metadata.ServiceTimeManagerApi
 {
     public interface ICatalogosControllerApi
     {
+        List<Catalogo> ConsultarCatalogoPorTabla(string Tabla);
         Catalogo ConsultarCatalogoPorId(int CatalogoId, string Tabla);
         int InsertarCatalogo(Catalogo Catalogo, string Tabla);
         bool ModificarCatalogo(Catalogo Catalogo, string Tabla);

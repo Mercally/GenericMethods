@@ -20,6 +20,12 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
             return BoletasBL.ConsultarBoletaPorBoletaId(BoletaId);
         }
 
+        [HttpGet]
+        public List<Boleta> ConsultarBoletas()
+        {
+            return BoletasBL.ConsultarBoletas();
+        }
+
         [HttpDelete]
         [Route("{BoletaId}")]
         public bool EliminarBoleta(int BoletaId)

@@ -1,0 +1,67 @@
+﻿@using CGC_GM_FE.WebAppMVC.HtmlExtensions
+
+<!DOCTYPE html>
+<html lang="es-sv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeManager | @ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Scripts/Site/Common.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class=" navbar navbar-expand-md navbar-fixed-top navbar-dark bg-primary">
+            <a class="navbar-brand" href="@Url.Action("Index", "Dashboard", null)">TimeManager</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item @Html.IsSelected("Usuarios")">
+                        @Html.ActionLink("Usuarios", "Index", "Usuarios", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item @Html.IsSelected("Boletas")">
+                        @Html.ActionLink("Boletas", "Index", "Boletas", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item @Html.IsSelected("Clientes")">
+                        @Html.ActionLink("Clientes", "Index", "Clientes", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item @Html.IsSelected("Proyectos")">
+                        @Html.ActionLink("Proyectos", "Index", "Proyectos", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item @Html.IsSelected("Reportes")">
+                        @Html.ActionLink("Reportes", "Index", "Reportes", null, new { @class = "nav-link" })
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" placeholder="Search" type="text">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <ol class="breadcrumb">
+            @RenderSection("Breadcrumb", false)
+        </ol>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - TimeManager</p>
+            </footer>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Site/Common.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

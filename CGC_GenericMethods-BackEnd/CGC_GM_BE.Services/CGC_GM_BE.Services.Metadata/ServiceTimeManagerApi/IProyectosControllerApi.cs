@@ -9,6 +9,7 @@ namespace CGC_GM_BE.Services.Metadata.ServiceTimeManagerApi
 {
     public interface IProyectosControllerApi
     {
+        List<Proyecto> ConsultarProyectos();
         Proyecto ConsultarProyectoPorId(int ProyectoId);
         int InsertarProyecto(Proyecto Proyecto);
         bool ModificarProyecto(Proyecto Proyecto);

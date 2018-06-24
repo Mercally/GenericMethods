@@ -10,6 +10,22 @@ namespace CGC_GM_BE.Business
 {    
     public class ProyectosBL
     {
+        public static List<Proyecto> ConsultarProyectos()
+        {
+            var ListaProyecto = new List<Proyecto>();
+
+            using (var Contexto = new CGC_GM_Contexto())
+            {
+                ListaProyecto =
+                     Contexto
+                    .Neg_ProyectosModelo
+                    .ConsultaProyectos()
+                    .ConvertirResultadoLista<Proyecto>();
+            }
+
+            return ListaProyecto;
+        }
+
         public static Proyecto ConsultarProyectoPorProyectoId(int ProyectoId)
         {
             var Proyecto = new Proyecto();

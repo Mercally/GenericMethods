@@ -10,6 +10,22 @@ namespace CGC_GM_BE.Business
 {    
     public class CatalogosBL
     {
+        public static List<Catalogo> ConsultarCatalogoPorTabla(string Tabla)
+        {
+            var ListaCatalogo = new List<Catalogo>();
+
+            using (var Contexto = new CGC_GM_Contexto())
+            {
+                ListaCatalogo =
+                     Contexto
+                    .Cat_CatalogosModelo
+                    .ConsultaPorTabla(Tabla)
+                    .ConvertirResultadoLista<Catalogo>();
+            }
+
+            return ListaCatalogo;
+        }
+
         public static Catalogo ConsultarCatalogoPorCatalogoId(int CatalogoId, string Tabla)
         {
             var Catalogo = new Catalogo();

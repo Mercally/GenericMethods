@@ -10,6 +10,22 @@ namespace CGC_GM_BE.Business
 {    
     public class ClientesBL
     {
+        public static List<Cliente> ConsultarClientes()
+        {
+            var ListaCliente = new List<Cliente>();
+
+            using (var Contexto = new CGC_GM_Contexto())
+            {
+                ListaCliente =
+                     Contexto
+                    .Neg_ClientesModelo
+                    .ConsultaClientes()
+                    .ConvertirResultadoLista<Cliente>();
+            }
+
+            return ListaCliente;
+        }
+
         public static Cliente ConsultarClientePorClienteId(int ClienteId)
         {
             var Cliente = new Cliente();

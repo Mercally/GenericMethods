@@ -14,6 +14,18 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Cat_CatalogosModelo(IContextoCustomizado Contexto) 
             : base(Contexto) { }
 
+        public _Resultado ConsultaPorTabla(string Tabla)
+        {
+            _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
+            {
+                ConsultaCruda = $@"SELECT Id, Nombre, FechaRegistro, EsActivo 
+                                   FROM cat.{Tabla};",
+                TipoConsulta = _TipoConsultaEnum.Query
+            };
+
+            return Ejecutar(Consulta);
+        }
+
         public _Resultado ConsultaPorTablaYId(int Id, string Tabla)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()

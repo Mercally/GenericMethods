@@ -10,6 +10,14 @@ namespace CGC_GM_BE.DataAccess.Modelo
 {
     public class _ConsultaT_Sql
     {
+        public _ConsultaT_Sql()
+        {
+            ConsultaCruda = string.Empty;
+            Parametros = new List<SqlParameter>();
+            TieneError = false;
+            TimeOut = 1;
+        }
+
         /// <summary>
         /// Consulta en forma de cadena T-SQL
         /// </summary>
