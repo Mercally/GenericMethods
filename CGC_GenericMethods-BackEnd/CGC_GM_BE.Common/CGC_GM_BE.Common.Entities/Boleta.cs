@@ -26,5 +26,6 @@ namespace CGC_GM_BE.Common.Entities
         public Usuario Usuario { get; set; }
         public Catalogo Departamento { get; set; }
         public List<Actividad> Actividades { get; set; }
+        public string Descripcion { get; set; }
     }
 }

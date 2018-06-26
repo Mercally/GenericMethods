@@ -13,6 +13,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
     public class ActividadesController : Controller
     {
         // GET: Index/id:int -> boletaId
+        [HttpGet]
         public ActionResult Index(int id)
         {
             var ListActividad = WebApiProvider.ActividadesApi.ConsultarActividadesPorBoletaId(id);
@@ -21,6 +22,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         }
 
         // GET: Index/id:int -> actividadId
+        [HttpGet]
         public ActionResult Details(int id)
         {
             Actividad Actividad = WebApiProvider.ActividadesApi.ConsultarActividadPorId(id);
@@ -28,6 +30,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         }
 
         // GET: Create/id:int -> boletaId
+        [HttpGet]
         public ActionResult Create(int id)
         {
             var ListEstadoActividad = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("EstadoVisita");
@@ -59,6 +62,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         }
 
         // GET: Index/id:int -> actividadId
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var ListEstadoActividad = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("EstadoVisita");

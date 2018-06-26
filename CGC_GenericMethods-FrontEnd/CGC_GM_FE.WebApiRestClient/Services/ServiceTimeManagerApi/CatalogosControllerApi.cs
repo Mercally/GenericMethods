@@ -53,7 +53,8 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             var Respuesta = GenericHelper
                 .Request<int>(
                 Url: $"{ApiUri}/{Tabla}",
-                Method: HttpMethodEnum.HttpPost_Json
+                Method: HttpMethodEnum.HttpPost_Json,
+                Data: Catalogo
                 );
 
             return Respuesta;
@@ -64,7 +65,8 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             var Respuesta = GenericHelper
                 .Request<bool>(
                 Url: $"{ApiUri}/{Tabla}",
-                Method: HttpMethodEnum.HttpPut_Json
+                Method: HttpMethodEnum.HttpPut_Json,
+                Data: Catalogo
                 );
 
             return Respuesta;

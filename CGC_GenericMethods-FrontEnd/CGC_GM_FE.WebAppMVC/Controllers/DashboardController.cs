@@ -8,7 +8,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
 {
     public class DashboardController : Controller
     {
-        // GET: Dashboard
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

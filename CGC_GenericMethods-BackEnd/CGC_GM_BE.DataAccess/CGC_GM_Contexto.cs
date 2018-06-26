@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using CGC_GM_BE.DataAccess.Conexion;
 using CGC_GM_BE.DataAccess.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
+using CGC_GM_BE.Common.Entities;
 
 namespace CGC_GM_BE.DataAccess
 {
@@ -149,6 +150,11 @@ namespace CGC_GM_BE.DataAccess
         public _Resultado Ejecutar(_ConsultaT_Sql Consulta)
         {
             return Comandos.Ejecutar(Consulta);
+        }
+
+        public _ResultadoV2 EjecutarV2(_ConsultaT_Sql Consulta)
+        {
+            return Comandos.EjecutarV2(Consulta);
         }
 
         /*

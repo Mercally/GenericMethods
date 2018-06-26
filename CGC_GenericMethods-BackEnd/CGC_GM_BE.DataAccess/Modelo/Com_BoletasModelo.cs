@@ -18,7 +18,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
-                ConsultaCruda = @"SELECT Id, NumeroBoleta, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
+                ConsultaCruda = @"SELECT Id, NumeroBoleta, Descripcion, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
                                   FROM com.Boleta;",
                 TipoConsulta = _TipoConsultaEnum.Query
             };
@@ -26,11 +26,23 @@ namespace CGC_GM_BE.DataAccess.Modelo
             return Ejecutar(Consulta);
         }
 
+        public _ResultadoV2 ConsultarBoletasV2()
+        {
+            _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
+            {
+                ConsultaCruda = @"SELECT Id, NumeroBoleta, Descripcion, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
+                                  FROM com.Boleta;",
+                TipoConsulta = _TipoConsultaEnum.Query
+            };
+
+            return EjecutarV2(Consulta);
+        }
+
         public _Resultado ConsultaPorBoletaId(int BoletaId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
-                ConsultaCruda = @"SELECT Id, NumeroBoleta, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
+                ConsultaCruda = @"SELECT Id, NumeroBoleta, Descripcion, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
                                   FROM com.Boleta 
                                   Where Id = @BoletaId",
                 Parametros = new List<SqlParameter>()
@@ -47,11 +59,12 @@ namespace CGC_GM_BE.DataAccess.Modelo
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
-                ConsultaCruda = @"INSERT INTO com.Boleta(NumeroBoleta, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, UsuarioId, DepartamentoId, FechaRegistro, EsActivo)  
-                                  VALUES(@NumeroBoleta, @FechaEntrada, @FechaSalida, @TiempoEfectivo, @TiempoInvertidoEn, @ProyectoId, @ClienteId, @UsuarioId, @DepartamentoId, @FechaRegistro, @EsActivo);
+                ConsultaCruda = @"INSERT INTO com.Boleta(NumeroBoleta, Descripcion, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, UsuarioId, DepartamentoId, FechaRegistro, EsActivo)  
+                                  VALUES(@NumeroBoleta, @Descripcion, @FechaEntrada, @FechaSalida, @TiempoEfectivo, @TiempoInvertidoEn, @ProyectoId, @ClienteId, @UsuarioId, @DepartamentoId, @FechaRegistro, @EsActivo);
                                   SELECT SCOPE_IDENTITY();",
                 Parametros = new List<SqlParameter>() {
                                 new SqlParameter("NumeroBoleta", Boleta.NumeroBoleta),
+                                new SqlParameter("Descripcion", Boleta.Descripcion),
                                 new SqlParameter("FechaEntrada", Boleta.FechaEntrada),
                                 new SqlParameter("FechaSalida", Boleta.FechaSalida),
                                 new SqlParameter("TiempoInvertidoEn", Boleta.TiempoInvertidoEn),
@@ -73,12 +86,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
-                ConsultaCruda = @"UPDATE com.Boleta SET NumeroBoleta=@NumeroBoleta, FechaEntrada=@FechaEntrada, FechaSalida=@FechaSalida, 
+                ConsultaCruda = @"UPDATE com.Boleta SET NumeroBoleta=@NumeroBoleta, Descripcion=@Descripcion, FechaEntrada=@FechaEntrada, FechaSalida=@FechaSalida, 
                                   TiempoEfectivo=@TiempoEfectivo, TiempoInvertidoEn=@TiempoInvertidoEn, ProyectoId=@ProyectoId, 
-                                  ClienteId=@ClienteId, UsuarioId=@UsuarioId, DepartamentoId=@DepartamentoId, FechaRegistro=@FechaRegistro, EsActivo=@EsActivo WHERE Id=@id",
+                                  ClienteId=@ClienteId, UsuarioId=@UsuarioId, DepartamentoId=@DepartamentoId, FechaRegistro=@FechaRegistro, EsActivo=@EsActivo WHERE Id=@BoletaId;",
                 Parametros = new List<SqlParameter>() {
-                                new SqlParameter("id", Boleta.Id),
+                                new SqlParameter("BoletaId", Boleta.Id),
                                 new SqlParameter("NumeroBoleta", Boleta.NumeroBoleta),
+                                new SqlParameter("Descripcion", Boleta.Descripcion),
                                 new SqlParameter("FechaEntrada", Boleta.FechaEntrada),
                                 new SqlParameter("FechaSalida", Boleta.FechaSalida),
                                 new SqlParameter("TiempoInvertidoEn", Boleta.TiempoInvertidoEn),

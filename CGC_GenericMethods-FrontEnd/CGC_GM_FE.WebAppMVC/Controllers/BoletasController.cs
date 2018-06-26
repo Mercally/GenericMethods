@@ -19,6 +19,13 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         }
 
         [HttpGet]
+        public ActionResult IndexV2()
+        {
+            var ListBoleta = WebApiProvider.BoletasApi.ConsultarBoletasV2();
+            return View(ListBoleta);
+        }
+
+        [HttpGet]
         public ActionResult Create()
         {
             var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
@@ -84,9 +91,34 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Boleta boleta)
+        public ActionResult Edit(Boleta Boleta)
         {
-            return View();
+            Boleta.FechaRegistro = DateTime.Now;
+            Boleta.UsuarioId = 1; // Usuario actual
+
+            bool Modificado = WebApiProvider.BoletasApi.ModificarBoleta(Boleta);
+
+            if (Modificado)
+            {
+                return RedirectToAction("Details", new { id = Boleta.Id });
+            }
+            else
+            {
+                var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
+                ViewBag.ListCliente = ListCliente.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+                var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
+                ViewBag.ListProyecto = ListProyecto.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
+
+                var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
+                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+                var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
+                ViewBag.Departamento = ListDepartamento.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+                ModelState.AddModelError(string.Empty, "Ocurrió un error al modificar la boleta");
+                return View();
+            }
         }
 
         [HttpPost]

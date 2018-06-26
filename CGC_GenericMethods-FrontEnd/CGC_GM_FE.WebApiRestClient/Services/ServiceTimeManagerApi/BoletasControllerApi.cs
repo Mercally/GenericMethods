@@ -30,7 +30,18 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
         {
             var Respuesta = GenericHelper
                 .Request<List<Boleta>>(
-                Url: $"{ApiUri}",
+                Url: ApiUri,
+                Method: HttpMethodEnum.HttpGet
+                );
+
+            return Respuesta;
+        }
+
+        public List<Boleta> ConsultarBoletasV2()
+        {
+            var Respuesta = GenericHelper
+                .Request<List<Boleta>>(
+                Url: $"{ApiUri}/V2",
                 Method: HttpMethodEnum.HttpGet
                 );
 

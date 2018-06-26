@@ -48,8 +48,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesBL_UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ActividadesBL_UnitTest.cs" />
+    <Compile Include="BoletasBL_UnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

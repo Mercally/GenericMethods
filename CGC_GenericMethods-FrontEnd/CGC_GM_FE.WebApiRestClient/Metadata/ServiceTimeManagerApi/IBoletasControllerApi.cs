@@ -9,6 +9,7 @@ namespace CGC_GM_FE.WebApiRestClient.Metadata.ServiceTimeManagerApi
 {
     public interface IBoletasControllerApi
     {
+        List<Boleta> ConsultarBoletasV2();
         List<Boleta> ConsultarBoletas();
         Boleta ConsultarBoletaPorId(int BoletaId);
         int InsertarBoleta(Boleta Boleta);

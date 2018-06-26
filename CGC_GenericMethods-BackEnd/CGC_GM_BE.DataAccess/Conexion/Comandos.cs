@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CGC_GM_BE.Common.Entities;
 using CGC_GM_BE.DataAccess.Modelo;
 
 namespace CGC_GM_BE.DataAccess.Conexion
@@ -45,6 +46,21 @@ namespace CGC_GM_BE.DataAccess.Conexion
             DT.Load(SqlDataReader);
 
             return DT;
+        }
+
+        public SqlDataReader ExecuteQueryV2(_ConsultaT_Sql Consulta)
+        {
+            if (Transaccion.Connection.State != ConnectionState.Open)
+            {
+                Transaccion.Connection.Open();
+            }
+
+            SqlCommand cmd = new SqlCommand(Consulta.ConsultaCruda, Transaccion.Connection, Transaccion);
+            cmd.CommandTimeout = Consulta.TimeOut;
+            cmd.Parameters.AddRange(Consulta.Parametros.ToArray());
+
+            var SqlDataReader = cmd.ExecuteReader();
+            return SqlDataReader;
         }
 
         /// <summary>
@@ -142,6 +158,31 @@ namespace CGC_GM_BE.DataAccess.Conexion
                     break;
                 case _TipoConsultaEnum.Query:
                     Resultado.ResultadoTipoQuery = ExecuteQuery(Consulta);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("No existe la opción especificada");
+            }
+
+            return Resultado;
+        }
+
+        public _ResultadoV2 EjecutarV2(_ConsultaT_Sql Consulta)
+        {
+            _ResultadoV2 Resultado = new _ResultadoV2();
+
+            switch (Consulta.TipoConsulta)
+            {
+                case _TipoConsultaEnum.Insert:
+                    Resultado.ResultadoTipoInsert = ExecuteScalarInsert(Consulta);
+                    break;
+                case _TipoConsultaEnum.Update:
+                    Resultado.ResultadoTipoUpdate = ExecuteNonQuery(Consulta);
+                    break;
+                case _TipoConsultaEnum.Delete:
+                    Resultado.ResultadoTipoDelete = ExecuteNonQuery(Consulta);
+                    break;
+                case _TipoConsultaEnum.Query:
+                    Resultado.ResultadoTipoQuery = ExecuteQueryV2(Consulta);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("No existe la opción especificada");

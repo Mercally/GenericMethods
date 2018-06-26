@@ -20,7 +20,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             var Respuesta = GenericHelper
                 .Request<List<Actividad>>(
                 Url: $"{ApiUri}/ActividadesBoleta/{BoletaId}",
-                Method: HttpMethodEnum.HttpPut_Json
+                Method: HttpMethodEnum.HttpGet
                 );
 
             return Respuesta;
@@ -31,7 +31,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             var Respuesta = GenericHelper
                 .Request<Actividad>(
                 Url: $"{ApiUri}/{ActividadId}",
-                Method: HttpMethodEnum.HttpPut_Json
+                Method: HttpMethodEnum.HttpGet
                 );
 
             return Respuesta;
@@ -53,7 +53,8 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             var Respuesta = GenericHelper
                 .Request<int>(
                 Url: ApiUri,
-                Method: HttpMethodEnum.HttpPost_Json
+                Method: HttpMethodEnum.HttpPost_Json,
+                Data: Actividad
                 );
 
             return Respuesta;
@@ -64,7 +65,8 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             var Respuesta = GenericHelper
                 .Request<bool>(
                 Url: ApiUri,
-                Method: HttpMethodEnum.HttpPut_Json
+                Method: HttpMethodEnum.HttpPut_Json,
+                Data: Actividad
                 );
 
             return Respuesta;

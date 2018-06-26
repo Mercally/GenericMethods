@@ -21,7 +21,7 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
         }
 
         [HttpGet]
-        [Route("{ActiviadId}")]
+        [Route("{ActividadId}")]
         public Actividad ConsultarActividadPorId(int ActividadId)
         {
             return ActividadesBL.ConsultarActividadPorActividadId(ActividadId);

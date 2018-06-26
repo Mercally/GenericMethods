@@ -45,39 +45,12 @@ namespace CGC_GM_BE.DataAccess.Modelo
 
         public _Resultado InsertarCliente(Cliente Cliente)
         {
-            _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
-            {
-                ConsultaCruda = @"INSERT INTO neg.Cliente(Nombre, FechaRegistro, EsActivo) 
-                                  VALUES(@Nombre, @FechaRegistro, @EsActivo);
-                                  SELECT SCOPE_IDENTITY();",
-                Parametros = new List<SqlParameter>() {
-                                new SqlParameter("Nombre", Cliente.Nombre),
-                                new SqlParameter("FechaRegistro", Cliente.FechaRegistro),
-                                new SqlParameter("EsActivo", Cliente.EsActivo)
-                            },
-                TipoConsulta = _TipoConsultaEnum.Insert
-            };
-
-            return Ejecutar(Consulta);
+            return Ejecutar(_ConsultaT_Sql.CreateQuery(Cliente, _TipoConsultaEnum.Insert));
         }
 
         public _Resultado ModificarCliente(Cliente Cliente)
         {
-            _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
-            {
-                ConsultaCruda = @"UPDATE neg.Cliente SET Nombre=@Nombre, FechaRegistro=@FechaRegistro, EsActivo=@EsActivo 
-                                  WHERE Id = @ClienteId;",
-                Parametros = new List<SqlParameter>()
-                {
-                    new SqlParameter("ClienteId", Cliente.Id),
-                    new SqlParameter("Nombre", Cliente.Nombre),
-                    new SqlParameter("FechaRegistro", Cliente.FechaRegistro),
-                    new SqlParameter("EsActivo", Cliente.EsActivo)
-                },
-                TipoConsulta = _TipoConsultaEnum.Update
-            };
-
-            return Ejecutar(Consulta);
+            return Ejecutar(_ConsultaT_Sql.CreateQuery(Cliente, _TipoConsultaEnum.Update));
         }
 
         public _Resultado EliminarCliente(int ClienteId, bool EsEliminadoFisico = false)

@@ -26,7 +26,7 @@ namespace CGC_GM_FE.Common.Utilities
                     new SelectListItem()
                     {
                         Text = DefaultItem.Texto,
-                        Value = DefaultItem.Valor
+                        Value = DefaultItem.Valor.StringOrNull()
                     });
             }
 

@@ -51,6 +51,8 @@
     <Compile Include="Modelo\Neg_ClientesModelo.cs" />
     <Compile Include="Modelo\Neg_ProyectosModelo.cs" />
     <Compile Include="Modelo\Seg_UsuariosModelo.cs" />
+    <Compile Include="Modelo\_SqlQuery.cs" />
+    <Compile Include="Modelo\_ResultadoV2.cs" />
     <Compile Include="Modelo\_Resultado.cs" />
     <Compile Include="Modelo\_ConsultaT_Sql.cs" />
     <Compile Include="Modelo\_TipoConsultaEnum.cs" />

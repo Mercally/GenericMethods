@@ -56,5 +56,10 @@ namespace CGC_GM_FE.Common.Models
         public Catalogo Departamento { get; set; }
         [HiddenInput]
         public List<Actividad> Actividades { get; set; }
+
+        [Required]
+        [DisplayName("Descripción")]
+        [MaxLength(349)]
+        public string Descripcion { get; set; }
     }
 }

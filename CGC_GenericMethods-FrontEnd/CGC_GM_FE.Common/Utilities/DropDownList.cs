@@ -11,10 +11,10 @@ namespace CGC_GM_FE.Common.Utilities
         public DropDownList(string Texto, object Valor)
         {
             this.Texto = Texto;
-            this.Valor = Valor as string;
+            this.Valor = Valor;
         }
 
         public string Texto { get; set; }
-        public string Valor { get; set; }
+        public object Valor { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using CGC_GM_BE.Common.Entities;
 using CGC_GM_BE.DataAccess;
 
 namespace CGC_GM_BE.Business
-{    
+{
     public class BoletasBL
     {
         public static List<Boleta> ConsultarBoletas()
@@ -21,6 +21,22 @@ namespace CGC_GM_BE.Business
                     .Com_BoletasModelo
                     .ConsultarBoletas()
                     .ConvertirResultadoLista<Boleta>();
+            }
+
+            return Boletas;
+        }
+
+        public static List<Boleta> ConsultarBoletasV2()
+        {
+            var Boletas = new List<Boleta>();
+
+            using (var Contexto = new CGC_GM_Contexto())
+            {
+                Boletas =
+                     Contexto
+                    .Com_BoletasModelo
+                    .ConsultarBoletasV2()
+                    .ConvertirResultadoLista();
             }
 
             return Boletas;
@@ -81,10 +97,10 @@ namespace CGC_GM_BE.Business
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Eliminado =
-                     Contexto
-                    .Com_BoletasModelo
-                    .EliminarBoleta(BoletaId)
-                    .ResultadoTipoUpdate;
+                 Contexto
+                .Com_BoletasModelo
+                .EliminarBoleta(BoletaId)
+                .ResultadoTipoDelete;
             }
 
             return Eliminado;

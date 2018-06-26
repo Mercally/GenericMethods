@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-sm-12 col-lg-3">
         <div class="card text-white bg-primary mb-0">
-            <div class="card-header"><h4><i class="fa fa-sticky-note"></i>&nbsp;Bolera</h4></div>
+            <div class="card-header"><h4><i class="fa fa-sticky-note"></i>&nbsp;Boleta</h4></div>
             <div class="card-body">
                 <h5>Editar una boleta</h5>
                 <p class="card-text">Modifique la información necesaria de la boleta.</p>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="col-sm-12 col-lg-9">
-        @using (Html.BeginForm("Edit", "Boleta", FormMethod.Post))
+        @using (Html.BeginForm("Edit", "Boletas", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -32,6 +32,13 @@
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.NumeroBoleta, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
                             @Html.ValidationMessageFor(model => model.NumeroBoleta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
+                            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
@@ -92,7 +99,7 @@
                     <div class="form-group">
                         @Html.Label("Actividades", htmlAttributes: new { @class = "control-label col-md-12" })
                         <div class="col-md-12">
-                            @Html.ActionLink("Gestionar actividades", "Index", new { controller = "Actividad", id = Model.Id }, null)
+                            @Html.ActionLink("Gestionar actividades", "Index", new { controller = "Actividades", id = Model.Id }, null)
                         </div>
                     </div>
                 </div>

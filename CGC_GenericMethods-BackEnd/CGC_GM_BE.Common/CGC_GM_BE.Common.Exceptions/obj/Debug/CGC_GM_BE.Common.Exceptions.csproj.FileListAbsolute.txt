@@ -9,3 +9,4 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csproj.CoreCompileInputs.cache
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csprojAssemblyReference.cache
