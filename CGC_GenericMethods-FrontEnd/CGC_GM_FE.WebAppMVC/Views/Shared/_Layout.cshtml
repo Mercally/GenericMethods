@@ -11,7 +11,6 @@
     <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Scripts/Site/Common.css" rel="stylesheet" />
     @RenderSection("Styles", false)
 </head>
 <body>
@@ -26,10 +25,19 @@
                     @*<li class="nav-item @Html.IsSelected("Usuarios")">
                             @Html.ActionLink("Usuarios", "Index", "Usuarios", null, new { @class = "nav-link" })
                         </li>*@
-                    <li class="nav-item @Html.IsSelected("Boletas")">
-                        @Html.ActionLink("Boletas", "Index", "Boletas", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item @Html.IsSelected("Boletas")">
+                    @if (Request.RequestContext.RouteData.Values["action"] as string != "IndexV2")
+                    {
+                        <li class="nav-item @Html.IsSelected("Boletas")">
+                            @Html.ActionLink("Boletas", "Index", "Boletas", null, new { @class = "nav-link" })
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Boletas", "Index", "Boletas", null, new { @class = "nav-link" })
+                        </li>
+                    }
+                    <li class="nav-item @Html.IsSelected("Boletas", "IndexV2")">
                         @Html.ActionLink("BoletasV2", "IndexV2", "Boletas", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item @Html.IsSelected("Clientes")">
@@ -64,7 +72,6 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/Site/Common.js"></script>
     @RenderSection("Scripts", false)
 </body>
 </html>

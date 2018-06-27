@@ -121,6 +121,33 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Boleta Boleta = WebApiProvider.BoletasApi.ConsultarBoletaPorId(id);
+
+            if (Boleta != null)
+            {
+                var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
+                ViewBag.ListCliente = ListCliente.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+                var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
+                ViewBag.ListProyecto = ListProyecto.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
+
+                var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
+                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+                var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
+                ViewBag.Departamento = ListDepartamento.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+                return View(Boleta);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
         [HttpPost]
         public ActionResult Delete(int id)
         {
