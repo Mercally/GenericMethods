@@ -136,6 +136,10 @@ namespace CGC_GM_BE.DataAccess
         /// </summary>
         public void Dispose()
         {
+            if (this == null)
+            {
+                return;
+            }
             CommitOrRollback();
 
             Transaccion.Dispose();

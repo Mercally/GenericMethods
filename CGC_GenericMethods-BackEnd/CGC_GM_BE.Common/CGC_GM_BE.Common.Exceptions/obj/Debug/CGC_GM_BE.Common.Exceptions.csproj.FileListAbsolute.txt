@@ -10,3 +10,5 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csprojAssemblyReference.cache
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll.CodeAnalysisLog.xml
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll.lastcodeanalysissucceeded

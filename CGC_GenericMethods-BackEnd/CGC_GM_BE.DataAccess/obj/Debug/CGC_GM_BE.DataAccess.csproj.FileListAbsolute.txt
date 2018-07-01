@@ -16,3 +16,5 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.csproj.CopyComplete
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.pdb
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.DataAccess.dll.CodeAnalysisLog.xml
+C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.DataAccess.dll.lastcodeanalysissucceeded

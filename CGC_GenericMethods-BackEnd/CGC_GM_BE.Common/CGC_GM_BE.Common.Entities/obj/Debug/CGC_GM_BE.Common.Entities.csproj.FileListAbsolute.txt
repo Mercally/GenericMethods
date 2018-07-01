@@ -14,4 +14,3 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\obj\Debug\CGC_GM_BE.Common.Entities.csproj.CoreCompileInputs.cache
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\obj\Debug\CGC_GM_BE.Common.Entities.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\obj\Debug\CGC_GM_BE.Common.Entities.pdb
-C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\obj\Debug\CGC_GM_BE.Common.Entities.csprojAssemblyReference.cache
