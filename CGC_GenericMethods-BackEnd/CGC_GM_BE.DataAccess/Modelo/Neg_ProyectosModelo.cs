@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CGC_GM_BE.Common.Entities;
 using CGC_GM_BE.DataAccess.Interfaces;
+using CGC_GM_BE.Common.Entities.Constantes;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
@@ -14,20 +15,20 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Neg_ProyectosModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
-        public _Resultado ConsultaProyectos()
+        public _Resultado<T> ConsultaProyectos<T>()
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
                 ConsultaCruda = @"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                   FROM neg.Proyecto 
                                   WHERE EsActivo = 1;",
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
 
-        public _Resultado ConsultaPorProyectoId(int ProyectoId)
+        public _Resultado<T> ConsultaPorProyectoId<T>(int ProyectoId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -38,13 +39,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ProyectoId", ProyectoId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
 
-        public _Resultado InsertarProyecto(Proyecto Proyecto)
+        public _Resultado<T> InsertarProyecto<T>(Proyecto Proyecto)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -56,13 +57,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Proyecto.FechaRegistro),
                                 new SqlParameter("EsActivo", Proyecto.EsActivo)
                             },
-                TipoConsulta = _TipoConsultaEnum.Insert
+                TipoConsulta = TipoConsulta.Insert
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
 
-        public _Resultado ModificarProyecto(Proyecto Proyecto)
+        public _Resultado<T> ModificarProyecto<T>(Proyecto Proyecto)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -75,13 +76,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                     new SqlParameter("FechaRegistro", Proyecto.FechaRegistro),
                     new SqlParameter("EsActivo", Proyecto.EsActivo)
                 },
-                TipoConsulta = _TipoConsultaEnum.Update
+                TipoConsulta = TipoConsulta.Update
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
 
-        public _Resultado EliminarProyecto(int ProyectoId, bool EsEliminadoFisico = false)
+        public _Resultado<T> EliminarProyecto<T>(int ProyectoId, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -101,10 +102,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ProyectoId", ProyectoId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Delete
+                TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
     }
 }

@@ -9,7 +9,7 @@ using CGC_GM_BE.DataAccess.Modelo;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
-    public class _Resultado
+    public class _ResultadoDB
     {
         public int ResultadoTipoInsert { get; set; }
         public bool ResultadoTipoUpdate { get; set; }
@@ -17,6 +17,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public DataTable ResultadoTipoQuery { get; set; }
         public int CantidadCambios { get; set; }
         public System.Exception Excepcion { get; set; }
+        public int TipoConsulta { get; set; }
 
         public bool EsCorrecto
         {
@@ -90,7 +91,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public T ConvertiresultadoUnico<T>()
         {
             List<T> ListaResultado = new List<T>();
-            
+
             if (!this.EsCorrecto)
             {
                 return default(T);

@@ -10,33 +10,31 @@ namespace CGC_GM_BE.Business
 {    
     public class ProyectosBL
     {
-        public static List<Proyecto> ConsultarProyectos()
+        public static _Resultado<List<Proyecto>> ConsultarProyectos()
         {
-            var ListaProyecto = new List<Proyecto>();
+            var ListaProyecto = new _Resultado<List<Proyecto>>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 ListaProyecto =
                      Contexto
                     .Neg_ProyectosModelo
-                    .ConsultaProyectos()
-                    .ConvertirResultadoLista<Proyecto>();
+                    .ConsultaProyectos<List<Proyecto>>();
             }
 
             return ListaProyecto;
         }
 
-        public static Proyecto ConsultarProyectoPorProyectoId(int ProyectoId)
+        public static _Resultado<Proyecto> ConsultarProyectoPorProyectoId(int ProyectoId)
         {
-            var Proyecto = new Proyecto();
+            var Proyecto = new _Resultado<Proyecto>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Proyecto =
                      Contexto
                     .Neg_ProyectosModelo
-                    .ConsultaPorProyectoId(ProyectoId)
-                    .ConvertiresultadoUnico<Proyecto>();
+                    .ConsultaPorProyectoId<Proyecto>(ProyectoId);
             }
 
             return Proyecto;
@@ -51,8 +49,7 @@ namespace CGC_GM_BE.Business
                 ProyectoId =
                      Contexto
                     .Neg_ProyectosModelo
-                    .InsertarProyecto(Proyecto)
-                    .ResultadoTipoInsert;
+                    .InsertarProyecto(Proyecto);
             }
 
             return ProyectoId;
@@ -67,8 +64,7 @@ namespace CGC_GM_BE.Business
                 Modificado =
                      Contexto
                     .Neg_ProyectosModelo
-                    .ModificarProyecto(Proyecto)
-                    .ResultadoTipoUpdate;
+                    .ModificarProyecto(Proyecto);
             }
 
             return Modificado;
@@ -83,8 +79,7 @@ namespace CGC_GM_BE.Business
                 Eliminado =
                      Contexto
                     .Neg_ProyectosModelo
-                    .EliminarProyecto(ProyectoId)
-                    .ResultadoTipoUpdate;
+                    .EliminarProyecto(ProyectoId);
             }
 
             return Eliminado;

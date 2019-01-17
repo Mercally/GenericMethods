@@ -75,3 +75,6 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CG
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Common.Entities.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.Services.Metadata.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\bin\CGC_GM_BE.DataAccess.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\obj\Debug\CGC_GM_BE.Services.ServiceTimeManagerApi.csprojAssemblyReference.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\obj\Debug\CGC_GM_BE.Services.ServiceTimeManagerApi.csproj.CoreCompileInputs.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Services\CGC_GM_BE.Services.ServiceTimeManagerApi\obj\Debug\CGC_GM_BE.Services.ServiceTimeManagerApi.pdb

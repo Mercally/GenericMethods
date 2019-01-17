@@ -25,10 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM_BE.Services.ServiceT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B0F7F91E-291A-430A-A3C7-4EAD4C500CBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGC_GM_BE.Common.Extensions", "CGC_GM_BE.Common\CGC_GM_BE.Common.Extensions\CGC_GM_BE.Common.Extensions.csproj", "{B303C645-87CE-4DAA-A9D5-83E3E644A0F1}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -62,6 +61,10 @@ Global
 		{D25E79CB-7FC7-411F-B35F-2085CF7E5A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D25E79CB-7FC7-411F-B35F-2085CF7E5A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D25E79CB-7FC7-411F-B35F-2085CF7E5A9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B303C645-87CE-4DAA-A9D5-83E3E644A0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B303C645-87CE-4DAA-A9D5-83E3E644A0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B303C645-87CE-4DAA-A9D5-83E3E644A0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B303C645-87CE-4DAA-A9D5-83E3E644A0F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,8 +75,12 @@ Global
 		{F56B77A9-D0F8-4052-BB0A-8DF644A097F2} = {5F80AACA-9826-431C-BA55-99D0E855850A}
 		{297C60B0-C378-4315-9895-311C19DCDD13} = {B0232342-AB49-43A2-A717-F07855082851}
 		{D25E79CB-7FC7-411F-B35F-2085CF7E5A9B} = {50F3EA86-2CBE-4034-9DCF-4ED30697CF04}
+		{B303C645-87CE-4DAA-A9D5-83E3E644A0F1} = {5F80AACA-9826-431C-BA55-99D0E855850A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73464A0B-4DF9-44AA-86E2-BBA5F8DBD165}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

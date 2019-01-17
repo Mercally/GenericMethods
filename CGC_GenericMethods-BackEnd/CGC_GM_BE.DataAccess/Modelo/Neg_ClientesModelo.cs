@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CGC_GM_BE.Common.Entities;
 using CGC_GM_BE.DataAccess.Interfaces;
+using CGC_GM_BE.Common.Entities.Constantes;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
@@ -14,20 +15,20 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Neg_ClientesModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
-        public _Resultado ConsultaClientes()
+        public _Resultado<T> ConsultaClientes<T>()
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
                 ConsultaCruda = @"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                   FROM neg.Cliente
                                   WHERE EsActivo = 1;",
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
 
-        public _Resultado ConsultaPorClienteId(int ClienteId)
+        public _Resultado<T> ConsultaPorClienteId<T>(int ClienteId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -37,23 +38,23 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ClienteId", ClienteId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
 
-        public _Resultado InsertarCliente(Cliente Cliente)
+        public _Resultado<T> InsertarCliente<T>(Cliente Cliente)
         {
-            return Ejecutar(_ConsultaT_Sql.CreateQuery(Cliente, _TipoConsultaEnum.Insert));
+            return Ejecutar<T>(Cliente, TipoConsulta.Insert);
         }
 
-        public _Resultado ModificarCliente(Cliente Cliente)
+        public _Resultado<T> ModificarCliente<T>(Cliente Cliente)
         {
-            return Ejecutar(_ConsultaT_Sql.CreateQuery(Cliente, _TipoConsultaEnum.Update));
+            return Ejecutar<T>(_ConsultaT_Sql.CreateQuery(Cliente, TipoConsulta.Update));
         }
 
-        public _Resultado EliminarCliente(int ClienteId, bool EsEliminadoFisico = false)
+        public _Resultado<T> EliminarCliente<T>(int ClienteId, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -73,10 +74,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ClienteId", ClienteId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Delete
+                TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<T>(Consulta);
         }
     }
 }

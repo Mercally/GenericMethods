@@ -45,6 +45,7 @@
     <Compile Include="Boleta.cs" />
     <Compile Include="Catalogo.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Constantes\TipoConsulta.cs" />
     <Compile Include="Notations\ColumnAttribute.cs" />
     <Compile Include="Notations\KeyAttribute.cs" />
     <Compile Include="Notations\TableAttribute.cs" />
@@ -52,6 +53,13 @@
     <Compile Include="Proyecto.cs" />
     <Compile Include="Tarea.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="_Resultado.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CGC_GM_BE.Common.Extensions\CGC_GM_BE.Common.Extensions.csproj">
+      <Project>{b303c645-87ce-4daa-a9d5-83e3e644a0f1}</Project>
+      <Name>CGC_GM_BE.Common.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

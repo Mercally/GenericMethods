@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CGC_GM_BE.DataAccess.Interfaces;
 using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Constantes;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
@@ -13,7 +14,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
     {
         public Seg_UsuariosModelo(IContextoCustomizado Contexto) : base(Contexto) { }
 
-        public _Resultado ConsultarUsuarioPorUsuarioId(int UsuarioId)
+        public _Resultado<List<Usuario>> ConsultarUsuarioPorUsuarioId(int UsuarioId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -24,13 +25,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@UsuarioId", UsuarioId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<List<Usuario>>(Consulta);
         }
 
-        public _Resultado InsertarUsuario(Usuario Usuario)
+        public _Resultado<int> InsertarUsuario(Usuario Usuario)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -45,13 +46,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Usuario.FechaRegistro),
                                 new SqlParameter("EsActivo", Usuario.EsActivo)
                             },
-                TipoConsulta = _TipoConsultaEnum.Insert
+                TipoConsulta = TipoConsulta.Insert
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<int>(Consulta);
         }
 
-        public _Resultado ModificarUsuario(Usuario Usuario)
+        public _Resultado<int> ModificarUsuario(Usuario Usuario)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -66,13 +67,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Usuario.FechaRegistro),
                                 new SqlParameter("EsActivo", Usuario.EsActivo)
                                 },
-                TipoConsulta = _TipoConsultaEnum.Update
+                TipoConsulta = TipoConsulta.Update
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<int>(Consulta);
         }
 
-        public _Resultado EliminarUsuario(int UsuarioId, bool EsEliminadoFisico = false)
+        public _Resultado<int> EliminarUsuario(int UsuarioId, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -92,10 +93,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@UsuarioId", UsuarioId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Delete
+                TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<int>(Consulta);
         }
     }
 }

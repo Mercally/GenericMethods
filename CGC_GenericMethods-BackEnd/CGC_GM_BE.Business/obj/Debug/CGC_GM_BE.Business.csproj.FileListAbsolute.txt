@@ -24,3 +24,4 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\ob
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csproj.CopyComplete
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Business\obj\Debug\CGC_GM_BE.Business.csprojAssemblyReference.cache

@@ -4,31 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CGC_GM_BE.DataAccess.Modelo
+namespace CGC_GM_BE.Common.Entities.Constantes
 {
-    /// <summary>
-    /// Tipo de consulta a ejecutar
-    /// </summary>
-    public enum _TipoConsultaEnum
+    public class TipoConsulta
     {
         /// <summary>
         /// Insert seguido de un select del ID recien ingresado, retorna dicho ID
         /// </summary>
-        Insert = 0,
+        public const int Insert = 0;
 
         /// <summary>
         /// Update del registro
         /// </summary>
-        Update = 1,
+        public const int Update = 1;
 
         /// <summary>
         /// Delete del registro
         /// </summary>
-        Delete = 2,
+        public const int Delete = 2;
 
         /// <summary>
         /// Consulta
         /// </summary>
-        Query = 3
+        public const int Query = 3;
     }
 }

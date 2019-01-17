@@ -17,7 +17,7 @@ namespace CGC_GM_BE.DataAccess.Interfaces
 
         void Rollback();
 
-        _Resultado Ejecutar(_ConsultaT_Sql Consulta);
+        _ResultadoDB Ejecutar(_ConsultaT_Sql Consulta);
 
         _ResultadoV2 EjecutarV2(_ConsultaT_Sql Consulta);
 

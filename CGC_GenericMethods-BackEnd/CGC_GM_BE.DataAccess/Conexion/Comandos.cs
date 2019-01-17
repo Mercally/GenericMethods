@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Constantes;
 using CGC_GM_BE.DataAccess.Modelo;
 
 namespace CGC_GM_BE.DataAccess.Conexion
@@ -141,22 +142,22 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns>objeto segun tipo de transaccion</returns>
-        public _Resultado Ejecutar(_ConsultaT_Sql Consulta)
+        public _ResultadoDB Ejecutar(_ConsultaT_Sql Consulta)
         {
-            _Resultado Resultado = new _Resultado();
+            _ResultadoDB Resultado = new _ResultadoDB();
 
             switch (Consulta.TipoConsulta)
             {
-                case _TipoConsultaEnum.Insert:
+                case TipoConsulta.Insert:
                     Resultado.ResultadoTipoInsert = ExecuteScalarInsert(Consulta);
                     break;
-                case _TipoConsultaEnum.Update:
+                case TipoConsulta.Update:
                     Resultado.ResultadoTipoUpdate = ExecuteNonQuery(Consulta);
                     break;
-                case _TipoConsultaEnum.Delete:
+                case TipoConsulta.Delete:
                     Resultado.ResultadoTipoDelete = ExecuteNonQuery(Consulta);
                     break;
-                case _TipoConsultaEnum.Query:
+                case TipoConsulta.Query:
                     Resultado.ResultadoTipoQuery = ExecuteQuery(Consulta);
                     break;
                 default:
@@ -172,16 +173,16 @@ namespace CGC_GM_BE.DataAccess.Conexion
 
             switch (Consulta.TipoConsulta)
             {
-                case _TipoConsultaEnum.Insert:
+                case TipoConsulta.Insert:
                     Resultado.ResultadoTipoInsert = ExecuteScalarInsert(Consulta);
                     break;
-                case _TipoConsultaEnum.Update:
+                case TipoConsulta.Update:
                     Resultado.ResultadoTipoUpdate = ExecuteNonQuery(Consulta);
                     break;
-                case _TipoConsultaEnum.Delete:
+                case TipoConsulta.Delete:
                     Resultado.ResultadoTipoDelete = ExecuteNonQuery(Consulta);
                     break;
-                case _TipoConsultaEnum.Query:
+                case TipoConsulta.Query:
                     Resultado.ResultadoTipoQuery = ExecuteQueryV2(Consulta);
                     break;
                 default:

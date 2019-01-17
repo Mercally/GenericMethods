@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextoBase.cs" />
-    <Compile Include="Interfaces\IBaseContext.cs" />
     <Compile Include="Interfaces\IContextoCustomizado.cs" />
     <Compile Include="Modelo\Cat_CatalogosModelo.cs" />
     <Compile Include="Modelo\Com_ActividadesModelo.cs" />
@@ -53,9 +52,7 @@
     <Compile Include="Modelo\Seg_UsuariosModelo.cs" />
     <Compile Include="Modelo\_SqlQuery.cs" />
     <Compile Include="Modelo\_ResultadoV2.cs" />
-    <Compile Include="Modelo\_Resultado.cs" />
     <Compile Include="Modelo\_ConsultaT_Sql.cs" />
-    <Compile Include="Modelo\_TipoConsultaEnum.cs" />
     <Compile Include="CGC_GM_Contexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +60,10 @@
     <ProjectReference Include="..\CGC_GM_BE.Common\CGC_GM_BE.Common.Entities\CGC_GM_BE.Common.Entities.csproj">
       <Project>{fb52180a-fed2-415b-9230-3eeeab2dd7c9}</Project>
       <Name>CGC_GM_BE.Common.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CGC_GM_BE.Common\CGC_GM_BE.Common.Extensions\CGC_GM_BE.Common.Extensions.csproj">
+      <Project>{b303c645-87ce-4daa-a9d5-83e3e644a0f1}</Project>
+      <Name>CGC_GM_BE.Common.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

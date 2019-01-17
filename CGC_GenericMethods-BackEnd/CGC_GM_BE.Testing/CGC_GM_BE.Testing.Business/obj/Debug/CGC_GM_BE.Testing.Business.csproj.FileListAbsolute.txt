@@ -40,3 +40,4 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.csproj.CopyComplete
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.csprojAssemblyReference.cache

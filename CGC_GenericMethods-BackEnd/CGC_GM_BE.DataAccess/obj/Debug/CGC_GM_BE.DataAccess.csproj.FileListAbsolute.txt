@@ -1,5 +1,4 @@
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.csproj.CoreCompileInputs.cache
-C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.Common.Entities.dll
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.Common.Entities.pdb
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.csproj.CopyComplete
@@ -18,3 +17,6 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.DataAccess.dll.CodeAnalysisLog.xml
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.DataAccess.dll.lastcodeanalysissucceeded
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\obj\Debug\CGC_GM_BE.DataAccess.csprojAssemblyReference.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.Common.Extensions.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.DataAccess\bin\Debug\CGC_GM_BE.Common.Extensions.pdb

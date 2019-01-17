@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Constantes;
 using CGC_GM_BE.DataAccess.Interfaces;
 
 namespace CGC_GM_BE.DataAccess.Modelo
@@ -14,16 +15,16 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Com_BoletasModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
-        public _Resultado ConsultarBoletas()
+        public _Resultado<List<Boleta>> ConsultarBoletas()
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
                 ConsultaCruda = @"SELECT Id, NumeroBoleta, Descripcion, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
                                   FROM com.Boleta;",
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<List<Boleta>>(Consulta);
         }
 
         public _ResultadoV2 ConsultarBoletasV2()
@@ -32,13 +33,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
             {
                 ConsultaCruda = @"SELECT Id, NumeroBoleta, Descripcion, FechaEntrada, FechaSalida, TiempoEfectivo, TiempoInvertidoEn, ProyectoId, ClienteId, FechaRegistro, UsuarioId, DepartamentoId, EsActivo 
                                   FROM com.Boleta;",
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
             return EjecutarV2(Consulta);
         }
 
-        public _Resultado ConsultaPorBoletaId(int BoletaId)
+        public _Resultado<List<Boleta>> ConsultaPorBoletaId(int BoletaId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -49,13 +50,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@BoletaId", BoletaId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<List<Boleta>>(Consulta);
         }
 
-        public _Resultado InsertarBoleta(Boleta Boleta)
+        public _Resultado<int> InsertarBoleta(Boleta Boleta)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -76,13 +77,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Boleta.FechaRegistro),
                                 new SqlParameter("EsActivo", Boleta.EsActivo)
                             },
-                TipoConsulta = _TipoConsultaEnum.Insert
+                TipoConsulta = TipoConsulta.Insert
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<int>(Consulta);
         }
 
-        public _Resultado ModificarBoleta(Boleta Boleta)
+        public _Resultado<bool> ModificarBoleta(Boleta Boleta)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -104,13 +105,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Boleta.FechaRegistro),
                                 new SqlParameter("EsActivo", Boleta.EsActivo)
                             },
-                TipoConsulta = _TipoConsultaEnum.Update
+                TipoConsulta = TipoConsulta.Update
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
 
-        public _Resultado EliminarBoleta(int BoletaId, bool EsEliminadoFisico = false)
+        public _Resultado<bool> EliminarBoleta(int BoletaId, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -130,10 +131,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@BoletaId", BoletaId)
                 },
-                TipoConsulta = _TipoConsultaEnum.Delete
+                TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
     }
 }

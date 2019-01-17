@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CGC_GM_BE.Common.Entities;
 using CGC_GM_BE.DataAccess.Interfaces;
+using CGC_GM_BE.Common.Entities.Constantes;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
@@ -14,19 +15,19 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Cat_CatalogosModelo(IContextoCustomizado Contexto) 
             : base(Contexto) { }
 
-        public _Resultado ConsultaPorTabla(string Tabla)
+        public _Resultado<List<Catalogo>> ConsultaPorTabla(string Tabla)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
                 ConsultaCruda = $@"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                    FROM cat.{Tabla};",
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<List<Catalogo>>(Consulta);
         }
 
-        public _Resultado ConsultaPorTablaYId(int Id, string Tabla)
+        public _Resultado<Catalogo> ConsultaPorTablaYId(int Id, string Tabla)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -37,19 +38,19 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@Id", Id)
                 },
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<Catalogo>(Consulta);
         }
 
-        public _Resultado ConsultaPorTabla(string Tabla, bool SoloActivos = true)
+        public _Resultado<List<Catalogo>> ConsultaPorTabla(string Tabla, bool SoloActivos = true)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
                 ConsultaCruda = $@"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                    FROM cat.{Tabla} ",
-                TipoConsulta = _TipoConsultaEnum.Query
+                TipoConsulta = TipoConsulta.Query
             };
 
             if (SoloActivos)
@@ -57,10 +58,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 Consulta.ConsultaCruda += " WHERE EsActivo = 1;";
             }
 
-            return Ejecutar(Consulta);
+            return Ejecutar<List<Catalogo>>(Consulta);
         }
 
-        public _Resultado InsertarCatalogo(Catalogo Catalogo, string Tabla)
+        public _Resultado<int> InsertarCatalogo(Catalogo Catalogo, string Tabla)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -72,13 +73,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Catalogo.FechaRegistro),
                                 new SqlParameter("EsActivo", Catalogo.EsActivo)
                             },
-                TipoConsulta = _TipoConsultaEnum.Insert
+                TipoConsulta = TipoConsulta.Insert
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<int>(Consulta);
         }
 
-        public _Resultado ModificarCatalogo(Catalogo Catalogo, string Tabla)
+        public _Resultado<bool> ModificarCatalogo(Catalogo Catalogo, string Tabla)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -90,13 +91,13 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Catalogo.FechaRegistro),
                                 new SqlParameter("EsActivo", Catalogo.EsActivo)
                                 },
-                TipoConsulta = _TipoConsultaEnum.Update
+                TipoConsulta = TipoConsulta.Update
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
 
-        public _Resultado EliminarCatalogo(int Id, string Tabla, bool EsEliminadoFisico = false)
+        public _Resultado<bool> EliminarCatalogo(int Id, string Tabla, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -116,10 +117,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@Id", Id)
                 },
-                TipoConsulta = _TipoConsultaEnum.Delete
+                TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
     }
 }

@@ -10,81 +10,76 @@ namespace CGC_GM_BE.Business
 {    
     public class ClientesBL
     {
-        public static List<Cliente> ConsultarClientes()
+        public static _Resultado<List<Cliente>> ConsultarClientes()
         {
-            var ListaCliente = new List<Cliente>();
+            var ListaCliente = new _Resultado<List<Cliente>>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 ListaCliente =
                      Contexto
                     .Neg_ClientesModelo
-                    .ConsultaClientes()
-                    .ConvertirResultadoLista<Cliente>();
+                    .ConsultaClientes<List<Cliente>>();
             }
 
             return ListaCliente;
         }
 
-        public static Cliente ConsultarClientePorClienteId(int ClienteId)
+        public static _Resultado<Cliente> ConsultarClientePorClienteId(int ClienteId)
         {
-            var Cliente = new Cliente();
+            var Cliente = new _Resultado<Cliente>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Cliente =
                      Contexto
                     .Neg_ClientesModelo
-                    .ConsultaPorClienteId(ClienteId)
-                    .ConvertiresultadoUnico<Cliente>();
+                    .ConsultaPorClienteId<Cliente>(ClienteId);
             }
 
             return Cliente;
         }
 
-        public static int InsertarCliente(Cliente Cliente)
+        public static _Resultado<int> InsertarCliente(Cliente Cliente)
         {
-            int ClienteId = 0;
+            var ClienteId = new _Resultado<int>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 ClienteId =
                      Contexto
                     .Neg_ClientesModelo
-                    .InsertarCliente(Cliente)
-                    .ResultadoTipoInsert;
+                    .InsertarCliente<int>(Cliente);
             }
 
             return ClienteId;
         }
 
-        public static bool ModificarCliente(Cliente Cliente)
+        public static _Resultado<bool> ModificarCliente(Cliente Cliente)
         {
-            bool Modificado = false;
+            var Modificado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Modificado =
                      Contexto
                     .Neg_ClientesModelo
-                    .ModificarCliente(Cliente)
-                    .ResultadoTipoUpdate;
+                    .ModificarCliente<bool>(Cliente);
             }
 
             return Modificado;
         }
 
-        public static bool EliminarClientePorClienteId(int ClienteId)
+        public static _Resultado<bool> EliminarClientePorClienteId(int ClienteId)
         {
-            bool Eliminado = false;
+            var Eliminado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Eliminado =
                      Contexto
                     .Neg_ClientesModelo
-                    .EliminarCliente(ClienteId)
-                    .ResultadoTipoUpdate;
+                    .EliminarCliente<bool>(ClienteId);
             }
 
             return Eliminado;

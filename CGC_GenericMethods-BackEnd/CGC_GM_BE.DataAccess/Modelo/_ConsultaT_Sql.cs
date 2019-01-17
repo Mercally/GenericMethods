@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Constantes;
 using CGC_GM_BE.DataAccess.Conexion;
 
 namespace CGC_GM_BE.DataAccess.Modelo
@@ -28,27 +29,29 @@ namespace CGC_GM_BE.DataAccess.Modelo
             this.TimeOut = TimeOut;
         }
 
-        public static _ConsultaT_Sql CreateQuery(Object Obj, _TipoConsultaEnum TipoConsulta, bool IsDeleteLogical = true, int TimeOut = 1)
+        public static _ConsultaT_Sql CreateQuery(Object pObjecto, int tipoConsulta, bool esEliminadoLogico = true, int TimeOut = 1)
         {
             _ConsultaT_Sql Query = new _ConsultaT_Sql();
-
-            switch (TipoConsulta)
+           
+            switch (tipoConsulta)
             {
-                case _TipoConsultaEnum.Insert:
-                    Query = CreateINSERT(Obj);
+                case Common.Entities.Constantes.TipoConsulta.Insert:
+                    Query = CreateINSERT(pObjecto);
                     break;
-                case _TipoConsultaEnum.Update:
-                    Query = CreateUPDATE(Obj);
+                case Common.Entities.Constantes.TipoConsulta.Update:
+                    Query = CreateUPDATE(pObjecto);
                     break;
-                case _TipoConsultaEnum.Delete:
-                    Query = CreateDELETE(Obj, IsDeleteLogical);
+                case Common.Entities.Constantes.TipoConsulta.Delete:
+                    Query = CreateDELETE(pObjecto, esEliminadoLogico);
                     break;
-                case _TipoConsultaEnum.Query:
-                    Query = CreateSELECT(Obj);
+                case Common.Entities.Constantes.TipoConsulta.Query:
+                    Query = CreateSELECT(pObjecto);
                     break;
                 default:
                     break;
             }
+
+            Query.TipoConsulta = tipoConsulta;
 
             return Query;
         }
@@ -66,7 +69,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         /// <summary>
         /// Tipo de consulta a realizar: Insert, Update, Delete, Query
         /// </summary>
-        public _TipoConsultaEnum TipoConsulta { get; set; }
+        public int TipoConsulta { get; set; }
 
         /// <summary>
         /// Tiempo de espera en segundos para cada comando de forma individual

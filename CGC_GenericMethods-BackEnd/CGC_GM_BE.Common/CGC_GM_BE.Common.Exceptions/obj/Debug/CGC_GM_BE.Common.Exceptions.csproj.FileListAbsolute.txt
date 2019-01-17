@@ -3,7 +3,6 @@ C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csproj.CoreCompileInputs.cache
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.dll
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.pdb
-C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csprojResolveAssemblyReference.cache
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.pdb
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csproj.CoreCompileInputs.cache
@@ -12,3 +11,4 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csprojAssemblyReference.cache
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll.CodeAnalysisLog.xml
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll.lastcodeanalysissucceeded
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csprojAssemblyReference.cache

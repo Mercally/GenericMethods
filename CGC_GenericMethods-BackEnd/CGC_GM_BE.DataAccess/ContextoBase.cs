@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using CGC_GM_BE.DataAccess.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
 using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Constantes;
 
 namespace CGC_GM_BE.DataAccess
 {
-    public class ContextoBase : IBaseContext
+    public class ContextoBase
     {
         private IContextoCustomizado Contexto { get; set; }
 
@@ -20,21 +21,53 @@ namespace CGC_GM_BE.DataAccess
         
         private ContextoBase() { }
 
-        public _Resultado Ejecutar(_ConsultaT_Sql Consulta)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
+        public _Resultado<T> Ejecutar<T>(_ConsultaT_Sql consulta)
         {
-            _Resultado Resultado = new _Resultado();
+            _ResultadoDB ResultadoDB = new _ResultadoDB();
 
             try
             {
-                Resultado = this.Contexto.Ejecutar(Consulta);
+                ResultadoDB = this.Contexto.Ejecutar(consulta);
             }
             catch (Exception ex)
             {
-                Resultado.Excepcion = ex;
+                ResultadoDB.Excepcion = ex;
                 this.Contexto.Excepciones(ex);
             }
 
-            return Resultado;
+            return new _Resultado<T>(ResultadoDB);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pObjecto"></param>
+        /// <param name="tipoConsulta"></param>
+        /// <returns></returns>
+        public _Resultado<T> Ejecutar<T>(object pObjecto, int tipoConsulta)
+        {
+            _ResultadoDB ResultadoDB = new _ResultadoDB();
+
+            var Consulta = _ConsultaT_Sql.CreateQuery(pObjecto, tipoConsulta);
+
+            try
+            {
+                ResultadoDB = this.Contexto.Ejecutar(Consulta);
+            }
+            catch (Exception ex)
+            {
+                ResultadoDB.Excepcion = ex;
+                this.Contexto.Excepciones(ex);
+            }
+            
+            return new _Resultado<T>(ResultadoDB);
         }
 
         public _ResultadoV2 EjecutarV2(_ConsultaT_Sql Consulta)

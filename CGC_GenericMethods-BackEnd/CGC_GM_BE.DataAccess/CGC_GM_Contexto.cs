@@ -151,7 +151,7 @@ namespace CGC_GM_BE.DataAccess
         /// </summary>
         /// <param name="Consulta">Consulta a ejecutar</param>
         /// <returns></returns>
-        public _Resultado Ejecutar(_ConsultaT_Sql Consulta)
+        public _ResultadoDB Ejecutar(_ConsultaT_Sql Consulta)
         {
             return Comandos.Ejecutar(Consulta);
         }
