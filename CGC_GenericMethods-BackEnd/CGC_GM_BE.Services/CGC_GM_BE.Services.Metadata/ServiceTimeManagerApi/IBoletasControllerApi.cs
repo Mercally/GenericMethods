@@ -9,7 +9,7 @@ namespace CGC_GM_BE.Services.Metadata.ServiceTimeManagerApi
 {
     public interface IBoletasControllerApi
     {
-        _Resultado<List<Boleta>> ConsultarBoletasV2();
+        List<Boleta> ConsultarBoletasV2();
         _Resultado<List<Boleta>> ConsultarBoletas();
         _Resultado<Boleta> ConsultarBoletaPorId(int BoletaId);
         _Resultado<int> InsertarBoleta(Boleta Boleta);

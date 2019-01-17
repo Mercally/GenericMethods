@@ -15,35 +15,35 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     {
         [HttpGet]
         [Route("{Tabla}")]
-        public List<Catalogo> ConsultarCatalogoPorTabla(string Tabla)
+        public _Resultado<List<Catalogo>> ConsultarCatalogoPorTabla(string Tabla)
         {
             return CatalogosBL.ConsultarCatalogoPorTabla(Tabla);
         }
 
         [HttpGet]
         [Route("{CatalogoId}/{Tabla}")]
-        public Catalogo ConsultarCatalogoPorId(int CatalogoId, string Tabla)
+        public _Resultado<Catalogo> ConsultarCatalogoPorId(int CatalogoId, string Tabla)
         {
             return CatalogosBL.ConsultarCatalogoPorCatalogoId(CatalogoId, Tabla);
         }
 
         [HttpDelete]
         [Route("{CatalogoId}/{Tabla}")]
-        public bool EliminarCatalogo(int CatalogoId, string Tabla)
+        public _Resultado<bool> EliminarCatalogo(int CatalogoId, string Tabla)
         {
             return CatalogosBL.EliminarCatalogoPorCatalogoId(CatalogoId, Tabla);
         }
 
         [HttpPost]
         [Route("{Tabla}")]
-        public int InsertarCatalogo(Catalogo Catalogo, string Tabla)
+        public _Resultado<int> InsertarCatalogo(Catalogo Catalogo, string Tabla)
         {
             return CatalogosBL.InsertarCatalogo(Catalogo, Tabla);
         }
 
         [HttpPut]
         [Route("{Tabla}")]
-        public bool ModificarCatalogo(Catalogo Catalogo, string Tabla)
+        public _Resultado<bool> ModificarCatalogo(Catalogo Catalogo, string Tabla)
         {
             return CatalogosBL.ModificarCatalogo(Catalogo, Tabla);
         }

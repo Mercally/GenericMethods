@@ -14,33 +14,33 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     public class ClientesController : ApiController, IClientesControllerApi
     {
         [HttpGet]
-        public List<Cliente> ConsultarClientes()
+        public _Resultado<List<Cliente>> ConsultarClientes()
         {
             return ClientesBL.ConsultarClientes();
         }
 
         [HttpGet]
         [Route("{ClienteId}")]
-        public Cliente ConsultarClientePorId(int ClienteId)
+        public _Resultado<Cliente> ConsultarClientePorId(int ClienteId)
         {
             return ClientesBL.ConsultarClientePorClienteId(ClienteId);
         }
 
         [HttpDelete]
         [Route("{ClienteId}")]
-        public bool EliminarCliente(int ClienteId)
+        public _Resultado<bool> EliminarCliente(int ClienteId)
         {
             return ClientesBL.EliminarClientePorClienteId(ClienteId);
         }
 
         [HttpPost]
-        public int InsertarCliente(Cliente Cliente)
+        public _Resultado<int> InsertarCliente(Cliente Cliente)
         {
             return ClientesBL.InsertarCliente(Cliente);
         }
 
         [HttpPut]
-        public bool ModificarCliente(Cliente Cliente)
+        public _Resultado<bool> ModificarCliente(Cliente Cliente)
         {
             return ClientesBL.ModificarCliente(Cliente);
         }

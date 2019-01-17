@@ -14,33 +14,33 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     public class ProyectosController : ApiController, IProyectosControllerApi
     {
         [HttpGet]
-        public List<Proyecto> ConsultarProyectos()
+        public _Resultado<List<Proyecto>> ConsultarProyectos()
         {
             return ProyectosBL.ConsultarProyectos();
         }
 
         [HttpGet]
         [Route("{ProyectoId}")]
-        public Proyecto ConsultarProyectoPorId(int ProyectoId)
+        public _Resultado<Proyecto> ConsultarProyectoPorId(int ProyectoId)
         {
             return ProyectosBL.ConsultarProyectoPorProyectoId(ProyectoId);
         }
 
         [HttpDelete]
         [Route("{ProyectoId}")]
-        public bool EliminarProyecto(int ProyectoId)
+        public _Resultado<bool> EliminarProyecto(int ProyectoId)
         {
             return ProyectosBL.EliminarProyectoPorProyectoId(ProyectoId);
         }
 
         [HttpPost]
-        public int InsertarProyecto(Proyecto Proyecto)
+        public _Resultado<int> InsertarProyecto(Proyecto Proyecto)
         {
             return ProyectosBL.InsertarProyecto(Proyecto);
         }
 
         [HttpPut]
-        public bool ModificarProyecto(Proyecto Proyecto)
+        public _Resultado<bool> ModificarProyecto(Proyecto Proyecto)
         {
             return ProyectosBL.ModificarProyecto(Proyecto);
         }

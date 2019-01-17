@@ -15,26 +15,26 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     {
         [HttpGet]
         [Route("{UsuarioId}")]
-        public Usuario ConsultarUsuarioPorId(int UsuarioId)
+        public _Resultado<Usuario> ConsultarUsuarioPorId(int UsuarioId)
         {
             return UsuariosBL.ConsultarUsuarioPorUsuarioId(UsuarioId);
         }
 
         [HttpDelete]
         [Route("{UsuarioId}")]
-        public bool EliminarUsuario(int UsuarioId)
+        public _Resultado<bool> EliminarUsuario(int UsuarioId)
         {
             return UsuariosBL.EliminarUsuarioPorUsuarioId(UsuarioId);
         }
 
         [HttpPost]
-        public int InsertarUsuario(Usuario Usuario)
+        public _Resultado<int> InsertarUsuario(Usuario Usuario)
         {
             return UsuariosBL.InsertarUsuario(Usuario);
         }
 
         [HttpPut]
-        public bool ModificarUsuario(Usuario Usuario)
+        public _Resultado<bool> ModificarUsuario(Usuario Usuario)
         {
             return UsuariosBL.ModificarUsuario(Usuario);
         }

@@ -15,13 +15,13 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     {
         [HttpGet]
         [Route("{BoletaId}")]
-        public Boleta ConsultarBoletaPorId(int BoletaId)
+        public _Resultado<Boleta> ConsultarBoletaPorId(int BoletaId)
         {
             return BoletasBL.ConsultarBoletaPorBoletaId(BoletaId);
         }
 
         [HttpGet]
-        public List<Boleta> ConsultarBoletas()
+        public _Resultado<List<Boleta>> ConsultarBoletas()
         {
             return BoletasBL.ConsultarBoletas();
         }
@@ -35,19 +35,19 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
 
         [HttpDelete]
         [Route("{BoletaId}")]
-        public bool EliminarBoleta(int BoletaId)
+        public _Resultado<bool> EliminarBoleta(int BoletaId)
         {
             return BoletasBL.EliminarBoletaPorBoletaId(BoletaId);
         }
 
         [HttpPost]
-        public int InsertarBoleta(Boleta Boleta)
+        public _Resultado<int> InsertarBoleta(Boleta Boleta)
         {
             return BoletasBL.InsertarBoleta(Boleta);
         }
 
         [HttpPut]
-        public bool ModificarBoleta(Boleta Boleta)
+        public _Resultado<bool> ModificarBoleta(Boleta Boleta)
         {
             return BoletasBL.ModificarBoleta(Boleta);
         }
