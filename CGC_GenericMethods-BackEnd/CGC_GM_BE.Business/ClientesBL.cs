@@ -19,7 +19,7 @@ namespace CGC_GM_BE.Business
                 ListaCliente =
                      Contexto
                     .Neg_ClientesModelo
-                    .ConsultaClientes<List<Cliente>>();
+                    .ConsultaClientes();
             }
 
             return ListaCliente;
@@ -34,7 +34,7 @@ namespace CGC_GM_BE.Business
                 Cliente =
                      Contexto
                     .Neg_ClientesModelo
-                    .ConsultaPorClienteId<Cliente>(ClienteId);
+                    .ConsultaPorClienteId(ClienteId);
             }
 
             return Cliente;
@@ -49,7 +49,7 @@ namespace CGC_GM_BE.Business
                 ClienteId =
                      Contexto
                     .Neg_ClientesModelo
-                    .InsertarCliente<int>(Cliente);
+                    .InsertarCliente(Cliente);
             }
 
             return ClienteId;
@@ -64,7 +64,7 @@ namespace CGC_GM_BE.Business
                 Modificado =
                      Contexto
                     .Neg_ClientesModelo
-                    .ModificarCliente<bool>(Cliente);
+                    .ModificarCliente(Cliente);
             }
 
             return Modificado;
@@ -79,7 +79,7 @@ namespace CGC_GM_BE.Business
                 Eliminado =
                      Contexto
                     .Neg_ClientesModelo
-                    .EliminarCliente<bool>(ClienteId);
+                    .EliminarCliente(ClienteId);
             }
 
             return Eliminado;

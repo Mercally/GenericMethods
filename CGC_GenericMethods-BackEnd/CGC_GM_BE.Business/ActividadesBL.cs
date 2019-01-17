@@ -10,81 +10,76 @@ namespace CGC_GM_BE.Business
 {    
     public class ActividadesBL
     {
-        public static List<Actividad> ConsultarActividadesPorBoletaId(int BoletaId)
+        public static _Resultado<List<Actividad>> ConsultarActividadesPorBoletaId(int BoletaId)
         {
-            var ListaActividades = new List<Actividad>();
+            var ListaActividades = new _Resultado<List<Actividad>>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
-                ListaActividades = 
+                ListaActividades =
                      Contexto
                     .Com_ActividadesModelo
-                    .ConsultaPorBoletaId(BoletaId)
-                    .ConvertirResultadoLista<Actividad>();
+                    .ConsultaPorBoletaId(BoletaId);
             }
 
             return ListaActividades;
         }
 
-        public static Actividad ConsultarActividadPorActividadId(int ActividadId)
+        public static _Resultado<List<Actividad>> ConsultarActividadPorActividadId(int ActividadId)
         {
-            var Actividad = new Actividad();
+            var Actividad = new _Resultado<List<Actividad>>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Actividad =
                      Contexto
                     .Com_ActividadesModelo
-                    .ConsultaPorActividadId(ActividadId)
-                    .ConvertiresultadoUnico<Actividad>();
+                    .ConsultaPorActividadId(ActividadId);
             }
 
             return Actividad;
         }
 
-        public static int InsertarActividad(Actividad Actividad)
+        public static _Resultado<int> InsertarActividad(Actividad Actividad)
         {
-            int ActividadId = 0;
+            var ActividadId = new _Resultado<int>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 ActividadId =
                      Contexto
                     .Com_ActividadesModelo
-                    .InsertarActividad(Actividad)
-                    .ResultadoTipoInsert;
+                    .InsertarActividad(Actividad);
             }
 
             return ActividadId;
         }
 
-        public static bool ModificarActividad(Actividad Actividad)
+        public static _Resultado<bool> ModificarActividad(Actividad Actividad)
         {
-            bool Modificado = false;
+            var Modificado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Modificado =
                      Contexto
                     .Com_ActividadesModelo
-                    .ModificarActividad(Actividad)
-                    .ResultadoTipoUpdate;
+                    .ModificarActividad(Actividad);
             }
 
             return Modificado;
         }
 
-        public static bool EliminarActividadPorActividadId(int ActividadId)
+        public static _Resultado<bool> EliminarActividadPorActividadId(int ActividadId)
         {
-            bool Eliminado = false;
+            var Eliminado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Eliminado =
                      Contexto
                     .Com_ActividadesModelo
-                    .EliminarActividad(ActividadId)
-                    .ResultadoTipoUpdate;
+                    .EliminarActividad(ActividadId);
             }
 
             return Eliminado;

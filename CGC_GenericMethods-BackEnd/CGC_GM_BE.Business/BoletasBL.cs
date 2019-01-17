@@ -10,17 +10,16 @@ namespace CGC_GM_BE.Business
 {
     public class BoletasBL
     {
-        public static List<Boleta> ConsultarBoletas()
+        public static _Resultado<List<Boleta>> ConsultarBoletas()
         {
-            var Boletas = new List<Boleta>();
+            var Boletas = new _Resultado<List<Boleta>>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Boletas =
                      Contexto
                     .Com_BoletasModelo
-                    .ConsultarBoletas()
-                    .ConvertirResultadoLista<Boleta>();
+                    .ConsultarBoletas();
             }
 
             return Boletas;
@@ -42,65 +41,61 @@ namespace CGC_GM_BE.Business
             return Boletas;
         }
 
-        public static Boleta ConsultarBoletaPorBoletaId(int BoletaId)
+        public static _Resultado<Boleta> ConsultarBoletaPorBoletaId(int BoletaId)
         {
-            var Boleta = new Boleta();
+            var Boleta = new _Resultado<Boleta>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Boleta =
                      Contexto
                     .Com_BoletasModelo
-                    .ConsultaPorBoletaId(BoletaId)
-                    .ConvertiresultadoUnico<Boleta>();
+                    .ConsultaPorBoletaId(BoletaId);
             }
 
             return Boleta;
         }
 
-        public static int InsertarBoleta(Boleta Boleta)
+        public static _Resultado<int> InsertarBoleta(Boleta Boleta)
         {
-            int BoletaId = 0;
+            var BoletaId = new _Resultado<int>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 BoletaId =
                      Contexto
                     .Com_BoletasModelo
-                    .InsertarBoleta(Boleta)
-                    .ResultadoTipoInsert;
+                    .InsertarBoleta(Boleta);
             }
 
             return BoletaId;
         }
 
-        public static bool ModificarBoleta(Boleta Boleta)
+        public static _Resultado<bool> ModificarBoleta(Boleta Boleta)
         {
-            bool Modificado = false;
+            var Modificado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Modificado =
                      Contexto
                     .Com_BoletasModelo
-                    .ModificarBoleta(Boleta)
-                    .ResultadoTipoUpdate;
+                    .ModificarBoleta(Boleta);
             }
 
             return Modificado;
         }
 
-        public static bool EliminarBoletaPorBoletaId(int BoletaId)
+        public static _Resultado<bool> EliminarBoletaPorBoletaId(int BoletaId)
         {
-            bool Eliminado = false;
+            var Eliminado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Eliminado =
                  Contexto
                 .Com_BoletasModelo
-                .EliminarBoleta(BoletaId)
-                .ResultadoTipoDelete;
+                .EliminarBoleta(BoletaId);
             }
 
             return Eliminado;

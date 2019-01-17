@@ -39,7 +39,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
             return EjecutarV2(Consulta);
         }
 
-        public _Resultado<List<Boleta>> ConsultaPorBoletaId(int BoletaId)
+        public _Resultado<Boleta> ConsultaPorBoletaId(int BoletaId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -53,7 +53,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar<List<Boleta>>(Consulta);
+            return Ejecutar<Boleta>(Consulta);
         }
 
         public _Resultado<int> InsertarBoleta(Boleta Boleta)

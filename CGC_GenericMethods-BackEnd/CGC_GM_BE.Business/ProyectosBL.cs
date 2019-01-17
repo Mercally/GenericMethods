@@ -19,7 +19,7 @@ namespace CGC_GM_BE.Business
                 ListaProyecto =
                      Contexto
                     .Neg_ProyectosModelo
-                    .ConsultaProyectos<List<Proyecto>>();
+                    .ConsultaProyectos();
             }
 
             return ListaProyecto;
@@ -34,15 +34,15 @@ namespace CGC_GM_BE.Business
                 Proyecto =
                      Contexto
                     .Neg_ProyectosModelo
-                    .ConsultaPorProyectoId<Proyecto>(ProyectoId);
+                    .ConsultaPorProyectoId(ProyectoId);
             }
 
             return Proyecto;
         }
 
-        public static int InsertarProyecto(Proyecto Proyecto)
+        public static _Resultado<int> InsertarProyecto(Proyecto Proyecto)
         {
-            int ProyectoId = 0;
+            var ProyectoId = new _Resultado<int>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
@@ -55,9 +55,9 @@ namespace CGC_GM_BE.Business
             return ProyectoId;
         }
 
-        public static bool ModificarProyecto(Proyecto Proyecto)
+        public static _Resultado<bool> ModificarProyecto(Proyecto Proyecto)
         {
-            bool Modificado = false;
+            var Modificado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
@@ -70,9 +70,9 @@ namespace CGC_GM_BE.Business
             return Modificado;
         }
 
-        public static bool EliminarProyectoPorProyectoId(int ProyectoId)
+        public static _Resultado<bool> EliminarProyectoPorProyectoId(int ProyectoId)
         {
-            bool Eliminado = false;
+            var Eliminado = new _Resultado<bool>(); ;
 
             using (var Contexto = new CGC_GM_Contexto())
             {

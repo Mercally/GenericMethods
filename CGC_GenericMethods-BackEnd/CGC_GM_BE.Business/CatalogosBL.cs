@@ -10,81 +10,76 @@ namespace CGC_GM_BE.Business
 {    
     public class CatalogosBL
     {
-        public static List<Catalogo> ConsultarCatalogoPorTabla(string Tabla)
+        public static _Resultado<List<Catalogo>> ConsultarCatalogoPorTabla(string Tabla)
         {
-            var ListaCatalogo = new List<Catalogo>();
+            var ListaCatalogo = new _Resultado<List<Catalogo>>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 ListaCatalogo =
                      Contexto
                     .Cat_CatalogosModelo
-                    .ConsultaPorTabla(Tabla)
-                    .ConvertirResultadoLista<Catalogo>();
+                    .ConsultaPorTabla(Tabla);
             }
 
             return ListaCatalogo;
         }
 
-        public static Catalogo ConsultarCatalogoPorCatalogoId(int CatalogoId, string Tabla)
+        public static _Resultado<Catalogo> ConsultarCatalogoPorCatalogoId(int CatalogoId, string Tabla)
         {
-            var Catalogo = new Catalogo();
+            var Catalogo = new _Resultado<Catalogo>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Catalogo =
                      Contexto
                     .Cat_CatalogosModelo
-                    .ConsultaPorTablaYId(CatalogoId, Tabla)
-                    .ConvertiresultadoUnico<Catalogo>();
+                    .ConsultaPorTablaYId(CatalogoId, Tabla);
             }
 
             return Catalogo;
         }
 
-        public static int InsertarCatalogo(Catalogo Catalogo, string Tabla)
+        public static _Resultado<int> InsertarCatalogo(Catalogo Catalogo, string Tabla)
         {
-            int CatalogoId = 0;
+            var CatalogoId = new _Resultado<int>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 CatalogoId =
                      Contexto
                     .Cat_CatalogosModelo
-                    .InsertarCatalogo(Catalogo, Tabla)
-                    .ResultadoTipoInsert;
+                    .InsertarCatalogo(Catalogo, Tabla);
             }
 
             return CatalogoId;
         }
 
-        public static bool ModificarCatalogo(Catalogo Catalogo, string Tabla)
+        public static _Resultado<bool> ModificarCatalogo(Catalogo Catalogo, string Tabla)
         {
-            bool Modificado = false;
+            var Modificado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Modificado =
                      Contexto
                     .Cat_CatalogosModelo
-                    .ModificarCatalogo(Catalogo, Tabla)
-                    .ResultadoTipoUpdate;
+                    .ModificarCatalogo(Catalogo, Tabla);
             }
 
             return Modificado;
         }
 
-        public static bool EliminarCatalogoPorCatalogoId(int CatalogoId, string Tabla)
+        public static _Resultado<bool> EliminarCatalogoPorCatalogoId(int CatalogoId, string Tabla)
         {
-            bool Eliminado = false;
+            var Eliminado = new _Resultado<bool>();
 
             using (var Contexto = new CGC_GM_Contexto())
             {
                 Eliminado =
                      Contexto
                     .Cat_CatalogosModelo
-                    .EliminarCatalogo(CatalogoId, Tabla)
-                    .ResultadoTipoUpdate;
+                    .EliminarCatalogo(CatalogoId, Tabla);
             }
 
             return Eliminado;

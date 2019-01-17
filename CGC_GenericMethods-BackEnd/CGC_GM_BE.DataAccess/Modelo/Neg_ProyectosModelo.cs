@@ -15,7 +15,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Neg_ProyectosModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
-        public _Resultado<T> ConsultaProyectos<T>()
+        public _Resultado<List<Proyecto>> ConsultaProyectos()
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -25,10 +25,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<List<Proyecto>>(Consulta);
         }
 
-        public _Resultado<T> ConsultaPorProyectoId<T>(int ProyectoId)
+        public _Resultado<Proyecto> ConsultaPorProyectoId(int ProyectoId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -42,10 +42,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<Proyecto>(Consulta);
         }
 
-        public _Resultado<T> InsertarProyecto<T>(Proyecto Proyecto)
+        public _Resultado<int> InsertarProyecto(Proyecto Proyecto)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -60,10 +60,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Insert
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<int>(Consulta);
         }
 
-        public _Resultado<T> ModificarProyecto<T>(Proyecto Proyecto)
+        public _Resultado<bool> ModificarProyecto(Proyecto Proyecto)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -79,10 +79,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Update
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
 
-        public _Resultado<T> EliminarProyecto<T>(int ProyectoId, bool EsEliminadoFisico = false)
+        public _Resultado<bool> EliminarProyecto(int ProyectoId, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -105,7 +105,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Com_ActividadesModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
-        public _Resultado<Boleta> ConsultaPorBoletaId(int BoletaId, bool SoloActivos = true)
+        public _Resultado<List<Actividad>> ConsultaPorBoletaId(int BoletaId, bool SoloActivos = true)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -35,10 +35,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 Consulta.ConsultaCruda += " AND EsActivo = 1;";
             }
 
-            return Ejecutar<Boleta>(Consulta);
+            return Ejecutar<List<Actividad>>(Consulta);
         }
 
-        public _Resultado<List<Boleta>> ConsultaPorActividadId(int ActividadId)
+        public _Resultado<List<Actividad>> ConsultaPorActividadId(int ActividadId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -52,7 +52,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar<List<Boleta>>(Consulta);
+            return Ejecutar<List<Actividad>>(Consulta);
         }
 
         public _Resultado<int> InsertarActividad(Actividad Actividad)

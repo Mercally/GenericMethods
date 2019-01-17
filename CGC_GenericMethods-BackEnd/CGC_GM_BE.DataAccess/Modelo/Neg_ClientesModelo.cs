@@ -15,7 +15,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Neg_ClientesModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
-        public _Resultado<T> ConsultaClientes<T>()
+        public _Resultado<List<Cliente>> ConsultaClientes()
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -25,10 +25,10 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<List<Cliente>>(Consulta);
         }
 
-        public _Resultado<T> ConsultaPorClienteId<T>(int ClienteId)
+        public _Resultado<Cliente> ConsultaPorClienteId(int ClienteId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -41,20 +41,20 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<Cliente>(Consulta);
         }
 
-        public _Resultado<T> InsertarCliente<T>(Cliente Cliente)
+        public _Resultado<int> InsertarCliente(Cliente Cliente)
         {
-            return Ejecutar<T>(Cliente, TipoConsulta.Insert);
+            return Ejecutar<int>(Cliente, TipoConsulta.Insert);
         }
 
-        public _Resultado<T> ModificarCliente<T>(Cliente Cliente)
+        public _Resultado<bool> ModificarCliente(Cliente Cliente)
         {
-            return Ejecutar<T>(_ConsultaT_Sql.CreateQuery(Cliente, TipoConsulta.Update));
+            return Ejecutar<bool>(_ConsultaT_Sql.CreateQuery(Cliente, TipoConsulta.Update));
         }
 
-        public _Resultado<T> EliminarCliente<T>(int ClienteId, bool EsEliminadoFisico = false)
+        public _Resultado<bool> EliminarCliente(int ClienteId, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -77,7 +77,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar<T>(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
     }
 }

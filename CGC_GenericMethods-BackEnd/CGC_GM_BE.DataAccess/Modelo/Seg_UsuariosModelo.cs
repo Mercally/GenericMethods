@@ -14,7 +14,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
     {
         public Seg_UsuariosModelo(IContextoCustomizado Contexto) : base(Contexto) { }
 
-        public _Resultado<List<Usuario>> ConsultarUsuarioPorUsuarioId(int UsuarioId)
+        public _Resultado<Usuario> ConsultarUsuarioPorUsuarioId(int UsuarioId)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -28,7 +28,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Query
             };
 
-            return Ejecutar<List<Usuario>>(Consulta);
+            return Ejecutar<Usuario>(Consulta);
         }
 
         public _Resultado<int> InsertarUsuario(Usuario Usuario)
@@ -52,7 +52,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
             return Ejecutar<int>(Consulta);
         }
 
-        public _Resultado<int> ModificarUsuario(Usuario Usuario)
+        public _Resultado<bool> ModificarUsuario(Usuario Usuario)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
@@ -73,7 +73,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
             return Ejecutar<int>(Consulta);
         }
 
-        public _Resultado<int> EliminarUsuario(int UsuarioId, bool EsEliminadoFisico = false)
+        public _Resultado<bool> EliminarUsuario(int UsuarioId, bool EsEliminadoFisico = false)
         {
             string ConsultaCruda = string.Empty;
 
@@ -96,7 +96,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Delete
             };
 
-            return Ejecutar<int>(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
     }
 }
