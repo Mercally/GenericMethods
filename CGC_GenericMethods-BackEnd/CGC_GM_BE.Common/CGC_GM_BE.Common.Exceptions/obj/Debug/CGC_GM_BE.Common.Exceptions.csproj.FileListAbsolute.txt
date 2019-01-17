@@ -12,3 +12,8 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll.CodeAnalysisLog.xml
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Exceptions.dll.lastcodeanalysissucceeded
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csprojAssemblyReference.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Entities.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Extensions.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Entities.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\bin\Debug\CGC_GM_BE.Common.Extensions.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Common\CGC_GM_BE.Common.Exceptions\obj\Debug\CGC_GM_BE.Common.Exceptions.csproj.CopyComplete

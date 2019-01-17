@@ -15,33 +15,33 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     {
         [HttpGet]
         [Route("ActividadesBoleta/{BoletaId}")]
-        public List<Actividad> ConsultarActividadesPorBoletaId(int BoletaId)
+        public _Resultado<List<Actividad>> ConsultarActividadesPorBoletaId(int BoletaId)
         {
-            return ActividadesBL.ConsultarActividadesPorBoletaId(BoletaId);
+            return ActividadesBL.ConsultarActividadesPorBoletaId(BoletaId);   
         }
 
         [HttpGet]
         [Route("{ActividadId}")]
-        public Actividad ConsultarActividadPorId(int ActividadId)
+        public _Resultado<Actividad> ConsultarActividadPorId(int ActividadId)
         {
             return ActividadesBL.ConsultarActividadPorActividadId(ActividadId);
         }
 
         [HttpDelete]
         [Route("{ActividadId}")]
-        public bool EliminarActividad(int ActividadId)
+        public _Resultado<bool> EliminarActividad(int ActividadId)
         {
             return ActividadesBL.EliminarActividadPorActividadId(ActividadId);
         }
 
         [HttpPost]
-        public int InsertarActividad(Actividad Actividad)
+        public _Resultado<int> InsertarActividad(Actividad Actividad)
         {
             return ActividadesBL.InsertarActividad(Actividad);
         }
 
         [HttpPut]
-        public bool ModificarActividad(Actividad Actividad)
+        public _Resultado<bool> ModificarActividad(Actividad Actividad)
         {
             return ActividadesBL.ModificarActividad(Actividad);
         }

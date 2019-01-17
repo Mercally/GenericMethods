@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManageExceptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CGC_GM_BE.Common.Entities\CGC_GM_BE.Common.Entities.csproj">
+      <Project>{FB52180A-FED2-415B-9230-3EEEAB2DD7C9}</Project>
+      <Name>CGC_GM_BE.Common.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CGC_GM_BE.Common.Extensions\CGC_GM_BE.Common.Extensions.csproj">
+      <Project>{B303C645-87CE-4DAA-A9D5-83E3E644A0F1}</Project>
+      <Name>CGC_GM_BE.Common.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

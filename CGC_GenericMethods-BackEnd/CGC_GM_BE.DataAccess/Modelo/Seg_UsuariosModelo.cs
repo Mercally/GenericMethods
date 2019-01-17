@@ -70,7 +70,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 TipoConsulta = TipoConsulta.Update
             };
 
-            return Ejecutar<int>(Consulta);
+            return Ejecutar<bool>(Consulta);
         }
 
         public _Resultado<bool> EliminarUsuario(int UsuarioId, bool EsEliminadoFisico = false)

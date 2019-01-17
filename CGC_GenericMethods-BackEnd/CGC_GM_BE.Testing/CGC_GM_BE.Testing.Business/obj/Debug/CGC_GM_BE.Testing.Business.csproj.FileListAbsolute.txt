@@ -1,4 +1,3 @@
-C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.csprojResolveAssemblyReference.cache
 C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.csproj.CoreCompileInputs.cache
 C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Josue\source\repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
@@ -41,3 +40,7 @@ C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.dll
 C:\Source\GitHub\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.pdb
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\obj\Debug\CGC_GM_BE.Testing.Business.csprojAssemblyReference.cache
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\bin\Debug\CGC_GM_BE.Common.Exceptions.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\bin\Debug\CGC_GM_BE.Common.Extensions.dll
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\bin\Debug\CGC_GM_BE.Common.Exceptions.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-BackEnd\CGC_GM_BE.Testing\CGC_GM_BE.Testing.Business\bin\Debug\CGC_GM_BE.Common.Extensions.pdb

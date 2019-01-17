@@ -9,9 +9,9 @@ namespace CGC_GM_BE.Services.Metadata.ServiceTimeManagerApi
 {
     public interface IUsuariosControllerApi
     {
-        Usuario ConsultarUsuarioPorId(int UsuarioId);
-        int InsertarUsuario(Usuario Usuario);
-        bool ModificarUsuario(Usuario Usuario);
-        bool EliminarUsuario(int UsuarioId);
+        _Resultado<Usuario> ConsultarUsuarioPorId(int UsuarioId);
+        _Resultado<int> InsertarUsuario(Usuario Usuario);
+        _Resultado<bool> ModificarUsuario(Usuario Usuario);
+        _Resultado<bool> EliminarUsuario(int UsuarioId);
     }
 }

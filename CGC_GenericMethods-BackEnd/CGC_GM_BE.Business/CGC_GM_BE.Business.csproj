@@ -57,6 +57,10 @@
       <Project>{f56b77a9-d0f8-4052-bb0a-8df644a097f2}</Project>
       <Name>CGC_GM_BE.Common.Exceptions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CGC_GM_BE.Common\CGC_GM_BE.Common.Extensions\CGC_GM_BE.Common.Extensions.csproj">
+      <Project>{B303C645-87CE-4DAA-A9D5-83E3E644A0F1}</Project>
+      <Name>CGC_GM_BE.Common.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CGC_GM_BE.DataAccess\CGC_GM_BE.DataAccess.csproj">
       <Project>{36e15e1a-5b62-49c7-8718-cb674f8a3c3d}</Project>
       <Name>CGC_GM_BE.DataAccess</Name>

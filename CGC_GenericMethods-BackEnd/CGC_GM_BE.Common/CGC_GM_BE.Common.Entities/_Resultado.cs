@@ -15,9 +15,21 @@ namespace CGC_GM_BE.Common.Entities
 
         }
 
+        public _Resultado(Exception exception)
+        {
+            if (exception == null)
+            {
+                ListaErrores = new List<Exception>();
+            }
+            else
+            {
+                ListaErrores = new List<Exception>() { exception };
+            }
+        }
+
         public _Resultado(_ResultadoDB resultadoDB)
         {
-            this.Resultado = default(T);
+            Resultado = default(T);
 
             switch (resultadoDB.TipoConsulta)
             {
