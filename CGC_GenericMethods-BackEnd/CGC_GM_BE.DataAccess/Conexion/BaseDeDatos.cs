@@ -30,9 +30,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         /// <returns></returns>
         internal static SqlConnection Conectar_CGC_GM()
         {
-            SqlConnection Connection = null;
-
-            Connection = new SqlConnection(CadenaDeConexion_CGC_GM);
+            SqlConnection Connection = new SqlConnection(CadenaDeConexion_CGC_GM);
 
             if (Connection.State != System.Data.ConnectionState.Open)
             {

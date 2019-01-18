@@ -16,14 +16,15 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public bool ResultadoTipoDelete { get; set; }
         public DataTable ResultadoTipoQuery { get; set; }
         public int CantidadCambios { get; set; }
-        public System.Exception Excepcion { get; set; }
         public int TipoConsulta { get; set; }
+
+        public List<System.Exception> ListaExcepciones = new List<Exception>();
 
         public bool EsCorrecto
         {
             get
             {
-                return ResultadoTipoQuery != null && Excepcion == null;
+                return ResultadoTipoQuery != null && ListaExcepciones?.Count() == 0;
             }
         }
 
@@ -32,25 +33,27 @@ namespace CGC_GM_BE.DataAccess.Modelo
         /// </summary>
         /// <typeparam name="T">Tipo de dato a retornar</typeparam>
         /// <returns>Lista de objetos de tipo especificado</returns>
-        public List<T> ConvertirResultadoLista<T>()
+        private T ConvertirResultadoLista<T>()
         {
-            List<T> ListaResultado = new List<T>();
+            T ListaResultado = (T)Activator.CreateInstance(typeof(T));
 
             if (!this.EsCorrecto)
             {
-                return new List<T>();
+                return ListaResultado;
             }
 
             try
             {
                 Type Tipo = typeof(T);
-                string[] Propiedades = Tipo.GetProperties().Select(x => x.Name).ToArray();
+                MethodInfo AddMethod = Tipo.GetMethod("Add");
 
-                PropertyInfo[] PropInfo = Tipo.GetProperties();
+                Type TipoSecundario = Tipo.GenericTypeArguments[0];
+                string[] Propiedades = TipoSecundario.GetProperties().Select(x => x.Name).ToArray();
+                PropertyInfo[] PropInfo = TipoSecundario.GetProperties();
 
                 foreach (DataRow Row in ResultadoTipoQuery.Rows)
                 {
-                    T obj = (T)Activator.CreateInstance(typeof(T));
+                    var obj = Activator.CreateInstance(TipoSecundario);
 
                     for (int i = 0; i < Propiedades.Length; i++)
                     {
@@ -71,15 +74,15 @@ namespace CGC_GM_BE.DataAccess.Modelo
                         }
                     }
 
-                    ListaResultado.Add(obj);
+                    AddMethod.Invoke(ListaResultado, new object[] { obj });
                 }
 
-                return ListaResultado as List<T>;
+                return ListaResultado;
             }
             catch (Exception Ex)
             {
-                Excepcion = Ex;
-                return new List<T>();
+                ListaExcepciones.Add(Ex);
+                return (T)Activator.CreateInstance(typeof(T));
             }
         }
 
@@ -88,7 +91,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         /// </summary>
         /// <typeparam name="T">Tipo de dato a retornar</typeparam>
         /// <returns>Objetos de tipo especificado</returns>
-        public T ConvertiresultadoUnico<T>()
+        private T ConvertirResultadoUnico<T>()
         {
             List<T> ListaResultado = new List<T>();
 
@@ -134,8 +137,21 @@ namespace CGC_GM_BE.DataAccess.Modelo
             }
             catch (Exception Ex)
             {
-                Excepcion = Ex;
+                ListaExcepciones.Add(Ex);
                 return default(T);
+            }
+        }
+
+        public T ConvertirResultado<T>()
+        {
+            var Tipo = typeof(T);
+            if (Tipo.GetGenericTypeDefinition().Equals(typeof(List<>)))
+            {
+                return ConvertirResultadoLista<T>();
+            }
+            else
+            {
+                return ConvertirResultadoUnico<T>();
             }
         }
     }

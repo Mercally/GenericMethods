@@ -140,10 +140,17 @@ namespace CGC_GM_BE.DataAccess
             {
                 return;
             }
-            CommitOrRollback();
 
-            Transaccion.Dispose();
-            Conexion.Dispose();
+            try
+            {
+                CommitOrRollback();
+                Transaccion.Dispose();
+                Conexion.Dispose();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         /// <summary>
@@ -153,7 +160,21 @@ namespace CGC_GM_BE.DataAccess
         /// <returns></returns>
         public _ResultadoDB Ejecutar(_ConsultaT_Sql Consulta)
         {
-            return Comandos.Ejecutar(Consulta);
+            if (ListaExcepciones.Count > 0)
+            {
+                return new _ResultadoDB()
+                {
+                    CantidadCambios = 0,
+                    ListaExcepciones = ListaExcepciones,
+                    TipoConsulta = Consulta.TipoConsulta
+                };
+            }
+            else
+            {
+                var Resultado = Comandos.Ejecutar(Consulta);
+                Resultado.TipoConsulta = Consulta.TipoConsulta;
+                return Resultado;
+            }
         }
 
         public _ResultadoV2 EjecutarV2(_ConsultaT_Sql Consulta)

@@ -40,7 +40,7 @@ namespace CGC_GM_BE.Common.Entities
                     Resultado = (T)Convert.ChangeType(resultadoDB.ResultadoTipoDelete, typeof(T));
                     break;
                 case TipoConsulta.Query:
-                    Resultado = (T)Convert.ChangeType(resultadoDB.ResultadoTipoQuery, typeof(T));
+                    Resultado = resultadoDB.ConvertirResultado<T>();
                     break;
                 default:
                     break;
@@ -48,13 +48,13 @@ namespace CGC_GM_BE.Common.Entities
 
             EsCorrecto = resultadoDB.EsCorrecto;
 
-            if (resultadoDB.Excepcion == null)
+            if (resultadoDB.ListaExcepciones == null)
             {
                 ListaErrores = new List<Exception>();
             }
             else
             {
-                ListaErrores = new List<Exception>() { resultadoDB.Excepcion };
+                ListaErrores = new List<Exception>(resultadoDB.ListaExcepciones);
             }
         }
 

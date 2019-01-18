@@ -33,11 +33,12 @@ namespace CGC_GM_BE.DataAccess
 
             try
             {
-                ResultadoDB = this.Contexto.Ejecutar(consulta);
+                ResultadoDB = Contexto.Ejecutar(consulta);
             }
             catch (Exception ex)
             {
-                ResultadoDB.Excepcion = ex;
+                ResultadoDB.TipoConsulta = consulta.TipoConsulta;
+                ResultadoDB.ListaExcepciones.Add(ex);
                 this.Contexto.Excepciones(ex);
             }
 
@@ -63,7 +64,8 @@ namespace CGC_GM_BE.DataAccess
             }
             catch (Exception ex)
             {
-                ResultadoDB.Excepcion = ex;
+                ResultadoDB.TipoConsulta = tipoConsulta;
+                ResultadoDB.ListaExcepciones.Add(ex);
                 this.Contexto.Excepciones(ex);
             }
             
