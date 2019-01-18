@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Modelo;
 using CGC_GM_BE.DataAccess.Modelo;
 
 namespace CGC_GM_BE.DataAccess.Modelo

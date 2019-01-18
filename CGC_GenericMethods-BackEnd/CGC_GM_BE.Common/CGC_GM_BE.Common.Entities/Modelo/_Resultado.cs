@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CGC_GM_BE.Common.Entities
+namespace CGC_GM_BE.Common.Entities.Modelo
 {
     public class _Resultado<T>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CGC_GM_BE.Business;
-using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Modelo;
 
 namespace CGC_GM_BE.Testing.Business
 {

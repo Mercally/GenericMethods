@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CGC_GM_BE.DataAccess.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
-using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Modelo;
 using CGC_GM_BE.Common.Entities.Constantes;
 
 namespace CGC_GM_BE.DataAccess

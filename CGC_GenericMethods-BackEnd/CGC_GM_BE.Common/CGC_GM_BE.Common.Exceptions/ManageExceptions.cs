@@ -1,4 +1,4 @@
-﻿using CGC_GM_BE.Common.Entities;
+﻿using CGC_GM_BE.Common.Entities.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;

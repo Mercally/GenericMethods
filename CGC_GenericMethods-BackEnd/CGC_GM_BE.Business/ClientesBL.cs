@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Modelo;
 using CGC_GM_BE.DataAccess;
 
 namespace CGC_GM_BE.Business

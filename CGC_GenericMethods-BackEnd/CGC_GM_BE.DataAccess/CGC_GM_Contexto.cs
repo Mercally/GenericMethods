@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using CGC_GM_BE.DataAccess.Conexion;
 using CGC_GM_BE.DataAccess.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
-using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Modelo;
 
 namespace CGC_GM_BE.DataAccess
 {

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using CGC_GM_BE.Common.Entities;
+using CGC_GM_BE.Common.Entities.Modelo;
 using CGC_GM_BE.Business;
 using CGC_GM_BE.Services.Metadata.ServiceTimeManagerApi;
+using CGC_GM_BE.Common.Entities;
 
 namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
 {
