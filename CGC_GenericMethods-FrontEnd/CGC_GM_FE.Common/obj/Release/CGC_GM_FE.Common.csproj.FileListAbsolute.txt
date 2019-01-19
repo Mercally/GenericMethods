@@ -13,7 +13,6 @@ C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\bin\Release\System.Web.WebPages.xml
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\bin\Release\System.Web.WebPages.Deployment.xml
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\bin\Release\System.Web.WebPages.Razor.xml
-C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\obj\Release\CGC_GM_FE.Common.csprojAssemblyReference.cache
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\obj\Release\CGC_GM_FE.Common.csproj.CoreCompileInputs.cache
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\obj\Release\CGC_GM_FE.Common.csproj.CopyComplete
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\obj\Release\CGC_GM_FE.Common.dll

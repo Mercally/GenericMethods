@@ -14,9 +14,9 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     public class ProyectosController : ApiController, IProyectosControllerApi
     {
         [HttpGet]
-        public _Resultado<List<Proyecto>> ConsultarProyectos()
+        public _Resultado<List<Proyecto>> ConsultarProyectos(bool soloActivos = true)
         {
-            return ProyectosBL.ConsultarProyectos();
+            return ProyectosBL.ConsultarProyectos(soloActivos);
         }
 
         [HttpGet]

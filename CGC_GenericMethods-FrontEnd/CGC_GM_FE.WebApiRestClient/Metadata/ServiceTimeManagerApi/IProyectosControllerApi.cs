@@ -9,7 +9,7 @@ namespace CGC_GM_FE.WebApiRestClient.Metadata.ServiceTimeManagerApi
 {
     public interface IProyectosControllerApi
     {
-        _Resultado<List<Proyecto>> ConsultarProyectos();
+        _Resultado<List<Proyecto>> ConsultarProyectos(bool soloActivos = true);
         _Resultado<Proyecto> ConsultarProyectoPorId(int ProyectoId);
         _Resultado<int> InsertarProyecto(Proyecto Proyecto);
         _Resultado<bool> ModificarProyecto(Proyecto Proyecto);

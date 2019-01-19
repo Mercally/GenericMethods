@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGC_GM_FE.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -67,17 +68,49 @@ namespace CGC_GM_FE.WebAppMVC.HtmlExtensions
             return options;
         }
 
-
         public static MvcHtmlString ButtonSaveChanges<TModel, TProperty>
-        (this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, bool EsNuevo = true)
+        (this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, TipoFormularioEnum tipoFormulario, bool EsNuevo = true)
         {
             ModelMetadata Metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
             string DisplayName = Metadata.DisplayName.ToLower();
             string IdElement = $"btn-savechanges-{ DisplayName.Replace(" ", "_") }";
             string NameElement = $"btn-savechanges-{ DisplayName.Replace(" ", "_") }";
             string Value = $"value=\"{ (EsNuevo ? "Guardar nuevo" : "Guardar") } { (string.IsNullOrEmpty(Metadata.DisplayName) ? "" : Metadata.DisplayName) }\"";
+            string Hidden = string.Empty;
+            if (tipoFormulario == TipoFormularioEnum.Detalle || tipoFormulario == TipoFormularioEnum.Eliminar)
+            {
+                Hidden = "style=\"display:none;\"";
+            }
 
-            string StringHTml = $"<input type=\"submit\" { NameElement } { IdElement } { Value } class=\"btn btn-success\" />";
+            string StringHTml = $"<input type=\"submit\" { Hidden } { NameElement } { IdElement } { Value } class=\"btn btn-success\" />";
+
+            return MvcHtmlString.Create(StringHTml);
+        }
+
+        public static MvcHtmlString ButtonModalDelete<TModel, TProperty>
+        (this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, string urlAction, string idDivElement)
+        {
+            ModelMetadata Metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+            string DisplayName = Metadata.DisplayName?.ToLower();
+            string IdElement = $"btn-modal-delete-{ DisplayName?.Replace(" ", "_") }";
+            string NameElement = $"btn-modal-delete-{ DisplayName?.Replace(" ", "_") }";
+            string OnClick = $"onclick=\"openModal(\'{ urlAction }\', \'get\', \'{ idDivElement }\');\"";
+            string DataModals = $"data-toggle=\"modal\" data-target=\"#{ idDivElement }\"";
+            string StringHTml = $"<button type=\"button\" { NameElement } { IdElement } { OnClick } { DataModals } class=\"btn btn-danger btn-modal-delete\">Eliminar</button>";
+
+            return MvcHtmlString.Create(StringHTml);
+        }
+
+        public static MvcHtmlString ButtonModalActivate<TModel, TProperty>
+        (this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, string urlAction, string idDivElement)
+        {
+            ModelMetadata Metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+            string DisplayName = Metadata.DisplayName?.ToLower();
+            string IdElement = $"btn-modal-activate-{ DisplayName?.Replace(" ", "_") }";
+            string NameElement = $"btn-modal-activate-{ DisplayName?.Replace(" ", "_") }";
+            string OnClick = $"onclick=\"openModal(\'{ urlAction }\', \'get\', \'{ idDivElement }\');\"";
+            string DataModals = $"data-toggle=\"modal\" data-target=\"#{ idDivElement }\"";
+            string StringHTml = $"<button type=\"button\" { NameElement } { IdElement } { OnClick } { DataModals } class=\"btn btn-warning btn-modal-activate\">Activar</button>";
 
             return MvcHtmlString.Create(StringHTml);
         }

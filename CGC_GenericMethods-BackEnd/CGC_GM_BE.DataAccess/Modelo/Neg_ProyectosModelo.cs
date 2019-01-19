@@ -15,15 +15,19 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public Neg_ProyectosModelo(IContextoCustomizado Contexto)
             : base(Contexto) { }
 
-        public _Resultado<List<Proyecto>> ConsultaProyectos()
+        public _Resultado<List<Proyecto>> ConsultaProyectos(bool soloActivos)
         {
             _ConsultaT_Sql Consulta = new _ConsultaT_Sql()
             {
                 ConsultaCruda = @"SELECT Id, Nombre, FechaRegistro, EsActivo 
-                                  FROM neg.Proyecto 
-                                  WHERE EsActivo = 1;",
+                                  FROM neg.Proyecto ",
                 _TipoConsulta = TipoConsulta.Query
             };
+
+            if (soloActivos)
+            {
+                Consulta.ConsultaCruda += " WHERE EsActivo = 1;";
+            }
 
             return Ejecutar<List<Proyecto>>(Consulta);
         }

@@ -14,7 +14,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes().Resultado;
+            var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes(false).Resultado;
             return View(ListCliente);
         }
 
@@ -76,6 +76,22 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
 
             return Json(JsonResponse.JResponse(Exito, redirects: 
              new Redirects(Url.Action("Details", new { id = Cliente.Id }), "Detalle")));
+        }
+
+        [HttpGet]
+        public ActionResult PartialDelete(int id)
+        {
+            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
+            if (Cliente != null)
+            {
+                Cliente.TipoFormulario = TipoFormularioEnum.Eliminar;
+                return View("Cliente", Cliente);
+            }
+            else
+            {
+                // Alerta de error
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]

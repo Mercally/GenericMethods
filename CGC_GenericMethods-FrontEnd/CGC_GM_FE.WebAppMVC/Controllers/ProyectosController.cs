@@ -14,7 +14,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos().Resultado;
+            var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos(false).Resultado;
             return View(ListProyecto);
         }
 
@@ -24,7 +24,8 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Proyecto Proyecto = WebApiProvider.ProyectosApi.ConsultarProyectoPorId(id).Resultado;
             if (Proyecto != null)
             {
-                return View(Proyecto);
+                Proyecto.TipoFormulario = TipoFormularioEnum.Detalle;
+                return View("Proyecto", Proyecto);
             }
             else
             {
@@ -36,7 +37,8 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            Proyecto Proyecto = new Proyecto(TipoFormularioEnum.Crear);
+            return View("Proyecto", Proyecto);
         }
 
         [HttpPost]
@@ -46,15 +48,10 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Proyecto.FechaRegistro = DateTime.Now;
 
             Proyecto.Id = WebApiProvider.ProyectosApi.InsertarProyecto(Proyecto).Resultado;
-            if (Proyecto.Id > 0)
-            {
-                return RedirectToAction("Details", new { id = Proyecto.Id });
-            }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Ocurrió un error al ingresar el proyecto");
-                return View();
-            }
+            bool Exito = Proyecto.Id > 0;
+
+            return Json(JsonResponse.JResponse(Exito, redirects:
+                 new Redirects(Url.Action("Details", new { id = Proyecto.Id }), "Detalle")));
         }
 
         [HttpGet]
@@ -63,7 +60,8 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Proyecto Proyecto = WebApiProvider.ProyectosApi.ConsultarProyectoPorId(id).Resultado;
             if (Proyecto != null)
             {
-                return View(Proyecto);
+                Proyecto.TipoFormulario = TipoFormularioEnum.Editar;
+                return View("Proyecto", Proyecto);
             }
             else
             {
@@ -75,15 +73,25 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Edit(Proyecto Proyecto)
         {
-            bool Success = WebApiProvider.ProyectosApi.ModificarProyecto(Proyecto).Resultado;
-            if (Success)
+            bool Exito = WebApiProvider.ProyectosApi.ModificarProyecto(Proyecto).Resultado;
+
+            return Json(JsonResponse.JResponse(Exito, redirects:
+                new Redirects(Url.Action("Details", new { id = Proyecto.Id }), "Detalle")));
+        }
+
+        [HttpGet]
+        public ActionResult PartialDelete(int id)
+        {
+            Proyecto Proyecto = WebApiProvider.ProyectosApi.ConsultarProyectoPorId(id).Resultado;
+            if (Proyecto != null)
             {
-                return RedirectToAction("Details", new { id = Proyecto.Id });
+                Proyecto.TipoFormulario = TipoFormularioEnum.Eliminar;
+                return View("Proyecto", Proyecto);
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Ocurrió un error al modificar el proyecto");
-                return View();
+                // Alerta de error
+                return RedirectToAction("Index");
             }
         }
 
@@ -93,7 +101,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             bool Exito = WebApiProvider.ProyectosApi.EliminarProyecto(id).Resultado;
 
             return Json(JsonResponse.JResponse(Exito, redirects:
-             new Redirects(Url.Action("Index"), "Proyectos")));
+                new Redirects(Url.Action("Details"), "Detalle")));
         }
     }
 }

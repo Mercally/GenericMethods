@@ -1,11 +1,48 @@
 ﻿@model Cliente
 @using CGC_GM_FE.WebAppMVC.ViewModels
+@using CGC_GM_FE.WebAppMVC.HtmlExtensions
 
 @{
-    var ViewModel = new ClienteViewModel(Model.TipoFormulario);
+    var ViewModel = new ProyectoViewModel(Model.TipoFormulario);
     ViewBag.Title = ViewModel.View_TitlePage();
 
+    if (Model.TipoFormulario == TipoFormularioEnum.Eliminar)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    var _CurrentRoute = CurrentAction(Model.TipoFormulario);
 }
+
+@functions{
+
+    public CurrentRoute CurrentAction(TipoFormularioEnum tipoFormulario)
+    {
+        CurrentRoute currentAction = new CurrentRoute("Clientes");
+        switch (tipoFormulario)
+        {
+            case TipoFormularioEnum.Crear:
+                currentAction.Action = "Create";
+                break;
+            case TipoFormularioEnum.Editar:
+                currentAction.Action = "Edit";
+                break;
+            case TipoFormularioEnum.Eliminar:
+                currentAction.Action = "Delete";
+                currentAction.Route = new { id = Model.Id };
+                break;
+            case TipoFormularioEnum.Detalle:
+            default:
+                break;
+        }
+        return currentAction;
+    }
+}
+
 @section Breadcrumb{
     <li class="breadcrumb-item">@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
     <li class="breadcrumb-item">@Html.ActionLink("Clientes", "Index", "Clientes")</li>
@@ -16,22 +53,21 @@
     @Html.Partial("_card", ViewModel)
     <div class="col-sm-12 col-lg-9">
         @{
-            string Action = Model.Id == 0 ? "Create" : "Edit";
-            using (Ajax.BeginForm(Action, "Clientes", new AjaxOptions { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+            using (Ajax.BeginForm(actionName: _CurrentRoute.Action, controllerName: _CurrentRoute.Controller, routeValues: _CurrentRoute.Route, ajaxOptions: new AjaxOptions { HttpMethod = "POST" }, htmlAttributes: new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-row">
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-6" })
-                            <div class="col-sm-12">
-                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
-                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        @if (TipoFormularioEnum.Editar == Model.TipoFormulario)
+                        @if (TipoFormularioEnum.Editar == Model.TipoFormulario || TipoFormularioEnum.Crear == Model.TipoFormulario)
                         {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
+                                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-sm-12">
@@ -48,6 +84,12 @@
                         @if (TipoFormularioEnum.Detalle == Model.TipoFormulario || TipoFormularioEnum.Eliminar == Model.TipoFormulario)
                         {
                             <div class="form-group">
+                                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control col-sm-12", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-sm-12">
                                     @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control col-sm-12", @readonly = "readonly" } })
@@ -62,24 +104,23 @@
                         }
                     </div>
                 </div>
-                if (TipoFormularioEnum.Detalle != Model.TipoFormulario)
-                {
-                    <div class="form-row">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
-                                        @Html.ButtonSaveChanges(model => model.BotonGuardarCambios, Model.Id == 0)
-                                    </div>
-                                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.ButtonSaveChanges(model => model.BotonGuardarCambios, Model.TipoFormulario, Model.Id == 0)
                             </div>
                         </div>
                     </div>
-                }
+                </div>
             }
         }
     </div>
 </div>
-<div>
-    @Html.ActionLink("Volver", "Index")
-</div>
+@if (Model.TipoFormulario != TipoFormularioEnum.Eliminar)
+{
+    <div>
+        @Html.ActionLink("Volver", "Index")
+    </div>
+}

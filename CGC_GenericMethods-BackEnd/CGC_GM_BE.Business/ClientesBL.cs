@@ -10,7 +10,7 @@ namespace CGC_GM_BE.Business
 {    
     public class ClientesBL
     {
-        public static _Resultado<List<Cliente>> ConsultarClientes()
+        public static _Resultado<List<Cliente>> ConsultarClientes(bool soloActivos)
         {
             var ListaCliente = new _Resultado<List<Cliente>>();
 
@@ -19,7 +19,7 @@ namespace CGC_GM_BE.Business
                 ListaCliente =
                      Contexto
                     .Neg_ClientesModelo
-                    .ConsultaClientes();
+                    .ConsultaClientes(soloActivos);
             }
 
             return ListaCliente;

@@ -10,7 +10,7 @@ namespace CGC_GM_BE.Business
 {    
     public class ProyectosBL
     {
-        public static _Resultado<List<Proyecto>> ConsultarProyectos()
+        public static _Resultado<List<Proyecto>> ConsultarProyectos(bool soloActivos)
         {
             var ListaProyecto = new _Resultado<List<Proyecto>>();
 
@@ -19,7 +19,7 @@ namespace CGC_GM_BE.Business
                 ListaProyecto =
                      Contexto
                     .Neg_ProyectosModelo
-                    .ConsultaProyectos();
+                    .ConsultaProyectos(soloActivos);
             }
 
             return ListaProyecto;

@@ -1,0 +1,130 @@
+﻿@model Proyecto
+@using CGC_GM_FE.WebAppMVC.ViewModels
+@using CGC_GM_FE.WebAppMVC.HtmlExtensions
+
+@{
+    var ViewModel = new ProyectoViewModel(Model.TipoFormulario);
+    ViewBag.Title = ViewModel.View_TitlePage();
+
+    if (Model.TipoFormulario == TipoFormularioEnum.Eliminar)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    var _CurrentRoute = CurrentAction(Model.TipoFormulario);
+}
+
+@section Breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Proyectos", "Index", "Proyectos")</li>
+    <li class="breadcrumb-item active">@ViewModel.View_TitlePage()</li>
+}
+
+@functions{
+
+    public CurrentRoute CurrentAction(TipoFormularioEnum tipoFormulario)
+    {
+        CurrentRoute currentAction = new CurrentRoute("Proyectos");
+        switch (tipoFormulario)
+        {
+            case TipoFormularioEnum.Crear:
+                currentAction.Action = "Create";
+                break;
+            case TipoFormularioEnum.Editar:
+                currentAction.Action = "Edit";
+                break;
+            case TipoFormularioEnum.Eliminar:
+                currentAction.Action = "Delete";
+                currentAction.Route = new { id = Model.Id };
+                break;
+            case TipoFormularioEnum.Detalle:
+            default:
+                break;
+        }
+        return currentAction;
+    }
+}
+
+<div class="row">
+    @Html.Partial("_card", ViewModel)
+    <div class="col-sm-12 col-lg-9">
+        @{
+            using (Ajax.BeginForm(actionName: _CurrentRoute.Action, controllerName: _CurrentRoute.Controller, routeValues: _CurrentRoute.Route, ajaxOptions: new AjaxOptions { HttpMethod = "POST" }, htmlAttributes: new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        @if (TipoFormularioEnum.Editar == Model.TipoFormulario || TipoFormularioEnum.Crear == Model.TipoFormulario)
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.HiddenFor(model => model.FechaRegistro)
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-6" })
+                                    <div class="col-sm-9">
+                                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
+                                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EsActivo, htmlAttributes: new { @class = "control-label col-md-6" })
+                                    <div class="col-sm-3">
+                                        <div class="checkbox">
+                                            @Html.DropDownListFor(model => model.EsActivo, Html.OptionsForBoolean(model => model.EsActivo), htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.EsActivo, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @if (TipoFormularioEnum.Detalle == Model.TipoFormulario || TipoFormularioEnum.Eliminar == Model.TipoFormulario)
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control col-sm-12", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control col-sm-12", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EsActivo, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.DropDownListFor(model => model.EsActivo, Html.OptionsForBoolean(model => model.EsActivo), htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.ButtonSaveChanges(model => model.BotonGuardarCambios, Model.TipoFormulario, Model.Id == 0)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+@if (Model.TipoFormulario != TipoFormularioEnum.Eliminar)
+{
+    <div>
+        @Html.ActionLink("Volver", "Index")
+    </div>
+}

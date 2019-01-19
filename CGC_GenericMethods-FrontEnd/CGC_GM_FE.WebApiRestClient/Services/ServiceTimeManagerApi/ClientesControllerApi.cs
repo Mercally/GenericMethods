@@ -16,11 +16,11 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             }
         }
 
-        public _Resultado<List<Cliente>> ConsultarClientes()
+        public _Resultado<List<Cliente>> ConsultarClientes(bool soloActivos = false)
         {
             var Respuesta = GenericHelper
                 .Request<List<Cliente>>(
-                Url: $"{ApiUri}",
+                Url: $"{ApiUri}?soloActivos={soloActivos}",
                 Method: HttpMethodEnum.HttpGet
                 );
 

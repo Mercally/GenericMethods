@@ -10,7 +10,7 @@
 }
 
 <p>
-    @Html.ActionLink("Crear", "Create", null, new { @class = "btn btn-success btn-sm" })
+    @Html.ActionLink("+ Crear", "Create", null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -20,23 +20,76 @@
         <th>
             @Html.DisplayNameFor(model => Model[0].FechaRegistro)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].EsActivo)
+        </th>
         <th>Acciones</th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })&nbsp;
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-sm" })&nbsp;
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm btnDelete" })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EsActivo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+            @if (item.EsActivo)
+            {
+                @Html.ButtonModalDelete(model => Model[0].TipoFormulario, Url.Action("PartialDelete", "Proyectos", new { id = item.Id }), "delete-modal-proyect")
+            }
+            else
+            {
+                @Html.ButtonModalActivate(model => Model[0].TipoFormulario, Url.Action("PartialDelete", "Proyectos", new { id = item.Id }), "activate-modal-proyect")
+            }
+        </td>
+    </tr>
     }
 </table>
+
+<div class="modal fade" id="delete-modal-proyect" tabindex="-1" role="dialog" aria-labelledby="delete-modal-proyect-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-modal-proyect-label">Eliminar proyecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btn-save-modal">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="activate-modal-proyect" tabindex="-1" role="dialog" aria-labelledby="activate-modal-proyect-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="activate-modal-proyect-label">Activar proyecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btn-save-modal">Activar</button>
+            </div>
+        </div>
+    </div>
+</div>

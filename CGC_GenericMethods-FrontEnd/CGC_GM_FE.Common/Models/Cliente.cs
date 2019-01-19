@@ -40,6 +40,7 @@ namespace CGC_GM_FE.Common.Models
 
         [DisplayName("Cliente")]
         public string BotonGuardarCambios { get; set; }
+        [DisplayName("Cliente")]
         public TipoFormularioEnum TipoFormulario { get; set; }
     }
 }

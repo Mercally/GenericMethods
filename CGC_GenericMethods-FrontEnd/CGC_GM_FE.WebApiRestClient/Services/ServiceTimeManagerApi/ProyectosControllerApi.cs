@@ -26,11 +26,11 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public _Resultado<List<Proyecto>> ConsultarProyectos()
+        public _Resultado<List<Proyecto>> ConsultarProyectos(bool soloActivos = true)
         {
             var Respuesta = GenericHelper
                 .Request<List<Proyecto>>(
-                Url: $"{ApiUri}",
+                Url: $"{ApiUri}?soloActivos={soloActivos}",
                 Method: HttpMethodEnum.HttpGet
                 );
 

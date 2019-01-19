@@ -15,9 +15,9 @@ namespace CGC_GM_BE.Services.ServiceTimeManagerApi.Controllers
     public class ClientesController : ApiController, IClientesControllerApi
     {
         [HttpGet]
-        public _Resultado<List<Cliente>> ConsultarClientes()
+        public _Resultado<List<Cliente>> ConsultarClientes(bool soloActivos = true)
         {
-            return ClientesBL.ConsultarClientes();
+            return ClientesBL.ConsultarClientes(soloActivos);
         }
 
         [HttpGet]
