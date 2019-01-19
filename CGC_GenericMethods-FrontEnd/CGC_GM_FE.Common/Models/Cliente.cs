@@ -11,6 +11,11 @@ namespace CGC_GM_FE.Common.Models
 {
     public class Cliente
     {
+        public Cliente()
+        {
+
+        }
+
         public Cliente(TipoFormularioEnum tipoFormulario)
         {
             Id = 0;

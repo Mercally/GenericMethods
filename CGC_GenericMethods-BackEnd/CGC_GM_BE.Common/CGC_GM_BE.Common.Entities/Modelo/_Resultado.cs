@@ -1,4 +1,4 @@
-﻿using CGC_GM_BE.Common.Entities.Constantes;
+﻿using CGC_GM_BE.Common.Extensions;
 using CGC_GM_BE.DataAccess.Modelo;
 using System;
 using System.Collections.Generic;
@@ -31,18 +31,22 @@ namespace CGC_GM_BE.Common.Entities.Modelo
         {
             Resultado = default(T);
 
-            switch (resultadoDB.TipoConsulta)
+            switch (resultadoDB._TipoConsulta)
             {
                 case TipoConsulta.Insert:
                     Resultado = (T)Convert.ChangeType(resultadoDB.ResultadoTipoInsert, typeof(T));
                     break;
-                case TipoConsulta.Update:
+                case TipoConsulta.Delete:
                     Resultado = (T)Convert.ChangeType(resultadoDB.ResultadoTipoDelete, typeof(T));
+                    break;
+                case TipoConsulta.Update:
+                    Resultado = (T)Convert.ChangeType(resultadoDB.ResultadoTipoUpdate, typeof(T));
                     break;
                 case TipoConsulta.Query:
                     Resultado = resultadoDB.ConvertirResultado<T>();
                     break;
                 default:
+                    Resultado = default(T);
                     break;
             }
 

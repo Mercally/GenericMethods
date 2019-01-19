@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using CGC_GM_BE.Common.Extensions;
 using CGC_GM_BE.DataAccess.Modelo;
 
 namespace CGC_GM_BE.DataAccess.Modelo
@@ -17,7 +18,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public bool ResultadoTipoDelete { get; set; }
         public DataTable ResultadoTipoQuery { get; set; }
         public int CantidadCambios { get; set; }
-        public int TipoConsulta { get; set; }
+        public int _TipoConsulta { get; set; }
 
         public List<System.Exception> ListaExcepciones = new List<Exception>();
 
@@ -25,7 +26,26 @@ namespace CGC_GM_BE.DataAccess.Modelo
         {
             get
             {
-                return ResultadoTipoQuery != null && ListaExcepciones?.Count() == 0;
+                bool Value = false;
+                switch (_TipoConsulta)
+                {
+                    case TipoConsulta.Delete:
+                        Value = ResultadoTipoDelete && ListaExcepciones?.Count() == 0;
+                        break;
+                    case TipoConsulta.Insert:
+                        Value = ResultadoTipoInsert > 0 && ListaExcepciones?.Count() == 0;
+                        break;
+                    case TipoConsulta.Query:
+                        Value = ResultadoTipoQuery != null && ListaExcepciones?.Count() == 0;
+                        break;
+                    case TipoConsulta.Update:
+                        Value = ResultadoTipoUpdate && ListaExcepciones?.Count() == 0;
+                        break;
+                    default:
+                        Value = false;
+                        break;
+                }
+                return Value;
             }
         }
 

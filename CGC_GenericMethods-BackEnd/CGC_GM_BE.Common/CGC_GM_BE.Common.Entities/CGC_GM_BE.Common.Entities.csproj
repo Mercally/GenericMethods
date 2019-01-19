@@ -45,7 +45,6 @@
     <Compile Include="Modelo\Boleta.cs" />
     <Compile Include="Modelo\Catalogo.cs" />
     <Compile Include="Modelo\Cliente.cs" />
-    <Compile Include="Constantes\TipoConsulta.cs" />
     <Compile Include="Notations\ColumnAttribute.cs" />
     <Compile Include="Notations\KeyAttribute.cs" />
     <Compile Include="Notations\TableAttribute.cs" />

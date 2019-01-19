@@ -2,20 +2,22 @@
 @using CGC_GM_FE.WebAppMVC.ViewModels
 
 @{
-    ViewBag.Title = "Crear cliente";
+    var ViewModel = new ClienteViewModel(Model.TipoFormulario);
+    ViewBag.Title = ViewModel.View_TitlePage();
+
 }
 @section Breadcrumb{
     <li class="breadcrumb-item">@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
     <li class="breadcrumb-item">@Html.ActionLink("Clientes", "Index", "Clientes")</li>
-    <li class="breadcrumb-item active">Crear</li>
+    <li class="breadcrumb-item active">@ViewModel.View_TitlePage()</li>
 }
 
 <div class="row">
-    @Html.Partial("_card", new ClienteViewModel(Model.TipoFormulario))
+    @Html.Partial("_card", ViewModel)
     <div class="col-sm-12 col-lg-9">
         @{
             string Action = Model.Id == 0 ? "Create" : "Edit";
-            using (Html.BeginForm(Action, "Clientes", FormMethod.Post))
+            using (Ajax.BeginForm(Action, "Clientes", new AjaxOptions { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -28,19 +30,52 @@
                                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
                             </div>
                         </div>
+                        @if (TipoFormularioEnum.Editar == Model.TipoFormulario)
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EsActivo, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.DropDownListFor(model => model.EsActivo, Html.OptionsForBoolean(model => model.EsActivo), htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                        }
+                        @if (TipoFormularioEnum.Detalle == Model.TipoFormulario || TipoFormularioEnum.Eliminar == Model.TipoFormulario)
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control col-sm-12", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EsActivo, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-sm-12">
+                                    @Html.DropDownListFor(model => model.EsActivo, Html.OptionsForBoolean(model => model.EsActivo), htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                <div class="col-md-4">
-                                    @Html.ButtonSaveChanges(model => model.BotonGuardarCambios, Model.Id == 0)
+                if (TipoFormularioEnum.Detalle != Model.TipoFormulario)
+                {
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <div class="col-md-4">
+                                        @Html.ButtonSaveChanges(model => model.BotonGuardarCambios, Model.Id == 0)
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             }
         }
     </div>

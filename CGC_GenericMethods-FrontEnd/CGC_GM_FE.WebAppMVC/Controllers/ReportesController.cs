@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CGC_GM_FE.Common.Models;
-using CGC_GM_FE.Common.Utilities;
 using CGC_GM_FE.WebApiRestClient.Services;
 
 namespace CGC_GM_FE.WebAppMVC.Controllers

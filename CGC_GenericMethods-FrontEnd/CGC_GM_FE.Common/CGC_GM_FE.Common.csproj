@@ -71,14 +71,9 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\TipoFormularioEnum.cs" />
     <Compile Include="Models\_Resultado.cs" />
-    <Compile Include="Utilities\Ajax.cs" />
-    <Compile Include="Utilities\DropDownList.cs" />
     <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\HtmlDropDownList.cs" />
-    <Compile Include="Utilities\JsonResponse.cs" />
-    <Compile Include="Utilities\Modal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />

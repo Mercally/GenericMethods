@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CGC_GM_BE.Common.Entities.Modelo;
-using CGC_GM_BE.Common.Entities.Constantes;
+using CGC_GM_BE.Common.Extensions;
 using CGC_GM_BE.DataAccess.Modelo;
 
 namespace CGC_GM_BE.DataAccess.Conexion
@@ -146,7 +146,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         {
             _ResultadoDB Resultado = new _ResultadoDB();
 
-            switch (Consulta.TipoConsulta)
+            switch (Consulta._TipoConsulta)
             {
                 case TipoConsulta.Insert:
                     Resultado.ResultadoTipoInsert = ExecuteScalarInsert(Consulta);
@@ -171,7 +171,7 @@ namespace CGC_GM_BE.DataAccess.Conexion
         {
             _ResultadoV2 Resultado = new _ResultadoV2();
 
-            switch (Consulta.TipoConsulta)
+            switch (Consulta._TipoConsulta)
             {
                 case TipoConsulta.Insert:
                     Resultado.ResultadoTipoInsert = ExecuteScalarInsert(Consulta);

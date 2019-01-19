@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using CGC_GM_BE.Common.Entities.Modelo;
-using CGC_GM_BE.Common.Entities.Constantes;
+using CGC_GM_BE.Common.Extensions;
 using CGC_GM_BE.DataAccess.Conexion;
 
 namespace CGC_GM_BE.DataAccess.Modelo
@@ -35,23 +35,24 @@ namespace CGC_GM_BE.DataAccess.Modelo
            
             switch (tipoConsulta)
             {
-                case Common.Entities.Constantes.TipoConsulta.Insert:
+                case TipoConsulta.Insert:
                     Query = CreateINSERT(pObjecto);
                     break;
-                case Common.Entities.Constantes.TipoConsulta.Update:
+                case TipoConsulta.Update:
                     Query = CreateUPDATE(pObjecto);
                     break;
-                case Common.Entities.Constantes.TipoConsulta.Delete:
+                case TipoConsulta.Delete:
                     Query = CreateDELETE(pObjecto, esEliminadoLogico);
                     break;
-                case Common.Entities.Constantes.TipoConsulta.Query:
+                case TipoConsulta.Query:
                     Query = CreateSELECT(pObjecto);
                     break;
                 default:
+                    Query.TieneError = true;
                     break;
             }
 
-            Query.TipoConsulta = tipoConsulta;
+            Query._TipoConsulta = tipoConsulta;
 
             return Query;
         }
@@ -69,7 +70,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         /// <summary>
         /// Tipo de consulta a realizar: Insert, Update, Delete, Query
         /// </summary>
-        public int TipoConsulta { get; set; }
+        public int _TipoConsulta { get; set; }
 
         /// <summary>
         /// Tiempo de espera en segundos para cada comando de forma individual
@@ -185,7 +186,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
 
                 if (Attrs.Contains("KeyAttribute"))
                 {
-                    Where = $"WHERE {Column}={Param};";
+                    Where = $" WHERE {Column}={Param};";
                     ListParameters.Add(new SqlParameter(Param, Value));
                     continue;
                 }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using CGC_GM_BE.DataAccess.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
 using CGC_GM_BE.Common.Entities.Modelo;
-using CGC_GM_BE.Common.Entities.Constantes;
 
 namespace CGC_GM_BE.DataAccess
 {
@@ -37,7 +36,7 @@ namespace CGC_GM_BE.DataAccess
             }
             catch (Exception ex)
             {
-                ResultadoDB.TipoConsulta = consulta.TipoConsulta;
+                ResultadoDB._TipoConsulta = consulta._TipoConsulta;
                 ResultadoDB.ListaExcepciones.Add(ex);
                 this.Contexto.Excepciones(ex);
             }
@@ -64,7 +63,7 @@ namespace CGC_GM_BE.DataAccess
             }
             catch (Exception ex)
             {
-                ResultadoDB.TipoConsulta = tipoConsulta;
+                ResultadoDB._TipoConsulta = tipoConsulta;
                 ResultadoDB.ListaExcepciones.Add(ex);
                 this.Contexto.Excepciones(ex);
             }

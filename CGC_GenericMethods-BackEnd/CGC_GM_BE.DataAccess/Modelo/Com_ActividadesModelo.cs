@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CGC_GM_BE.Common.Entities.Modelo;
-using CGC_GM_BE.Common.Entities.Constantes;
+using CGC_GM_BE.Common.Extensions;
 using CGC_GM_BE.DataAccess.Interfaces;
 
 namespace CGC_GM_BE.DataAccess.Modelo
@@ -27,7 +27,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@BoletaId", BoletaId)
                 },
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             if (SoloActivos)
@@ -49,7 +49,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ActividadId", ActividadId)
                 },
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             return Ejecutar<Actividad>(Consulta);
@@ -72,7 +72,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                         new SqlParameter("FechaRegistro", Actividad.FechaRegistro),
                         new SqlParameter("EsActivo", Actividad.EsActivo)
                     },
-                TipoConsulta = TipoConsulta.Insert
+                _TipoConsulta = TipoConsulta.Insert
             };
 
             return Ejecutar<int>(Consulta);
@@ -92,7 +92,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                     new SqlParameter("FechaActividad", Actividad.FechaActividad),
                     new SqlParameter("TiempoActividad", Actividad.TiempoActividad)
                 },
-                TipoConsulta = TipoConsulta.Update
+                _TipoConsulta = TipoConsulta.Update
             };
 
             return Ejecutar<bool>(Consulta);
@@ -118,7 +118,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ActividadId", ActividadId)
                 },
-                TipoConsulta = TipoConsulta.Delete
+                _TipoConsulta = TipoConsulta.Delete
             };
 
             return Ejecutar<bool>(Consulta);

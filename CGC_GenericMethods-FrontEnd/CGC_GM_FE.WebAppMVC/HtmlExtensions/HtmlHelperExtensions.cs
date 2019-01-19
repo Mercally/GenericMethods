@@ -77,7 +77,7 @@ namespace CGC_GM_FE.WebAppMVC.HtmlExtensions
             string NameElement = $"btn-savechanges-{ DisplayName.Replace(" ", "_") }";
             string Value = $"value=\"{ (EsNuevo ? "Guardar nuevo" : "Guardar") } { (string.IsNullOrEmpty(Metadata.DisplayName) ? "" : Metadata.DisplayName) }\"";
 
-            string StringHTml = $"<input type=\"button\" { NameElement } { IdElement } { Value } class=\"btn btn-success\" />";
+            string StringHTml = $"<input type=\"submit\" { NameElement } { IdElement } { Value } class=\"btn btn-success\" />";
 
             return MvcHtmlString.Create(StringHTml);
         }

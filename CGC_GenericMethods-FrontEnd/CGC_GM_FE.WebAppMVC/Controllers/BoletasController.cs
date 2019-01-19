@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CGC_GM_FE.Common.Models;
-using CGC_GM_FE.Common.Utilities;
 using CGC_GM_FE.WebApiRestClient.Services;
+using CGC_GM_FE.WebAppMVC.Models.Utilities;
 
 namespace CGC_GM_FE.WebAppMVC.Controllers
 {
@@ -151,14 +151,10 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool EsEliminado = WebApiProvider.BoletasApi.EliminarBoleta(id).Resultado;
+            bool Exito = WebApiProvider.BoletasApi.EliminarBoleta(id).Resultado;
 
-            JsonResponse Response = new JsonResponse()
-            {
-                IsSuccess = EsEliminado
-            };
-
-            return Json(Response);
+            return Json(JsonResponse.JResponse(Exito, redirects:
+            new Redirects(Url.Action("Index"), "Boletas")));
         }
     }
 }

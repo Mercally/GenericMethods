@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CGC_GM_BE.Common.Entities.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
-using CGC_GM_BE.Common.Entities.Constantes;
+using CGC_GM_BE.Common.Extensions;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
@@ -21,7 +21,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
             {
                 ConsultaCruda = $@"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                    FROM cat.{Tabla};",
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             return Ejecutar<List<Catalogo>>(Consulta);
@@ -38,7 +38,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@Id", Id)
                 },
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             return Ejecutar<Catalogo>(Consulta);
@@ -50,7 +50,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
             {
                 ConsultaCruda = $@"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                    FROM cat.{Tabla} ",
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             if (SoloActivos)
@@ -73,7 +73,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Catalogo.FechaRegistro),
                                 new SqlParameter("EsActivo", Catalogo.EsActivo)
                             },
-                TipoConsulta = TipoConsulta.Insert
+                _TipoConsulta = TipoConsulta.Insert
             };
 
             return Ejecutar<int>(Consulta);
@@ -91,7 +91,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Catalogo.FechaRegistro),
                                 new SqlParameter("EsActivo", Catalogo.EsActivo)
                                 },
-                TipoConsulta = TipoConsulta.Update
+                _TipoConsulta = TipoConsulta.Update
             };
 
             return Ejecutar<bool>(Consulta);
@@ -117,7 +117,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@Id", Id)
                 },
-                TipoConsulta = TipoConsulta.Delete
+                _TipoConsulta = TipoConsulta.Delete
             };
 
             return Ejecutar<bool>(Consulta);

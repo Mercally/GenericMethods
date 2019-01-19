@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CGC_GM_BE.Common.Entities.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
-using CGC_GM_BE.Common.Entities.Constantes;
+using CGC_GM_BE.Common.Extensions;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
@@ -22,7 +22,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 ConsultaCruda = @"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                   FROM neg.Proyecto 
                                   WHERE EsActivo = 1;",
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             return Ejecutar<List<Proyecto>>(Consulta);
@@ -39,7 +39,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ProyectoId", ProyectoId)
                 },
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             return Ejecutar<Proyecto>(Consulta);
@@ -57,7 +57,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                                 new SqlParameter("FechaRegistro", Proyecto.FechaRegistro),
                                 new SqlParameter("EsActivo", Proyecto.EsActivo)
                             },
-                TipoConsulta = TipoConsulta.Insert
+                _TipoConsulta = TipoConsulta.Insert
             };
 
             return Ejecutar<int>(Consulta);
@@ -76,7 +76,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                     new SqlParameter("FechaRegistro", Proyecto.FechaRegistro),
                     new SqlParameter("EsActivo", Proyecto.EsActivo)
                 },
-                TipoConsulta = TipoConsulta.Update
+                _TipoConsulta = TipoConsulta.Update
             };
 
             return Ejecutar<bool>(Consulta);
@@ -102,7 +102,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ProyectoId", ProyectoId)
                 },
-                TipoConsulta = TipoConsulta.Delete
+                _TipoConsulta = TipoConsulta.Delete
             };
 
             return Ejecutar<bool>(Consulta);

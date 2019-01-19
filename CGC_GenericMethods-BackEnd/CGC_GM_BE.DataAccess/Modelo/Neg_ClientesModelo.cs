@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CGC_GM_BE.Common.Entities.Modelo;
 using CGC_GM_BE.DataAccess.Interfaces;
-using CGC_GM_BE.Common.Entities.Constantes;
+using CGC_GM_BE.Common.Extensions;
 
 namespace CGC_GM_BE.DataAccess.Modelo
 {
@@ -22,7 +22,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 ConsultaCruda = @"SELECT Id, Nombre, FechaRegistro, EsActivo 
                                   FROM neg.Cliente
                                   WHERE EsActivo = 1;",
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             return Ejecutar<List<Cliente>>(Consulta);
@@ -38,7 +38,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ClienteId", ClienteId)
                 },
-                TipoConsulta = TipoConsulta.Query
+                _TipoConsulta = TipoConsulta.Query
             };
 
             return Ejecutar<Cliente>(Consulta);
@@ -74,7 +74,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
                 {
                     new SqlParameter("@ClienteId", ClienteId)
                 },
-                TipoConsulta = TipoConsulta.Delete
+                _TipoConsulta = TipoConsulta.Delete
             };
 
             return Ejecutar<bool>(Consulta);

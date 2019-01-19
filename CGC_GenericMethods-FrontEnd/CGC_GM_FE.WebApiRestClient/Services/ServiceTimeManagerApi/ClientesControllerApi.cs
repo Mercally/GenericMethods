@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using CGC_GM_FE.Common.Models;
 using CGC_GM_FE.WebApiRestClient.Metadata.ServiceTimeManagerApi;
@@ -50,6 +51,9 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
 
         public _Resultado<int> InsertarCliente(Cliente Cliente)
         {
+            Cliente.EsActivo = true;
+            Cliente.FechaRegistro = DateTime.Now;
+
             var Respuesta = GenericHelper
                 .Request<int>(
                 Url: ApiUri,

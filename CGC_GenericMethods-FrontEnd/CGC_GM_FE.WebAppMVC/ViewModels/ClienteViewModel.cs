@@ -18,7 +18,7 @@ namespace CGC_GM_FE.WebAppMVC.ViewModels
 
         private TipoFormularioEnum TipoFormulario { get; set; }
 
-        public override MvcHtmlString Card_TitlePage()
+        public override MvcHtmlString View_TitlePage()
         {
             string Value = string.Empty;
             switch (TipoFormulario)
@@ -39,6 +39,12 @@ namespace CGC_GM_FE.WebAppMVC.ViewModels
                     Value = "";
                     break;
             }
+            return MvcHtmlString.Create(Value);
+        }
+
+        public override MvcHtmlString Card_TitlePage()
+        {
+            string Value = this.View_TitlePage().ToHtmlString();
             Value = HtmlConstantes.HTitlePage.Replace("_TEXT_", Value);
             return MvcHtmlString.Create(Value);
         }

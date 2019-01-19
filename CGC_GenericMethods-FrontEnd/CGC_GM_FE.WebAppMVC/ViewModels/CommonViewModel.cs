@@ -9,6 +9,11 @@ namespace CGC_GM_FE.WebAppMVC.ViewModels
 {
     public class CommonViewModel
     {
+        public virtual MvcHtmlString View_TitlePage()
+        {
+            return new MvcHtmlString(string.Empty);
+        }
+
         public virtual MvcHtmlString Card_TitlePage()
         {
             return new MvcHtmlString(string.Empty);

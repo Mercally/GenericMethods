@@ -166,13 +166,13 @@ namespace CGC_GM_BE.DataAccess
                 {
                     CantidadCambios = 0,
                     ListaExcepciones = ListaExcepciones,
-                    TipoConsulta = Consulta.TipoConsulta
+                    _TipoConsulta = Consulta._TipoConsulta
                 };
             }
             else
             {
                 var Resultado = Comandos.Ejecutar(Consulta);
-                Resultado.TipoConsulta = Consulta.TipoConsulta;
+                Resultado._TipoConsulta = Consulta._TipoConsulta;
                 return Resultado;
             }
         }
