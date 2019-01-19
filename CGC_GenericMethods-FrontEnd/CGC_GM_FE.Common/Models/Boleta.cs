@@ -11,6 +11,20 @@ namespace CGC_GM_FE.Common.Models
 {
     public class Boleta
     {
+        public Boleta()
+        {
+
+        }
+
+        public Boleta(TipoFormularioEnum tipoFormulario)
+        {
+            Id = 0;
+            NumeroBoleta = "DEV";
+            EsActivo = true;
+            TipoFormulario = tipoFormulario;
+            FechaRegistro = FechaEntrada = FechaSalida = DateTime.Now;
+        }
+
         [HiddenInput]
         public int Id { get; set; }
         [Required]
@@ -61,5 +75,10 @@ namespace CGC_GM_FE.Common.Models
         [DisplayName("Descripción")]
         [MaxLength(349)]
         public string Descripcion { get; set; }
+
+        [DisplayName("Boleta")]
+        public string BotonGuardarCambios { get; set; }
+        [DisplayName("Boleta")]
+        public TipoFormularioEnum TipoFormulario { get; set; }
     }
 }

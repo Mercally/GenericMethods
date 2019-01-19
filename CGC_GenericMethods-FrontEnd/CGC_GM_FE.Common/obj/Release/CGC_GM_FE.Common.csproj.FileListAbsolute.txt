@@ -19,3 +19,4 @@ C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\obj\Release\CGC_GM_FE.Common.pdb
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\bin\Release\Common.Entities.dll
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\bin\Release\Common.Entities.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.Common\obj\Release\CGC_GM_FE.Common.csprojAssemblyReference.cache

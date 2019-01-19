@@ -93,9 +93,9 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool Exito = WebApiProvider.ActividadesApi.EliminarActividad(id).Resultado;
+            var ResultadoApi = WebApiProvider.ActividadesApi.EliminarActividad(id);
 
-            return Json(JsonResponse.JResponse(Exito, redirects:
+            return Json(JsonResponse.JResponse(ResultadoApi, redirects:
             new Redirects(Url.Action("Index"), "Actividades")));
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGC_GM_FE.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,7 @@ namespace CGC_GM_FE.WebAppMVC.Models.Utilities
         /// 
         /// </summary>
         public Redirects[] ListRedirects { get; set; }
+        public List<Exception> ListaErrores { get; set; }
 
         /// <summary>
         /// Constructor por defecto
@@ -63,13 +65,17 @@ namespace CGC_GM_FE.WebAppMVC.Models.Utilities
             ListRedirects = redirects ?? new Redirects[0];
         }
 
-        public static JsonResponse JResponse(bool isSuccess, string message = null, params Redirects[] redirects)
+        public static JsonResponse JResponse<T>(_Resultado<T> resultado, string message = null, params Redirects[] redirects)
         {
             if (string.IsNullOrEmpty(message))
-                message = isSuccess ? "Los datos se han guardado exitosamente (:" :
+                message = resultado.EsCorrecto ? "Los datos se han guardado exitosamente (:" :
                     "Lo sentimos, ocurrió un error al guardar los datos :(";
 
-            return new JsonResponse(isSuccess, message, redirects);
+            var Response = new JsonResponse(resultado.EsCorrecto, message, redirects);
+
+            Response.ListaErrores = resultado.ListaErrores;
+
+            return Response;
         }
     }
 }

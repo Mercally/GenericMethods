@@ -21,10 +21,12 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
-            if (Cliente != null)
+            var ResultadoApi = WebApiProvider.ClientesApi.ConsultarClientePorId(id);
+            if (ResultadoApi.EsCorrecto)
             {
-                Cliente.TipoFormulario = TipoFormularioEnum.Detalle;
+                var Cliente = ResultadoApi.Resultado;
+
+                Cliente.TipoFormulario = TipoFormularioEnum.Editar;
                 return View("Cliente", Cliente);
             }
             else
@@ -44,22 +46,26 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Create(Cliente Cliente)
         {
-            Cliente.Id = WebApiProvider.ClientesApi.InsertarCliente(Cliente).Resultado;
+            var ResultadoApi = WebApiProvider.ClientesApi.InsertarCliente(Cliente);
 
-            bool Exito = Cliente.Id > 0;
+            if (ResultadoApi.EsCorrecto)
+            {
+                Cliente.Id = ResultadoApi.Resultado;
+            }
 
-            return Json(JsonResponse.JResponse(Exito, redirects:
+            return Json(JsonResponse.JResponse(ResultadoApi, redirects:
              new Redirects(Url.Action("Details", new { id = Cliente.Id }), "Detalle")));
         }
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
-            Cliente.TipoFormulario = TipoFormularioEnum.Editar;
-
-            if (Cliente != null)
+            var ResultadoApi = WebApiProvider.ClientesApi.ConsultarClientePorId(id);
+            if (ResultadoApi.EsCorrecto)
             {
+                var Cliente = ResultadoApi.Resultado;
+
+                Cliente.TipoFormulario = TipoFormularioEnum.Editar;
                 return View("Cliente", Cliente);
             }
             else
@@ -72,18 +78,20 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Edit(Cliente Cliente)
         {
-            bool Exito = WebApiProvider.ClientesApi.ModificarCliente(Cliente).Resultado;
+            var ResultadoApi = WebApiProvider.ClientesApi.ModificarCliente(Cliente);
 
-            return Json(JsonResponse.JResponse(Exito, redirects: 
+            return Json(JsonResponse.JResponse(ResultadoApi, redirects: 
              new Redirects(Url.Action("Details", new { id = Cliente.Id }), "Detalle")));
         }
 
         [HttpGet]
         public ActionResult PartialDelete(int id)
         {
-            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
-            if (Cliente != null)
+            var ResultadoApi = WebApiProvider.ClientesApi.ConsultarClientePorId(id);
+            if (ResultadoApi.EsCorrecto)
             {
+                var Cliente = ResultadoApi.Resultado;
+
                 Cliente.TipoFormulario = TipoFormularioEnum.Eliminar;
                 return View("Cliente", Cliente);
             }
@@ -97,9 +105,9 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool Exito = WebApiProvider.ClientesApi.EliminarCliente(id).Resultado;
+            var ResultadoApi = WebApiProvider.ClientesApi.EliminarCliente(id);
 
-            return Json(JsonResponse.JResponse(Exito, redirects:
+            return Json(JsonResponse.JResponse(ResultadoApi, redirects:
              new Redirects(Url.Action("Index"), "Clientes")));
         }
     }

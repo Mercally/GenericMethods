@@ -19,13 +19,6 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult IndexV2()
-        {
-            var ListBoleta = WebApiProvider.BoletasApi.ConsultarBoletasV2();
-            return View(ListBoleta);
-        }
-
-        [HttpGet]
         public ActionResult Create()
         {
             var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
@@ -40,7 +33,8 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
             ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
-            return View();
+            Boleta Boleta = new Boleta(TipoFormularioEnum.Crear);
+            return View("Boleta", Boleta);
         }
 
         [HttpPost]
@@ -50,17 +44,15 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Boleta.EsActivo = true;
             Boleta.UsuarioId = 1; // Usuario en sesion
 
-            Boleta.Id = WebApiProvider.BoletasApi.InsertarBoleta(Boleta).Resultado;
+            var ResultadoApi = WebApiProvider.BoletasApi.InsertarBoleta(Boleta);
 
-            if (Boleta.Id > 0)
+            if (ResultadoApi.EsCorrecto)
             {
-                return RedirectToAction("Create", "Actividad", new { id = Boleta.Id });
+                Boleta.Id = ResultadoApi.Resultado;
             }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Ocurrió un error al ingresar la boleta");
-                return View(Boleta);
-            }
+
+            return Json(JsonResponse.JResponse(ResultadoApi, redirects:
+             new Redirects(Url.Action("Details", new { id = Boleta.Id }), "Detalle")));
         }
 
         [HttpGet]
@@ -82,7 +74,9 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
                 var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
                 ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
-                return View(Boleta);
+                Boleta.TipoFormulario = TipoFormularioEnum.Editar;
+
+                return View("Boleta", Boleta);
             }
             else
             {
@@ -96,11 +90,12 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Boleta.FechaRegistro = DateTime.Now;
             Boleta.UsuarioId = 1; // Usuario actual
 
-            bool Modificado = WebApiProvider.BoletasApi.ModificarBoleta(Boleta).Resultado;
+            var ResultadoApi = WebApiProvider.BoletasApi.ModificarBoleta(Boleta);
 
-            if (Modificado)
+            if (ResultadoApi.Resultado)
             {
-                return RedirectToAction("Details", new { id = Boleta.Id });
+                return Json(JsonResponse.JResponse(ResultadoApi, redirects:
+                    new Redirects(Url.Action("Details", new { id = Boleta.Id }), "Detalle")));
             }
             else
             {
@@ -117,7 +112,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
                 ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 ModelState.AddModelError(string.Empty, "Ocurrió un error al modificar la boleta");
-                return View();
+                return View("Boleta");
             }
         }
 
@@ -140,7 +135,9 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
                 var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
                 ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
-                return View(Boleta);
+                Boleta.TipoFormulario = TipoFormularioEnum.Detalle;
+
+                return View("Boleta", Boleta);
             }
             else
             {
@@ -151,10 +148,10 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool Exito = WebApiProvider.BoletasApi.EliminarBoleta(id).Resultado;
+            var ResultadoApi = WebApiProvider.BoletasApi.EliminarBoleta(id);
 
-            return Json(JsonResponse.JResponse(Exito, redirects:
-            new Redirects(Url.Action("Index"), "Boletas")));
+            return Json(JsonResponse.JResponse(ResultadoApi, redirects:
+             new Redirects(Url.Action("Index"), "Boletas")));
         }
     }
 }

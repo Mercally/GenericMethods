@@ -102,13 +102,14 @@ namespace CGC_GM_BE.DataAccess.Conexion
             cmd.Parameters.AddRange(Consulta.Parametros.ToArray());
 
             int Result = 0;
+
             try
             {
                 Result = Convert.ToInt32(cmd.ExecuteScalar());
             }
-            catch
+            catch(Exception ex)
             {
-                Result = 0;
+                throw ex;
             }
 
             return Result;
