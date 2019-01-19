@@ -39,7 +39,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -382,6 +382,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Sistema\Forms.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -403,11 +404,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlExtensions\BooleanDisplayValuesAttribute.cs" />
-    <Compile Include="HtmlExtensions\HtmlExtensions.cs" />
+    <Compile Include="HtmlExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ClienteViewModel.cs" />
+    <Compile Include="ViewModels\CommonViewModel.cs" />
+    <Compile Include="ViewModels\HtmlConstantes.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -430,8 +436,7 @@
     <Content Include="Views\Actividades\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />
-    <Content Include="Views\Clientes\Create.cshtml" />
-    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Cliente.cshtml" />
     <Content Include="Views\Proyectos\Index.cshtml" />
     <Content Include="Views\Proyectos\Details.cshtml" />
     <Content Include="Views\Proyectos\Create.cshtml" />
@@ -439,6 +444,7 @@
     <Content Include="Views\Reportes\Index.cshtml" />
     <Content Include="Views\Boletas\IndexV2.cshtml" />
     <Content Include="Views\Boletas\Details.cshtml" />
+    <Content Include="Views\Shared\_card.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

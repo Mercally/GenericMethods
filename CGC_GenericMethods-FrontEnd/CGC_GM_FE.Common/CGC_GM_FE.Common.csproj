@@ -69,6 +69,7 @@
     <Compile Include="Models\Boleta.cs" />
     <Compile Include="Models\Catalogo.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\TipoFormularioEnum.cs" />
     <Compile Include="Models\_Resultado.cs" />
     <Compile Include="Utilities\Ajax.cs" />
     <Compile Include="Utilities\DropDownList.cs" />

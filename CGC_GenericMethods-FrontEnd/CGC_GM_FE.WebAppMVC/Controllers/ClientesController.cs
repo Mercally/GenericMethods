@@ -24,7 +24,8 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
             if (Cliente != null)
             {
-                return View(Cliente);
+                Cliente.TipoFormulario = TipoFormularioEnum.Detalle;
+                return View("Cliente", Cliente);
             }
             else
             {
@@ -36,7 +37,8 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var Model = new Cliente(TipoFormularioEnum.Crear);
+            return View("Cliente", Model);
         }
 
         [HttpPost]
@@ -53,7 +55,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             else
             {
                 ModelState.AddModelError(string.Empty, "Ocurrió un error al ingresar el cliente");
-                return View();
+                return View("Cliente");
             }
         }
 
@@ -61,9 +63,10 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         public ActionResult Edit(int id)
         {
             Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
+            Cliente.TipoFormulario = TipoFormularioEnum.Editar;
             if (Cliente != null)
             {
-                return View(Cliente);
+                return View("Cliente", Cliente);
             }
             else
             {
@@ -83,7 +86,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             else
             {
                 ModelState.AddModelError(string.Empty, "Ocurrió un error al modificar el cliente");
-                return View();
+                return View("Cliente");
             }
         }
 

@@ -1,0 +1,50 @@
+﻿@model Cliente
+@using CGC_GM_FE.WebAppMVC.ViewModels
+
+@{
+    ViewBag.Title = "Crear cliente";
+}
+@section Breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Clientes", "Index", "Clientes")</li>
+    <li class="breadcrumb-item active">Crear</li>
+}
+
+<div class="row">
+    @Html.Partial("_card", new ClienteViewModel(Model.TipoFormulario))
+    <div class="col-sm-12 col-lg-9">
+        @{
+            string Action = Model.Id == 0 ? "Create" : "Edit";
+            using (Html.BeginForm(Action, "Clientes", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-6" })
+                            <div class="col-sm-12">
+                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
+                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <div class="col-md-4">
+                                    @Html.ButtonSaveChanges(model => model.BotonGuardarCambios, Model.Id == 0)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Volver", "Index")
+</div>

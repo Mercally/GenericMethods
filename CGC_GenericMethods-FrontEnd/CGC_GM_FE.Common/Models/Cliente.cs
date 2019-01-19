@@ -11,6 +11,15 @@ namespace CGC_GM_FE.Common.Models
 {
     public class Cliente
     {
+        public Cliente(TipoFormularioEnum tipoFormulario)
+        {
+            Id = 0;
+            Nombre = string.Empty;
+            FechaRegistro = DateTime.Now;
+            EsActivo = true;
+            TipoFormulario = tipoFormulario;
+        }
+
         [HiddenInput]
         public int Id { get; set; }
         [Required]
@@ -23,5 +32,9 @@ namespace CGC_GM_FE.Common.Models
         [HiddenInput]
         [DisplayName("Estado")]
         public bool EsActivo { get; set; }
+
+        [DisplayName("Cliente")]
+        public string BotonGuardarCambios { get; set; }
+        public TipoFormularioEnum TipoFormulario { get; set; }
     }
 }
