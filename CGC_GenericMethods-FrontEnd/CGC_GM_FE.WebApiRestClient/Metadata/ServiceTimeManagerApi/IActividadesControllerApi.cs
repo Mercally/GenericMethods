@@ -9,10 +9,10 @@ namespace CGC_GM_FE.WebApiRestClient.Metadata.ServiceTimeManagerApi
 {
     public interface IActividadesControllerApi
     {
-        List<Actividad> ConsultarActividadesPorBoletaId(int BoletaId);
-        Actividad ConsultarActividadPorId(int ActividadId);
-        int InsertarActividad(Actividad Actividad);
-        bool ModificarActividad(Actividad Actividad);
-        bool EliminarActividad(int ActividadId);
+        _Resultado<List<Actividad>> ConsultarActividadesPorBoletaId(int BoletaId);
+        _Resultado<Actividad> ConsultarActividadPorId(int ActividadId);
+        _Resultado<int> InsertarActividad(Actividad Actividad);
+        _Resultado<bool> ModificarActividad(Actividad Actividad);
+        _Resultado<bool> EliminarActividad(int ActividadId);
     }
 }

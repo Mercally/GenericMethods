@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGC_GM_FE.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -24,7 +25,7 @@ namespace CGC_GM_FE.WebApiRestClient
         /// <param name="Data">Objeto a enviar en la petición</param>
         /// <param name="TimeOut">Tiempo de espera en minutos</param>
         /// <returns></returns>
-        internal static T Request<T>(string Url, HttpMethodEnum Method, object Data = null, int TimeOut = 1)
+        internal static _Resultado<T> Request<T>(string Url, HttpMethodEnum Method, object Data = null, int TimeOut = 1)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -54,18 +55,18 @@ namespace CGC_GM_FE.WebApiRestClient
 
                     if (response.IsSuccessStatusCode)
                     {
-                        T result = response.Content.ReadAsAsync<T>().Result;
+                        _Resultado<T> result = response.Content.ReadAsAsync<_Resultado<T>>().Result;
                         return result;
                     }
                     else
                     {
-                        return default(T);
+                        return default(_Resultado<T>);
                     }
                 }
                 catch (Exception ex)
                 {
                     // Excepciones
-                    return default(T);
+                    return new _Resultado<T>(ex);
                 }
             }
         }

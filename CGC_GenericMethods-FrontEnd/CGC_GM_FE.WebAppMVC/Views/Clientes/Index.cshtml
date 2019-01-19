@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CGC_GM_FE.Common.Models.Cliente>
+﻿@model List<CGC_GM_FE.Common.Models.Cliente>
 
 @{
     ViewBag.Title = "Clientes";
@@ -14,10 +14,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => Model[0].Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
+            @Html.DisplayNameFor(model => Model[0].FechaRegistro)
         </th>
         <th>Acciones</th>
     </tr>

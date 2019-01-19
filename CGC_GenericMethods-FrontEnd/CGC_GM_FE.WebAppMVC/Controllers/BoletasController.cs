@@ -14,7 +14,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var ListBoleta = WebApiProvider.BoletasApi.ConsultarBoletas();
+            var ListBoleta = WebApiProvider.BoletasApi.ConsultarBoletas().Resultado;
             return View(ListBoleta);
         }
 
@@ -29,16 +29,16 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         public ActionResult Create()
         {
             var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-            ViewBag.ListCliente = ListCliente.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+            ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
             var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-            ViewBag.ListProyecto = ListProyecto.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
+            ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
 
             var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-            ViewBag.ListTiempoInvertido = ListTiempoInvertido.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+            ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
             var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-            ViewBag.Departamento = ListDepartamento.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+            ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
             return View();
         }
@@ -50,7 +50,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Boleta.EsActivo = true;
             Boleta.UsuarioId = 1; // Usuario en sesion
 
-            Boleta.Id = WebApiProvider.BoletasApi.InsertarBoleta(Boleta);
+            Boleta.Id = WebApiProvider.BoletasApi.InsertarBoleta(Boleta).Resultado;
 
             if (Boleta.Id > 0)
             {
@@ -66,21 +66,21 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Boleta Boleta = WebApiProvider.BoletasApi.ConsultarBoletaPorId(id);
+            Boleta Boleta = WebApiProvider.BoletasApi.ConsultarBoletaPorId(id).Resultado;
 
             if (Boleta != null)
             {
                 var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-                ViewBag.ListCliente = ListCliente.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-                ViewBag.ListProyecto = ListProyecto.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
+                ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
 
                 var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-                ViewBag.Departamento = ListDepartamento.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 return View(Boleta);
             }
@@ -96,7 +96,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Boleta.FechaRegistro = DateTime.Now;
             Boleta.UsuarioId = 1; // Usuario actual
 
-            bool Modificado = WebApiProvider.BoletasApi.ModificarBoleta(Boleta);
+            bool Modificado = WebApiProvider.BoletasApi.ModificarBoleta(Boleta).Resultado;
 
             if (Modificado)
             {
@@ -105,16 +105,16 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             else
             {
                 var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-                ViewBag.ListCliente = ListCliente.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-                ViewBag.ListProyecto = ListProyecto.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
+                ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
 
                 var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-                ViewBag.Departamento = ListDepartamento.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 ModelState.AddModelError(string.Empty, "Ocurrió un error al modificar la boleta");
                 return View();
@@ -124,21 +124,21 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            Boleta Boleta = WebApiProvider.BoletasApi.ConsultarBoletaPorId(id);
+            Boleta Boleta = WebApiProvider.BoletasApi.ConsultarBoletaPorId(id).Resultado;
 
             if (Boleta != null)
             {
                 var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-                ViewBag.ListCliente = ListCliente.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-                ViewBag.ListProyecto = ListProyecto.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
+                ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
 
                 var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-                ViewBag.Departamento = ListDepartamento.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
 
                 return View(Boleta);
             }
@@ -151,7 +151,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool EsEliminado = WebApiProvider.BoletasApi.EliminarBoleta(id);
+            bool EsEliminado = WebApiProvider.BoletasApi.EliminarBoleta(id).Resultado;
 
             JsonResponse Response = new JsonResponse()
             {

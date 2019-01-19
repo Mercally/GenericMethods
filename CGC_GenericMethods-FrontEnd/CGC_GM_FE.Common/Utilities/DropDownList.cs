@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CGC_GM_FE.Common.Utilities
 {
+    /// <summary>
+    /// Crea un elemento de DropDown
+    /// </summary>
     public class DropDownList
     {
         public DropDownList(string Texto, object Valor)

@@ -9,10 +9,10 @@ namespace CGC_GM_FE.WebApiRestClient.Metadata.ServiceTimeManagerApi
 {
     public interface IClientesControllerApi
     {
-        List<Cliente> ConsultarClientes();
-        Cliente ConsultarClientePorId(int ClienteId);
-        int InsertarCliente(Cliente Cliente);
-        bool ModificarCliente(Cliente Cliente);
-        bool EliminarCliente(int ClienteId);
+        _Resultado<List<Cliente>> ConsultarClientes();
+        _Resultado<Cliente> ConsultarClientePorId(int ClienteId);
+        _Resultado<int> InsertarCliente(Cliente Cliente);
+        _Resultado<bool> ModificarCliente(Cliente Cliente);
+        _Resultado<bool> EliminarCliente(int ClienteId);
     }
 }

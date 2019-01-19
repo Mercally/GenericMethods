@@ -14,14 +14,14 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
+            var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes().Resultado;
             return View(ListCliente);
         }
 
         [HttpGet]
         public ActionResult Details(int id)
         {
-            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id);
+            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
             if (Cliente != null)
             {
                 return View(Cliente);
@@ -45,7 +45,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Cliente.EsActivo = true;
             Cliente.FechaRegistro = DateTime.Now;
 
-            Cliente.Id = WebApiProvider.ClientesApi.InsertarCliente(Cliente);
+            Cliente.Id = WebApiProvider.ClientesApi.InsertarCliente(Cliente).Resultado;
             if (Cliente.Id > 0)
             {
                 return RedirectToAction("Details", new { id = Cliente.Id });
@@ -60,7 +60,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id);
+            Cliente Cliente = WebApiProvider.ClientesApi.ConsultarClientePorId(id).Resultado;
             if (Cliente != null)
             {
                 return View(Cliente);
@@ -75,7 +75,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Edit(Cliente Cliente)
         {
-            bool Success = WebApiProvider.ClientesApi.ModificarCliente(Cliente);
+            bool Success = WebApiProvider.ClientesApi.ModificarCliente(Cliente).Resultado;
             if (Success)
             {
                 return RedirectToAction("Details", new { id = Cliente.Id });
@@ -90,7 +90,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool IsDelete = WebApiProvider.ClientesApi.EliminarCliente(id);
+            bool IsDelete = WebApiProvider.ClientesApi.EliminarCliente(id).Resultado;
 
             JsonResponse JsonResponse = new JsonResponse()
             {

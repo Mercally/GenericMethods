@@ -15,7 +15,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             }
         }
 
-        public Boleta ConsultarBoletaPorId(int BoletaId)
+        public _Resultado<Boleta> ConsultarBoletaPorId(int BoletaId)
         {
             var Respuesta = GenericHelper
                 .Request<Boleta>(
@@ -26,7 +26,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public List<Boleta> ConsultarBoletas()
+        public _Resultado<List<Boleta>> ConsultarBoletas()
         {
             var Respuesta = GenericHelper
                 .Request<List<Boleta>>(
@@ -37,7 +37,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public List<Boleta> ConsultarBoletasV2()
+        public _Resultado<List<Boleta>> ConsultarBoletasV2()
         {
             var Respuesta = GenericHelper
                 .Request<List<Boleta>>(
@@ -48,7 +48,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool EliminarBoleta(int BoletaId)
+        public _Resultado<bool> EliminarBoleta(int BoletaId)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
@@ -59,7 +59,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public int InsertarBoleta(Boleta Boleta)
+        public _Resultado<int> InsertarBoleta(Boleta Boleta)
         {
             var Respuesta = GenericHelper
                 .Request<int>(
@@ -71,7 +71,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool ModificarBoleta(Boleta Boleta)
+        public _Resultado<bool> ModificarBoleta(Boleta Boleta)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
@@ -81,6 +81,11 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
                 );
 
             return Respuesta;
+        }
+
+        List<Boleta> IBoletasControllerApi.ConsultarBoletasV2()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

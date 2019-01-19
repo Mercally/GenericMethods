@@ -55,3 +55,5 @@ C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebAppMVC\obj\Release\CGC_GM_FE.WebAppMVC.csproj.CopyComplete
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebAppMVC\obj\Release\CGC_GM_FE.WebAppMVC.dll
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebAppMVC\obj\Release\CGC_GM_FE.WebAppMVC.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebAppMVC\bin\CGC_GM_FE.WebApiRestClient.dll.config
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebAppMVC\bin\Newtonsoft.Json.pdb

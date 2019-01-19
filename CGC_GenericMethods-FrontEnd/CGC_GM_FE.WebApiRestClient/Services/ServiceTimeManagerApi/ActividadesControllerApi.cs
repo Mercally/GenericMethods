@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
-using CGC_GM_FE.Common.Models;
 using CGC_GM_FE.WebApiRestClient.Metadata.ServiceTimeManagerApi;
+using CGC_GM_FE.Common.Models;
 
 namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
 {
@@ -15,7 +15,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             }
         }
 
-        public List<Actividad> ConsultarActividadesPorBoletaId(int BoletaId)
+        public _Resultado<List<Actividad>> ConsultarActividadesPorBoletaId(int BoletaId)
         {
             var Respuesta = GenericHelper
                 .Request<List<Actividad>>(
@@ -26,7 +26,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public Actividad ConsultarActividadPorId(int ActividadId)
+        public _Resultado<Actividad> ConsultarActividadPorId(int ActividadId)
         {
             var Respuesta = GenericHelper
                 .Request<Actividad>(
@@ -37,7 +37,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool EliminarActividad(int ActividadId)
+        public _Resultado<bool> EliminarActividad(int ActividadId)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
@@ -48,7 +48,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public int InsertarActividad(Actividad Actividad)
+        public _Resultado<int> InsertarActividad(Actividad Actividad)
         {
             var Respuesta = GenericHelper
                 .Request<int>(
@@ -60,7 +60,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool ModificarActividad(Actividad Actividad)
+        public _Resultado<bool> ModificarActividad(Actividad Actividad)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(

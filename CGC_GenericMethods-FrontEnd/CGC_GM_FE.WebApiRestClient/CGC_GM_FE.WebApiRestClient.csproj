@@ -11,6 +11,7 @@
     <AssemblyName>CGC_GM_FE.WebApiRestClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,13 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,12 +49,6 @@
   <ItemGroup>
     <Compile Include="GenericHelper.cs" />
     <Compile Include="HttpMethodEnum.cs" />
-    <Compile Include="Metadata\ServiceTimeManagerApi\IActividadesControllerApi.cs" />
-    <Compile Include="Metadata\ServiceTimeManagerApi\IBoletasControllerApi.cs" />
-    <Compile Include="Metadata\ServiceTimeManagerApi\ICatalogosControllerApi.cs" />
-    <Compile Include="Metadata\ServiceTimeManagerApi\IClientesControllerApi.cs" />
-    <Compile Include="Metadata\ServiceTimeManagerApi\IProyectosControllerApi.cs" />
-    <Compile Include="Metadata\ServiceTimeManagerApi\IUsuariosControllerApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\ActividadesControllerApi.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\BoletasControllerApi.cs" />
@@ -62,18 +57,25 @@
     <Compile Include="Services\ServiceTimeManagerApi\ProyectosControllerApi.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\UsuariosControllerApi.cs" />
     <Compile Include="Services\WebApiProvider.cs" />
+    <Compile Include="Metadata\ServiceTimeManagerApi\IActividadesControllerApi.cs" />
+    <Compile Include="Metadata\ServiceTimeManagerApi\IBoletasControllerApi.cs" />
+    <Compile Include="Metadata\ServiceTimeManagerApi\ICatalogosControllerApi.cs" />
+    <Compile Include="Metadata\ServiceTimeManagerApi\IClientesControllerApi.cs" />
+    <Compile Include="Metadata\ServiceTimeManagerApi\IProyectosControllerApi.cs" />
+    <Compile Include="Metadata\ServiceTimeManagerApi\IUsuariosControllerApi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CGC_GM_FE.Common\CGC_GM_FE.Common.csproj">
-      <Project>{edd1f978-8a94-41af-8b0f-1b4d9fc6837b}</Project>
+      <Project>{EDD1F978-8A94-41AF-8B0F-1B4D9FC6837B}</Project>
       <Name>CGC_GM_FE.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

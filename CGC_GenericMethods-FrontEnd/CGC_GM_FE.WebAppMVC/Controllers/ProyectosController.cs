@@ -14,14 +14,14 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
+            var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos().Resultado;
             return View(ListProyecto);
         }
 
         [HttpGet]
         public ActionResult Details(int id)
         {
-            Proyecto Proyecto = WebApiProvider.ProyectosApi.ConsultarProyectoPorId(id);
+            Proyecto Proyecto = WebApiProvider.ProyectosApi.ConsultarProyectoPorId(id).Resultado;
             if (Proyecto != null)
             {
                 return View(Proyecto);
@@ -45,7 +45,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             Proyecto.EsActivo = true;
             Proyecto.FechaRegistro = DateTime.Now;
 
-            Proyecto.Id = WebApiProvider.ProyectosApi.InsertarProyecto(Proyecto);
+            Proyecto.Id = WebApiProvider.ProyectosApi.InsertarProyecto(Proyecto).Resultado;
             if (Proyecto.Id > 0)
             {
                 return RedirectToAction("Details", new { id = Proyecto.Id });
@@ -60,7 +60,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Proyecto Proyecto = WebApiProvider.ProyectosApi.ConsultarProyectoPorId(id);
+            Proyecto Proyecto = WebApiProvider.ProyectosApi.ConsultarProyectoPorId(id).Resultado;
             if (Proyecto != null)
             {
                 return View(Proyecto);
@@ -75,7 +75,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Edit(Proyecto Proyecto)
         {
-            bool Success = WebApiProvider.ProyectosApi.ModificarProyecto(Proyecto);
+            bool Success = WebApiProvider.ProyectosApi.ModificarProyecto(Proyecto).Resultado;
             if (Success)
             {
                 return RedirectToAction("Details", new { id = Proyecto.Id });
@@ -90,7 +90,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool IsDelete = WebApiProvider.ProyectosApi.EliminarProyecto(id);
+            bool IsDelete = WebApiProvider.ProyectosApi.EliminarProyecto(id).Resultado;
 
             JsonResponse JsonResponse = new JsonResponse()
             {

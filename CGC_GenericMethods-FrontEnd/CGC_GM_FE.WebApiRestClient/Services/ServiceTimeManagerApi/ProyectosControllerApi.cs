@@ -15,7 +15,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             }
         }
 
-        public Proyecto ConsultarProyectoPorId(int ProyectoId)
+        public _Resultado<Proyecto> ConsultarProyectoPorId(int ProyectoId)
         {
             var Respuesta = GenericHelper
                 .Request<Proyecto>(
@@ -26,7 +26,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public List<Proyecto> ConsultarProyectos()
+        public _Resultado<List<Proyecto>> ConsultarProyectos()
         {
             var Respuesta = GenericHelper
                 .Request<List<Proyecto>>(
@@ -37,7 +37,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool EliminarProyecto(int ProyectoId)
+        public _Resultado<bool> EliminarProyecto(int ProyectoId)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
@@ -48,7 +48,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public int InsertarProyecto(Proyecto Proyecto)
+        public _Resultado<int> InsertarProyecto(Proyecto Proyecto)
         {
             var Respuesta = GenericHelper
                 .Request<int>(
@@ -60,7 +60,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool ModificarProyecto(Proyecto Proyecto)
+        public _Resultado<bool> ModificarProyecto(Proyecto Proyecto)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(

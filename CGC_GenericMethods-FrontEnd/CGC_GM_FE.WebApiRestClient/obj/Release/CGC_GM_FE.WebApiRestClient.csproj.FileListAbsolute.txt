@@ -22,3 +22,5 @@ C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebApiRestClient\obj\Release\CGC_GM_FE.WebApiRestClient.csproj.CopyComplete
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebApiRestClient\obj\Release\CGC_GM_FE.WebApiRestClient.dll
 C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebApiRestClient\obj\Release\CGC_GM_FE.WebApiRestClient.pdb
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebApiRestClient\bin\Release\CGC_GM_FE.WebApiRestClient.dll.config
+C:\Users\Josue\Source\Repos\GenericMethods\CGC_GenericMethods-FrontEnd\CGC_GM_FE.WebApiRestClient\bin\Release\Newtonsoft.Json.pdb

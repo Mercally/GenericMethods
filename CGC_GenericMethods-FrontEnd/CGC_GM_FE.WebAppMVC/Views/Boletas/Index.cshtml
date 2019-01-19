@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CGC_GM_FE.Common.Models.Boleta>
+﻿@model List<Boleta>
 
 @{
     ViewBag.Title = "Boletas";
@@ -16,19 +16,19 @@
     <thead>
         <tr class="text-center">
             <th>
-                @Html.DisplayNameFor(model => model.NumeroBoleta)
+                @Html.DisplayNameFor(model => Model[0].NumeroBoleta)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                @Html.DisplayNameFor(model => Model[0].Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TiempoEfectivo)
+                @Html.DisplayNameFor(model => Model[0].TiempoEfectivo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TiempoInvertidoEn)
+                @Html.DisplayNameFor(model => Model[0].TiempoInvertidoEn)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaRegistro)
+                @Html.DisplayNameFor(model => Model[0].FechaRegistro)
             </th>
             <th>Acciones</th>
         </tr>

@@ -9,10 +9,10 @@ namespace CGC_GM_FE.WebApiRestClient.Metadata.ServiceTimeManagerApi
 {
     public interface ICatalogosControllerApi
     {
-        List<Catalogo> ConsultarCatalogoPorTabla(string Tabla);
-        Catalogo ConsultarCatalogoPorId(int CatalogoId, string Tabla);
-        int InsertarCatalogo(Catalogo Catalogo, string Tabla);
-        bool ModificarCatalogo(Catalogo Catalogo, string Tabla);
-        bool EliminarCatalogo(int CatalogoId, string Tabla);
+        _Resultado<List<Catalogo>> ConsultarCatalogoPorTabla(string Tabla);
+        _Resultado<Catalogo> ConsultarCatalogoPorId(int CatalogoId, string Tabla);
+        _Resultado<int> InsertarCatalogo(Catalogo Catalogo, string Tabla);
+        _Resultado<bool> ModificarCatalogo(Catalogo Catalogo, string Tabla);
+        _Resultado<bool> EliminarCatalogo(int CatalogoId, string Tabla);
     }
 }

@@ -15,7 +15,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             }
         }
 
-        public List<Cliente> ConsultarClientes()
+        public _Resultado<List<Cliente>> ConsultarClientes()
         {
             var Respuesta = GenericHelper
                 .Request<List<Cliente>>(
@@ -26,7 +26,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public Cliente ConsultarClientePorId(int ClienteId)
+        public _Resultado<Cliente> ConsultarClientePorId(int ClienteId)
         {
             var Respuesta = GenericHelper
                 .Request<Cliente>(
@@ -37,7 +37,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool EliminarCliente(int ClienteId)
+        public _Resultado<bool> EliminarCliente(int ClienteId)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
@@ -48,7 +48,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public int InsertarCliente(Cliente Cliente)
+        public _Resultado<int> InsertarCliente(Cliente Cliente)
         {
             var Respuesta = GenericHelper
                 .Request<int>(
@@ -60,7 +60,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool ModificarCliente(Cliente Cliente)
+        public _Resultado<bool> ModificarCliente(Cliente Cliente)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(

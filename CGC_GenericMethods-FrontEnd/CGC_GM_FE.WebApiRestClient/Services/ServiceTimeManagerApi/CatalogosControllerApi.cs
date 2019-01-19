@@ -15,7 +15,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             }
         }
 
-        public List<Catalogo> ConsultarCatalogoPorTabla(string Tabla)
+        public _Resultado<List<Catalogo>> ConsultarCatalogoPorTabla(string Tabla)
         {
             var Respuesta = GenericHelper
                 .Request<List<Catalogo>>(
@@ -26,7 +26,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public Catalogo ConsultarCatalogoPorId(int CatalogoId, string Tabla)
+        public _Resultado<Catalogo> ConsultarCatalogoPorId(int CatalogoId, string Tabla)
         {
             var Respuesta = GenericHelper
                 .Request<Catalogo>(
@@ -37,7 +37,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool EliminarCatalogo(int CatalogoId, string Tabla)
+        public _Resultado<bool> EliminarCatalogo(int CatalogoId, string Tabla)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
@@ -48,7 +48,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public int InsertarCatalogo(Catalogo Catalogo, string Tabla)
+        public _Resultado<int> InsertarCatalogo(Catalogo Catalogo, string Tabla)
         {
             var Respuesta = GenericHelper
                 .Request<int>(
@@ -60,7 +60,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool ModificarCatalogo(Catalogo Catalogo, string Tabla)
+        public _Resultado<bool> ModificarCatalogo(Catalogo Catalogo, string Tabla)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -145,7 +146,7 @@ namespace CGC_GM_BE.DataAccess.Modelo
         public T ConvertirResultado<T>()
         {
             var Tipo = typeof(T);
-            if (Tipo.GetGenericTypeDefinition().Equals(typeof(List<>)))
+            if (Tipo.IsGenericType && Tipo.GetGenericArguments().Length > 0)
             {
                 return ConvertirResultadoLista<T>();
             }

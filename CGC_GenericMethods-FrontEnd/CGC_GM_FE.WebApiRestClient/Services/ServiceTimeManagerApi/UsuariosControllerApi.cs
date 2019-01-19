@@ -15,7 +15,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             }
         }
 
-        public Usuario ConsultarUsuarioPorId(int UsuarioId)
+        public _Resultado<Usuario> ConsultarUsuarioPorId(int UsuarioId)
         {
             var Respuesta = GenericHelper
                 .Request<Usuario>(
@@ -26,7 +26,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool EliminarUsuario(int UsuarioId)
+        public _Resultado<bool> EliminarUsuario(int UsuarioId)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
@@ -37,7 +37,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public int InsertarUsuario(Usuario Usuario)
+        public _Resultado<int> InsertarUsuario(Usuario Usuario)
         {
             var Respuesta = GenericHelper
                 .Request<int>(
@@ -49,7 +49,7 @@ namespace CGC_GM_FE.WebApiRestClient.Services.ServiceTimeManagerApi
             return Respuesta;
         }
 
-        public bool ModificarUsuario(Usuario Usuario)
+        public _Resultado<bool> ModificarUsuario(Usuario Usuario)
         {
             var Respuesta = GenericHelper
                 .Request<bool>(
