@@ -3,7 +3,7 @@
 @using CGC_GM_FE.WebAppMVC.HtmlExtensions
 
 @{
-    var ViewModel = new ProyectoViewModel(Model.TipoFormulario);
+    var ViewModel = new ClienteViewModel(Model.TipoFormulario);
     ViewBag.Title = ViewModel.View_TitlePage();
 
     if (Model.TipoFormulario == TipoFormularioEnum.Eliminar)
@@ -121,6 +121,6 @@
 @if (Model.TipoFormulario != TipoFormularioEnum.Eliminar)
 {
     <div>
-        @Html.ActionLink("Volver", "Index")
+        @Html.ButtonReturn(Url.Action("Index"))
     </div>
 }

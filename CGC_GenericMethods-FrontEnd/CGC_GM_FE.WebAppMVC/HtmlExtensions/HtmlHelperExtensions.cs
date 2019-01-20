@@ -39,10 +39,7 @@ namespace CGC_GM_FE.WebAppMVC.HtmlExtensions
         /// </summary>
         /// <returns>A list with the false title at position 0, 
         /// and true title at position 1.</returns>
-        public static IList<SelectListItem> OptionsForBoolean<TModel,
-                                                              TProperty>(
-            this HtmlHelper<TModel> htmlHelper,
-            Expression<Func<TModel, TProperty>> expression)
+        public static IList<SelectListItem> OptionsForBoolean<TModel,TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
         {
             var metaData = ModelMetadata.FromLambdaExpression(expression,
                                                           htmlHelper.ViewData);
@@ -58,12 +55,9 @@ namespace CGC_GM_FE.WebAppMVC.HtmlExtensions
                 out falseTitle);
             falseTitle = falseTitle ?? "No";
 
-            var options = new[]
-                                {
-                            new SelectListItem {Text = (string) falseTitle,
-                                                Value = Boolean.FalseString},
-                            new SelectListItem {Text = (string) trueTitle,
-                                                Value = Boolean.TrueString},
+            var options = new[] {
+                            new SelectListItem {Text = (string) falseTitle, Value = Boolean.FalseString},
+                            new SelectListItem {Text = (string) trueTitle, Value = Boolean.TrueString},
                         };
             return options;
         }
@@ -72,17 +66,17 @@ namespace CGC_GM_FE.WebAppMVC.HtmlExtensions
         (this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, TipoFormularioEnum tipoFormulario, bool EsNuevo = true)
         {
             ModelMetadata Metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
-            string DisplayName = Metadata.DisplayName.ToLower();
+            string DisplayName = Metadata.DisplayName?.ToLower();
             string IdElement = $"btn-savechanges-{ DisplayName.Replace(" ", "_") }";
             string NameElement = $"btn-savechanges-{ DisplayName.Replace(" ", "_") }";
-            string Value = $"value=\"{ (EsNuevo ? "Guardar nuevo" : "Guardar") } { (string.IsNullOrEmpty(Metadata.DisplayName) ? "" : Metadata.DisplayName) }\"";
+            string Value = $"{ (EsNuevo ? "Guardar nuevo" : "Guardar") } { DisplayName }";
             string Hidden = string.Empty;
             if (tipoFormulario == TipoFormularioEnum.Detalle || tipoFormulario == TipoFormularioEnum.Eliminar)
             {
                 Hidden = "style=\"display:none;\"";
             }
 
-            string StringHTml = $"<input type=\"submit\" { Hidden } { NameElement } { IdElement } { Value } class=\"btn btn-success\" />";
+            string StringHTml = $"<input type=\"submit\" title=\"{Value}\" data-toggle=\"tooltip\" { Hidden } { NameElement } { IdElement } value=\"{ Value }\" class=\"btn btn-success\" />";
 
             return MvcHtmlString.Create(StringHTml);
         }
@@ -96,7 +90,7 @@ namespace CGC_GM_FE.WebAppMVC.HtmlExtensions
             string NameElement = $"btn-modal-delete-{ DisplayName?.Replace(" ", "_") }";
             string OnClick = $"onclick=\"openModal(\'{ urlAction }\', \'get\', \'{ idDivElement }\');\"";
             string DataModals = $"data-toggle=\"modal\" data-target=\"#{ idDivElement }\"";
-            string StringHTml = $"<button type=\"button\" { NameElement } { IdElement } { OnClick } { DataModals } class=\"btn btn-danger btn-modal-delete\">Eliminar</button>";
+            string StringHTml = $"<button type=\"button\" title=\"Eliminar\" data-toggle=\"tooltip\" { NameElement } { IdElement } { OnClick } { DataModals } class=\"btn btn-danger btn-modal-delete\">Eliminar</button>";
 
             return MvcHtmlString.Create(StringHTml);
         }
@@ -110,7 +104,14 @@ namespace CGC_GM_FE.WebAppMVC.HtmlExtensions
             string NameElement = $"btn-modal-activate-{ DisplayName?.Replace(" ", "_") }";
             string OnClick = $"onclick=\"openModal(\'{ urlAction }\', \'get\', \'{ idDivElement }\');\"";
             string DataModals = $"data-toggle=\"modal\" data-target=\"#{ idDivElement }\"";
-            string StringHTml = $"<button type=\"button\" { NameElement } { IdElement } { OnClick } { DataModals } class=\"btn btn-warning btn-modal-activate\">Activar</button>";
+            string StringHTml = $"<button type=\"button\" title=\"Activar\" data-toggle=\"tooltip\" { NameElement } { IdElement } { OnClick } { DataModals } class=\"btn btn-success btn-modal-activate\">Activar</button>";
+
+            return MvcHtmlString.Create(StringHTml);
+        }
+
+        public static MvcHtmlString ButtonReturn (this HtmlHelper htmlHelper, string urlAction)
+        {
+            string StringHTml = $"<a href=\"{urlAction}\" title=\"Regresar\" data-toggle=\"tooltip\" class=\"btn btn-info btn-return\"><i class=\"fa fa-arrow-left\"></i> Regresar</a>";
 
             return MvcHtmlString.Create(StringHTml);
         }

@@ -76,7 +76,27 @@ namespace CGC_GM_FE.WebAppMVC.ViewModels
 
         public override MvcHtmlString Card_Image()
         {
-            return MvcHtmlString.Create($"<h4><i class=\"fa fa-user-plus\"></i>&nbsp;Boleta</h4>");
+            const string faicon = "_FAICON_";
+            string Value = $"<h4><i class=\"fa fa-{faicon}\"></i>&nbsp;Boleta</h4>";
+            switch (TipoFormulario)
+            {
+                case TipoFormularioEnum.Detalle:
+                    Value = Value.Replace(faicon, "calendar-day");
+                    break;
+                case TipoFormularioEnum.Crear:
+                    Value = Value.Replace(faicon, "calendar-plus");
+                    break;
+                case TipoFormularioEnum.Editar:
+                    Value = Value.Replace(faicon, "calendar-check");
+                    break;
+                case TipoFormularioEnum.Eliminar:
+                    Value = Value.Replace(faicon, "calendar-minus");
+                    break;
+                default:
+                    Value = Value = Value.Replace(faicon, "calendar"); ;
+                    break;
+            }
+            return MvcHtmlString.Create(Value);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             {
                 var Cliente = ResultadoApi.Resultado;
 
-                Cliente.TipoFormulario = TipoFormularioEnum.Editar;
+                Cliente.TipoFormulario = TipoFormularioEnum.Detalle;
                 return View("Cliente", Cliente);
             }
             else

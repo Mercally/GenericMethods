@@ -21,17 +21,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-            ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-            var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-            ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
-
-            var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-            ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-            var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-            ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+            CargarListados();
 
             Boleta Boleta = new Boleta(TipoFormularioEnum.Crear);
             return View("Boleta", Boleta);
@@ -62,17 +52,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
 
             if (Boleta != null)
             {
-                var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-                ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-                var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-                ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
-
-                var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-                var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-                ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                CargarListados();
 
                 Boleta.TipoFormulario = TipoFormularioEnum.Editar;
 
@@ -99,17 +79,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             }
             else
             {
-                var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-                ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-                var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-                ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
-
-                var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-                var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-                ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                CargarListados();
 
                 ModelState.AddModelError(string.Empty, "Ocurrió un error al modificar la boleta");
                 return View("Boleta");
@@ -123,17 +93,7 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
 
             if (Boleta != null)
             {
-                var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes();
-                ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-                var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos();
-                ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
-
-                var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
-                ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
-
-                var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
-                ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+                CargarListados();
 
                 Boleta.TipoFormulario = TipoFormularioEnum.Detalle;
 
@@ -152,6 +112,21 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
 
             return Json(JsonResponse.JResponse(ResultadoApi, redirects:
              new Redirects(Url.Action("Index"), "Boletas")));
+        }
+
+        private void CargarListados()
+        {
+            var ListCliente = WebApiProvider.ClientesApi.ConsultarClientes(true);
+            ViewBag.ListCliente = ListCliente.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+            var ListProyecto = WebApiProvider.ProyectosApi.ConsultarProyectos(true);
+            ViewBag.ListProyecto = ListProyecto.Resultado.Select(p => new DropDownList(p.Nombre, p.Id)).SelectList();
+
+            var ListTiempoInvertido = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("TiempoInvertido");
+            ViewBag.ListTiempoInvertido = ListTiempoInvertido.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+
+            var ListDepartamento = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("Departamento");
+            ViewBag.Departamento = ListDepartamento.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
         }
     }
 }

@@ -124,7 +124,7 @@
 </div>
 @if (Model.TipoFormulario != TipoFormularioEnum.Eliminar)
 {
-    <div>
-        @Html.ActionLink("Volver", "Index")
-    </div>
+<div>
+    @Html.ButtonReturn(Url.Action("Index"))
+</div>
 }

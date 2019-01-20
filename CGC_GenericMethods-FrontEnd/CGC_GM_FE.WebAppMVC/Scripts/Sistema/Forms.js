@@ -82,3 +82,11 @@ function ajaxHelper(action, method, onSuccessCallback, async, dataType) {
 
     xhr.send();
 }
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip(
+        {
+            delay: { "show": 700, "hide": 100 }
+        }
+    );
+});
