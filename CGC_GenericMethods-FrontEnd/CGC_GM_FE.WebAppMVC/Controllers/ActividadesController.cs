@@ -15,49 +15,59 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Index(int id)
         {
-            var ListActividad = WebApiProvider.ActividadesApi.ConsultarActividadesPorBoletaId(id).Resultado;
-
-            return View(ListActividad);
+            var ResultadoApi = WebApiProvider.ActividadesApi.ConsultarActividadesPorBoletaId(id);
+            return View(ResultadoApi);
         }
 
         // GET: Index/id:int -> actividadId
         [HttpGet]
         public ActionResult Details(int id)
         {
-            Actividad Actividad = WebApiProvider.ActividadesApi.ConsultarActividadPorId(id).Resultado;
-            return View(Actividad);
+            var ResultadoApi = WebApiProvider.ActividadesApi.ConsultarActividadPorId(id);
+
+            if (ResultadoApi.EsCorrecto)
+            {
+                CargarListas(ResultadoApi);
+
+                ResultadoApi.Resultado.TipoFormulario = TipoFormularioEnum.Detalle;
+            }
+
+            return View("Actividad", ResultadoApi);
         }
 
         // GET: Create/id:int -> boletaId
         [HttpGet]
         public ActionResult Create(int id)
         {
-            var ListEstadoActividad = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("EstadoVisita");
-            ViewBag.ListEstadoActividad = ListEstadoActividad.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+            var ResultadoApi = new _Resultado<Actividad>() {
+                EsCorrecto = true,
+                ListaErrores = new List<Exception>(),
+                Resultado = new Actividad() { BoletaId = id, FechaActividad = DateTime.Now }
+            };
 
-            var ListActividades = WebApiProvider.ActividadesApi.ConsultarActividadesPorBoletaId(id);
-            ViewBag.ListActividades = ListActividades.Resultado;
+            CargarListas(ResultadoApi);
 
-            Actividad model = new Actividad() { BoletaId = id };
-            return View(model);
+            ResultadoApi.Resultado.TipoFormulario = TipoFormularioEnum.Crear;
+
+            return View("Actividad", ResultadoApi);
         }
 
         [HttpPost]
-        public ActionResult Create(Actividad Actividad)
+        public ActionResult Create(_Resultado<Actividad> Actividad)
         {
-            Actividad.FechaRegistro = DateTime.Now;
-            Actividad.EsActivo = true;
-            Actividad.Id = WebApiProvider.ActividadesApi.InsertarActividad(Actividad).Resultado;
+            Actividad.Resultado.FechaRegistro = DateTime.Now;
+            Actividad.Resultado.EsActivo = true;
+            Actividad.Resultado.Id = WebApiProvider.ActividadesApi.InsertarActividad(Actividad.Resultado).Resultado;
 
-            if (Actividad.Id > 0)
+            if (Actividad.Resultado.Id > 0)
             {
                 ModelState.Clear();
-                return RedirectToAction("Create", new { id = Actividad.BoletaId });
+                return RedirectToAction("Create", new { id = Actividad.Resultado.BoletaId });
             }
             else
             {
                 ModelState.AddModelError(string.Empty, "Ocurrió un error al crear la actividad");
-                return RedirectToAction("Create", new { id = Actividad.BoletaId });
+                return RedirectToAction("Create", new { id = Actividad.Resultado.BoletaId });
             }
         }
 
@@ -65,14 +75,16 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var ListEstadoActividad = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("EstadoVisita");
-            ViewBag.ListEstadoActividad = ListEstadoActividad.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+            var ResultadoApi = WebApiProvider.ActividadesApi.ConsultarActividadPorId(id);
+            
+            if (ResultadoApi.EsCorrecto)
+            {
+                CargarListas(ResultadoApi);
 
-            Actividad model = WebApiProvider.ActividadesApi.ConsultarActividadPorId(id).Resultado;
+                ResultadoApi.Resultado.TipoFormulario = TipoFormularioEnum.Editar;
+            }
 
-            ViewBag.ListActividades = WebApiProvider.ActividadesApi.ConsultarActividadesPorBoletaId(model.BoletaId);
-
-            return View(model);
+            return View("Actividad", ResultadoApi);
         }
 
         [HttpPost]
@@ -109,6 +121,13 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
         private string CombineDescription(string descripcion, DateTime fecha, decimal tiempo)
         {
             return $"{descripcion} - {fecha.ToShortDateString()} - {tiempo.ToString()} H";
+        }
+
+        private void CargarListas(_Resultado<Actividad> ResultadoApi)
+        {
+            var ListEstadoActividad = WebApiProvider.CatalogosApi.ConsultarCatalogoPorTabla("EstadoVisita");
+            ViewBag.ListEstadoActividad = ListEstadoActividad.Resultado.Select(c => new DropDownList(c.Nombre, c.Id)).SelectList();
+            ViewBag.ListActividades = WebApiProvider.ActividadesApi.ConsultarActividadesPorBoletaId(ResultadoApi.Resultado.BoletaId);
         }
     }
 }

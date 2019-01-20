@@ -16,19 +16,26 @@ namespace CGC_GM_FE.WebAppMVC.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult Boletas(DateTime? del = null, DateTime? hasta = null)
-        //{
-        //    IEnumerable<Boleta> ListBoleta = null;
-        //    if (del.HasValue && hasta.HasValue)
-        //    {
-        //        ListBoleta = BoletaBL.GetReporteFechas(Converting.DateTimeToSqlString(del.Value), Converting.DateTimeToSqlString(hasta.Value, 1));
-        //    }
-        //    else
-        //    {
-        //        ListBoleta = BoletaBL.GetReporteFechas(Formatting.SqlStringDateFirstDayCurrentMonth(), Formatting.SqlStringDateLastDayCurrentMonth(1));
-        //    }
-        //    return View(ListBoleta);
-        //}
+        [HttpGet]
+        public ActionResult Boletas(DateTime? fechaEntrada = null, DateTime? fechaSalida = null)
+        {
+            fechaEntrada = fechaEntrada ?? DateTime.Now;
+            fechaSalida = fechaSalida ?? DateTime.Now;
+
+            var ResultadoApi = WebApiProvider.ReportesApi.ReporteBoletasFechas(fechaEntrada.Value, fechaSalida.Value);
+
+            return View(ResultadoApi);
+        }
+
+        [HttpGet]
+        public ActionResult Actividades(DateTime? fechaEntrada = null, DateTime? fechaSalida = null)
+        {
+            fechaEntrada = fechaEntrada ?? DateTime.Now;
+            fechaSalida = fechaSalida ?? DateTime.Now;
+
+            var ResultadoApi = WebApiProvider.ReportesApi.ReporteBoletasFechas(fechaEntrada.Value, fechaSalida.Value);
+
+            return View(ResultadoApi);
+        }
     }
 }

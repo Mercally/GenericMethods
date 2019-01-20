@@ -49,6 +49,8 @@
     <Compile Include="Modelo\Com_BoletasModelo.cs" />
     <Compile Include="Modelo\Neg_ClientesModelo.cs" />
     <Compile Include="Modelo\Neg_ProyectosModelo.cs" />
+    <Compile Include="Modelo\Rpt_Actividades.cs" />
+    <Compile Include="Modelo\Rpt_Boletas.cs" />
     <Compile Include="Modelo\Seg_UsuariosModelo.cs" />
     <Compile Include="Modelo\_SqlQuery.cs" />
     <Compile Include="Modelo\_ResultadoV2.cs" />

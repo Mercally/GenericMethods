@@ -233,5 +233,21 @@ namespace CGC_GM_BE.DataAccess
                 return new Seg_UsuariosModelo(this);
             }
         }
+
+        public Rpt_Actividades Rpt_Actividades
+        {
+            get
+            {
+                return new Rpt_Actividades(this);
+            }
+        }
+
+        public Rpt_Boletas Rpt_Boletas
+        {
+            get
+            {
+                return new Rpt_Boletas(this);
+            }
+        }
     }
 }

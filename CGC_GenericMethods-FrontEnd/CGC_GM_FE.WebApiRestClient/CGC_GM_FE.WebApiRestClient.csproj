@@ -24,7 +24,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -49,12 +49,14 @@
   <ItemGroup>
     <Compile Include="GenericHelper.cs" />
     <Compile Include="HttpMethodEnum.cs" />
+    <Compile Include="Metadata\ServiceTimeManagerApi\IReportesControllerApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\ActividadesControllerApi.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\BoletasControllerApi.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\CatalogosControllerApi.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\ClientesControllerApi.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\ProyectosControllerApi.cs" />
+    <Compile Include="Services\ServiceTimeManagerApi\ReportesControllerApi.cs" />
     <Compile Include="Services\ServiceTimeManagerApi\UsuariosControllerApi.cs" />
     <Compile Include="Services\WebApiProvider.cs" />
     <Compile Include="Metadata\ServiceTimeManagerApi\IActividadesControllerApi.cs" />

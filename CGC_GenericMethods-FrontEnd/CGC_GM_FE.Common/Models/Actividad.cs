@@ -49,5 +49,10 @@ namespace CGC_GM_FE.Common.Models
         [RegularExpression(@"^\d+\.\d{0,2}$", ErrorMessage = "Debe ingresar una cantidad decimal, máximo dos decimales.")]
         [Range(0.15, 24)]
         public decimal TiempoActividad { get; set; }
+
+        [DisplayName("Actividad")]
+        public string BotonGuardarCambios { get; set; }
+        [DisplayName("Actividad")]
+        public TipoFormularioEnum TipoFormulario { get; set; }
     }
 }

@@ -1983,6 +1983,7 @@
     <Compile Include="Models\Utilities\Modal.cs" />
     <Compile Include="Models\Utilities\Redirects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ActividadViewModel.cs" />
     <Compile Include="ViewModels\BoletaViewModel.cs" />
     <Compile Include="ViewModels\ProyectoViewModel.cs" />
     <Compile Include="ViewModels\ClienteViewModel.cs" />
@@ -2006,9 +2007,7 @@
     <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Scripts\README.md" />
     <Content Include="Views\Actividades\Index.cshtml" />
-    <Content Include="Views\Actividades\Details.cshtml" />
-    <Content Include="Views\Actividades\Create.cshtml" />
-    <Content Include="Views\Actividades\Edit.cshtml" />
+    <Content Include="Views\Actividades\Actividad.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Clientes\Cliente.cshtml" />
     <Content Include="Views\Proyectos\Index.cshtml" />
@@ -2021,6 +2020,8 @@
     <Content Include="Vendor\datetimepicker\package.json" />
     <Content Include="Vendor\datetimepicker\README.md" />
     <Content Include="Vendor\datetimepicker\yarn.lock" />
+    <Content Include="Views\Reportes\Boletas.cshtml" />
+    <Content Include="Views\Reportes\Actividades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

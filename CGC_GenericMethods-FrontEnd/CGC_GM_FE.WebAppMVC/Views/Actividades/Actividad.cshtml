@@ -1,0 +1,174 @@
+﻿@using CGC_GM_FE.Common.Models
+@model _Resultado<Actividad>
+
+@{
+    if (!Model.EsCorrecto)
+    {
+        return;
+    }
+
+    var ViewModel = new ActividadViewModel(Model.Resultado.TipoFormulario);
+    ViewBag.Title = ViewModel.View_TitlePage();
+
+    if (Model.Resultado.TipoFormulario == TipoFormularioEnum.Eliminar)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    var _CurrentRoute = CurrentAction(Model.Resultado.TipoFormulario);
+
+    List<Actividad> ListActividad = new List<Actividad>();
+    if (ViewBag.ListActividades != null)
+    {
+        ListActividad = ViewBag.ListActividades.Resultado as List<Actividad>;
+    }
+
+    decimal TotalTiempo = 0;
+}
+
+@functions{
+
+    public CurrentRoute CurrentAction(TipoFormularioEnum tipoFormulario)
+    {
+        CurrentRoute currentAction = new CurrentRoute("Actividades");
+        switch (tipoFormulario)
+        {
+            case TipoFormularioEnum.Crear:
+                currentAction.Action = "Create";
+                break;
+            case TipoFormularioEnum.Editar:
+                currentAction.Action = "Edit";
+                break;
+            case TipoFormularioEnum.Eliminar:
+                currentAction.Action = "Delete";
+                currentAction.Route = new { id = Model.Resultado.Id };
+                break;
+            case TipoFormularioEnum.Detalle:
+            default:
+                break;
+        }
+        return currentAction;
+    }
+}
+
+@section Breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Boletas", "Index", "Boletas")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Editar", "Edit", new { controller = "Boletas", id = Model.Resultado.BoletaId })</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Actividad", "Index", new { controller = "Actividades", id = Model.Resultado.BoletaId })</li>
+    <li class="breadcrumb-item active">@ViewModel.View_TitlePage()</li>
+}
+
+<div class="row">
+    @Html.Partial("_card", ViewModel)
+    <div class="col-sm-12 col-lg-9">
+        @{
+            using (Ajax.BeginForm(actionName: _CurrentRoute.Action, controllerName: _CurrentRoute.Controller, routeValues: _CurrentRoute.Route, ajaxOptions: new AjaxOptions { HttpMethod = "POST" }, htmlAttributes: new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.Resultado.BoletaId)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Resultado.Descripcion, htmlAttributes: new { @class = "control-label col-sm-12" })
+                            <div class="col-sm-12">
+                                @Html.EditorFor(model => model.Resultado.Descripcion, new { htmlAttributes = new { @class = "form-control col-sm-12" } })
+                                @Html.ValidationMessageFor(model => model.Resultado.Descripcion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Resultado.EstadoId, htmlAttributes: new { @class = "control-label col-sm-12" })
+                            <div class="col-sm-12">
+                                @Html.DropDownListFor(model => model.Resultado.EstadoId, ViewBag.ListEstadoActividad as SelectList, new { @class = "form-control col-sm-12" })
+                                @Html.ValidationMessageFor(model => model.Resultado.EstadoId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Resultado.FechaActividad, htmlAttributes: new { @class = "control-label col-sm-12" })
+                            <div class="col-sm-12">
+                                @Html.EditorFor(model => model.Resultado.FechaActividad, new { htmlAttributes = new { @type = "Date", @class = "form-control col-sm-12" } })
+                                @Html.ValidationMessageFor(model => model.Resultado.FechaActividad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Resultado.TiempoActividad, htmlAttributes: new { @class = "control-label col-sm-12" })
+                            <div class="col-sm-12">
+                                @Html.EditorFor(model => model.Resultado.TiempoActividad, new { htmlAttributes = new { @type = "number", @step = "0.01", @class = "form-control col-sm-12" } })
+                                @Html.ValidationMessageFor(model => model.Resultado.TiempoActividad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.ButtonSaveChanges(model => model.Resultado.BotonGuardarCambios, Model.Resultado.TipoFormulario, Model.Resultado.Id == 0)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        <br />
+        <br />
+        <h5>Actividades en boleta:</h5>
+        <div class="table-scrollY">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.Resultado.Descripcion)</th>
+                        <th>@Html.DisplayNameFor(m => m.Resultado.FechaActividad)</th>
+                        <th>@Html.DisplayNameFor(m => m.Resultado.TiempoActividad)</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ListActividad.Count > 0)
+                    {
+                        foreach (var item in ListActividad)
+                        {
+                            <tr>
+                                <td>@item.Descripcion</td>
+                                <td>@item.FechaActividad</td>
+                                <td>@item.TiempoActividad</td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })&nbsp;
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                            TotalTiempo += item.TiempoActividad;
+                        }
+                    }
+                    else
+                    {
+                        <tr><th colspan="4">No existen actividades para la boleta actual</th></tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Total tiempo</th>
+                        <th>@TotalTiempo</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+</div>
+@if (Model.Resultado.TipoFormulario != TipoFormularioEnum.Eliminar)
+{
+    <div>
+        @Html.ButtonReturn(Url.Action("Index", new { id = Model.Resultado.BoletaId }))
+    </div>
+}

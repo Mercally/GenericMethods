@@ -46,6 +46,7 @@
     <Compile Include="ServiceTimeManagerApi\ICatalogosControllerApi.cs" />
     <Compile Include="ServiceTimeManagerApi\IClientesControllerApi.cs" />
     <Compile Include="ServiceTimeManagerApi\IProyectosControllerApi.cs" />
+    <Compile Include="ServiceTimeManagerApi\IReportesControllerApi.cs" />
     <Compile Include="ServiceTimeManagerApi\IUsuariosControllerApi.cs" />
   </ItemGroup>
   <ItemGroup>

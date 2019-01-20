@@ -1,14 +1,16 @@
 ﻿"use strict";
 
 window.addEventListener("submit", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-    
-    //if (validarInputs() === false) { return; }
+    if (e.target.dataset.ajax) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
 
-    if (this.confirm("Guardar?")) {
-        enviarForm(e);
+        //if (validarInputs() === false) { return; }
+
+        if (this.confirm("Guardar?")) {
+            enviarForm(e);
+        }
     }
 }, true);
 
@@ -37,6 +39,8 @@ function enviarForm(e) {
         var formData = new FormData(form);
 
         xhr.send(formData);
+    } else {
+        e.submit();
     }
 }
 

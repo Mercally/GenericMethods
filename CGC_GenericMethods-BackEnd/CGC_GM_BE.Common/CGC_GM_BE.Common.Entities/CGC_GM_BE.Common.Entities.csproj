@@ -45,6 +45,8 @@
     <Compile Include="Modelo\Boleta.cs" />
     <Compile Include="Modelo\Catalogo.cs" />
     <Compile Include="Modelo\Cliente.cs" />
+    <Compile Include="Modelo\RptActividades.cs" />
+    <Compile Include="Modelo\RptBoletas.cs" />
     <Compile Include="Notations\ColumnAttribute.cs" />
     <Compile Include="Notations\KeyAttribute.cs" />
     <Compile Include="Notations\TableAttribute.cs" />

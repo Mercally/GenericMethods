@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CGC_GM_FE.Common.Models.RptActividades>
+
+@{
+    ViewBag.Title = "Actividades";
+}
+
+<h2>Actividades</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoletaId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EsActivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaActividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiempoActividad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoletaId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EsActivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaActividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiempoActividad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

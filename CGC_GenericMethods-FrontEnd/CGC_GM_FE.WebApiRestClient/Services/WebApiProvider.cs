@@ -57,5 +57,13 @@ namespace CGC_GM_FE.WebApiRestClient.Services
                 return new UsuariosControllerApi();
             }
         }
+
+        public static IReportesControllerApi ReportesApi
+        {
+            get
+            {
+                return new ReportesControllerApi();
+            }
+        }
     }
 }
